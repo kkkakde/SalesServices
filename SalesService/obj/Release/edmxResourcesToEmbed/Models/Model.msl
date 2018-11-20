@@ -1,0 +1,1047 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="AtlasW2SModelStoreContainer" CdmEntityContainer="AtlasW2SEntities">
+    <EntitySetMapping Name="C__MigrationHistory">
+      <EntityTypeMapping TypeName="AtlasW2SModel.C__MigrationHistory">
+        <MappingFragment StoreEntitySet="__MigrationHistory">
+          <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+          <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+          <ScalarProperty Name="Model" ColumnName="Model" />
+          <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetRoles">
+      <EntityTypeMapping TypeName="AtlasW2SModel.AspNetRole">
+        <MappingFragment StoreEntitySet="AspNetRoles">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserClaims">
+      <EntityTypeMapping TypeName="AtlasW2SModel.AspNetUserClaim">
+        <MappingFragment StoreEntitySet="AspNetUserClaims">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ClaimType" ColumnName="ClaimType" />
+          <ScalarProperty Name="ClaimValue" ColumnName="ClaimValue" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUserLogins">
+      <EntityTypeMapping TypeName="AtlasW2SModel.AspNetUserLogin">
+        <MappingFragment StoreEntitySet="AspNetUserLogins">
+          <ScalarProperty Name="LoginProvider" ColumnName="LoginProvider" />
+          <ScalarProperty Name="ProviderKey" ColumnName="ProviderKey" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="AspNetUsers">
+      <EntityTypeMapping TypeName="AtlasW2SModel.AspNetUser">
+        <MappingFragment StoreEntitySet="AspNetUsers">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+          <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+          <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+          <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+          <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+          <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+          <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+          <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+          <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Employees">
+      <EntityTypeMapping TypeName="AtlasW2SModel.Employee">
+        <MappingFragment StoreEntitySet="Employee">
+          <ScalarProperty Name="Enquiry_Source_Id" ColumnName="Enquiry_Source_Id" />
+          <ScalarProperty Name="Enquiry_Source_Name" ColumnName="Enquiry_Source_Name" />
+          <ScalarProperty Name="Enquiry_Source_Desc" ColumnName="Enquiry_Source_Desc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERDETAILs">
+      <EntityTypeMapping TypeName="AtlasW2SModel.USERDETAIL">
+        <MappingFragment StoreEntitySet="USERDETAIL">
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="TYP_ID" ColumnName="TYP_ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="loginID" ColumnName="loginID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="IMEINo" ColumnName="IMEINo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ResetPasswordCode" ColumnName="ResetPasswordCode" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="USERTYPEs">
+      <EntityTypeMapping TypeName="AtlasW2SModel.USERTYPE">
+        <MappingFragment StoreEntitySet="USERTYPE">
+          <ScalarProperty Name="Typ_ID" ColumnName="Typ_ID" />
+          <ScalarProperty Name="Type_Name" ColumnName="Type_Name" />
+          <ScalarProperty Name="Type_Detail" ColumnName="Type_Detail" />
+          <ScalarProperty Name="Log_Update" ColumnName="Log_Update" />
+          <ScalarProperty Name="Time_Stamp_Add_Date" ColumnName="Time_Stamp_Add_Date" />
+          <ScalarProperty Name="Time_Stamp_Update_Date" ColumnName="Time_Stamp_Update_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S__Master_Enquiry">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S__Master_Enquiry">
+        <MappingFragment StoreEntitySet="W2S_ Master_Enquiry">
+          <ScalarProperty Name="Enqry_Id" ColumnName="Enqry_Id" />
+          <ScalarProperty Name="Enqry_No" ColumnName="Enqry_No" />
+          <ScalarProperty Name="Cust_Id" ColumnName="Cust_Id" />
+          <ScalarProperty Name="Enquiry_Source_Id" ColumnName="Enquiry_Source_Id" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="IsQuotationSend" ColumnName="IsQuotationSend" />
+          <ScalarProperty Name="Quotation_Remark" ColumnName="Quotation_Remark" />
+          <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
+          <ScalarProperty Name="Competitor_Name" ColumnName="Competitor_Name" />
+          <ScalarProperty Name="Competitor_Desc" ColumnName="Competitor_Desc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Brief" ColumnName="Brief" />
+          <ScalarProperty Name="Source" ColumnName="Source" />
+          <ScalarProperty Name="ProductOffered" ColumnName="ProductOffered" />
+          <ScalarProperty Name="Range" ColumnName="Range" />
+          <ScalarProperty Name="VisitType" ColumnName="VisitType" />
+          <ScalarProperty Name="NextVisitDate" ColumnName="NextVisitDate" />
+          <ScalarProperty Name="NextVisitTime" ColumnName="NextVisitTime" />
+          <ScalarProperty Name="RecordNotes" ColumnName="RecordNotes" />
+          <ScalarProperty Name="EnquiryType" ColumnName="EnquiryType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S__Master_Enquiry_History">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S__Master_Enquiry_History">
+        <MappingFragment StoreEntitySet="W2S_ Master_Enquiry_History">
+          <ScalarProperty Name="Enqry_Hist_Id" ColumnName="Enqry_Hist_Id" />
+          <ScalarProperty Name="Enqry_No" ColumnName="Enqry_No" />
+          <ScalarProperty Name="Cust_Id" ColumnName="Cust_Id" />
+          <ScalarProperty Name="Enquiry_Source_Id" ColumnName="Enquiry_Source_Id" />
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="IsQuotationSend" ColumnName="IsQuotationSend" />
+          <ScalarProperty Name="Quotation_Remark" ColumnName="Quotation_Remark" />
+          <ScalarProperty Name="Status_Id" ColumnName="Status_Id" />
+          <ScalarProperty Name="Competitior_Name" ColumnName="Competitior_Name" />
+          <ScalarProperty Name="Competitior_Desc" ColumnName="Competitior_Desc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S__Master_Enquiry_Range_Mapping">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S__Master_Enquiry_Range_Mapping">
+        <MappingFragment StoreEntitySet="W2S_ Master_Enquiry_Range_Mapping">
+          <ScalarProperty Name="Enqry_Range_Id" ColumnName="Enqry_Range_Id" />
+          <ScalarProperty Name="Enqry_Id" ColumnName="Enqry_Id" />
+          <ScalarProperty Name="Range_Id" ColumnName="Range_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S__Master_Enquiry_Visit_">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S__Master_Enquiry_Visit_">
+        <MappingFragment StoreEntitySet="W2S_ Master_Enquiry_Visit&#x9;">
+          <ScalarProperty Name="Enqry_Visit_Id" ColumnName="Enqry_Visit_Id" />
+          <ScalarProperty Name="Enqry_Id" ColumnName="Enqry_Id" />
+          <ScalarProperty Name="Visit_Cd" ColumnName="Visit_Cd" />
+          <ScalarProperty Name="Visit_Date" ColumnName="Visit_Date" />
+          <ScalarProperty Name="Visit_Start_Time" ColumnName="Visit_Start_Time" />
+          <ScalarProperty Name="Visit_End_Time" ColumnName="Visit_End_Time" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S__Master_Navigation">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S__Master_Navigation">
+        <MappingFragment StoreEntitySet="W2S_ Master_Navigation">
+          <ScalarProperty Name="Navigation_Id" ColumnName="Navigation_Id" />
+          <ScalarProperty Name="Nevigation_Menu_Name" ColumnName="Nevigation_Menu_Name" />
+          <ScalarProperty Name="Nevigation_Description" ColumnName="Nevigation_Description" />
+          <ScalarProperty Name="Nevigation_URL" ColumnName="Nevigation_URL" />
+          <ScalarProperty Name="Nevigation_Parent_Id" ColumnName="Nevigation_Parent_Id" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S__Master_Navigation_Role_Mapping">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S__Master_Navigation_Role_Mapping">
+        <MappingFragment StoreEntitySet="W2S_ Master_Navigation Role Mapping">
+          <ScalarProperty Name="Navigation_Role_Id" ColumnName="Navigation_Role_Id" />
+          <ScalarProperty Name="Navigation_Id" ColumnName="Navigation_Id" />
+          <ScalarProperty Name="Designation_Id" ColumnName="Designation_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Customer_CompressorRoom_Mapping">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Customer_CompressorRoom_Mapping">
+        <MappingFragment StoreEntitySet="W2S_Customer_CompressorRoom_Mapping">
+          <ScalarProperty Name="PK_Cust_Cmprsor_Mapng_Id" ColumnName="PK_Cust_Cmprsor_Mapng_Id" />
+          <ScalarProperty Name="FK_Cust_Id" ColumnName="FK_Cust_Id" />
+          <ScalarProperty Name="Cust_Cmprsor_RoomDetails" ColumnName="Cust_Cmprsor_RoomDetails" />
+          <ScalarProperty Name="Cust_Cmprsor_Model" ColumnName="Cust_Cmprsor_Model" />
+          <ScalarProperty Name="Cust_Cmprsor_Mfg_Year" ColumnName="Cust_Cmprsor_Mfg_Year" />
+          <ScalarProperty Name="Cust_Cmprsor_Commissioning_Year" ColumnName="Cust_Cmprsor_Commissioning_Year" />
+          <ScalarProperty Name="Cust_Cmprsor_Status" ColumnName="Cust_Cmprsor_Status" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Customer_Contct_Person_Mapping">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Customer_Contct_Person_Mapping">
+        <MappingFragment StoreEntitySet="W2S_Customer_Contct_Person_Mapping">
+          <ScalarProperty Name="PK_Cust_CntctPrson_Mapng_Id" ColumnName="PK_Cust_CntctPrson_Mapng_Id" />
+          <ScalarProperty Name="FK_Cust_Id" ColumnName="FK_Cust_Id" />
+          <ScalarProperty Name="FK_Cust_CntctPrson_Dsgntn_Id" ColumnName="FK_Cust_CntctPrson_Dsgntn_Id" />
+          <ScalarProperty Name="Cust_CntctPrson_Name" ColumnName="Cust_CntctPrson_Name" />
+          <ScalarProperty Name="Cust_CntctPrson_Contact_No" ColumnName="Cust_CntctPrson_Contact_No" />
+          <ScalarProperty Name="Cust_CntctPrson_Email_Id" ColumnName="Cust_CntctPrson_Email_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Customer_Industry_Mapping">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Customer_Industry_Mapping">
+        <MappingFragment StoreEntitySet="W2S_Customer_Industry_Mapping">
+          <ScalarProperty Name="PK_Cust_Indstry_Mapng_Id" ColumnName="PK_Cust_Indstry_Mapng_Id" />
+          <ScalarProperty Name="FK_Cust_Id" ColumnName="FK_Cust_Id" />
+          <ScalarProperty Name="FK_Industry_Type_Id" ColumnName="FK_Industry_Type_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Customer_Master">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Customer_Master">
+        <MappingFragment StoreEntitySet="W2S_Customer_Master">
+          <ScalarProperty Name="PK_Cust_Id" ColumnName="PK_Cust_Id" />
+          <ScalarProperty Name="Cust_Name" ColumnName="Cust_Name" />
+          <ScalarProperty Name="Cust_Address_Line1" ColumnName="Cust_Address_Line1" />
+          <ScalarProperty Name="Cust_Address_Line2" ColumnName="Cust_Address_Line2" />
+          <ScalarProperty Name="FK_Zone_Id" ColumnName="FK_Zone_Id" />
+          <ScalarProperty Name="FK_State_Id" ColumnName="FK_State_Id" />
+          <ScalarProperty Name="FK_City_Id" ColumnName="FK_City_Id" />
+          <ScalarProperty Name="Cust_Longitude" ColumnName="Cust_Longitude" />
+          <ScalarProperty Name="Cust_Latitude" ColumnName="Cust_Latitude" />
+          <ScalarProperty Name="Cust_GSTN_No" ColumnName="Cust_GSTN_No" />
+          <ScalarProperty Name="Cust_Cmprsd_Air_App" ColumnName="Cust_Cmprsd_Air_App" />
+          <ScalarProperty Name="Cust_End_Product" ColumnName="Cust_End_Product" />
+          <ScalarProperty Name="VisitingCardPath" ColumnName="VisitingCardPath" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_List">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_List">
+        <MappingFragment StoreEntitySet="W2S_List">
+          <ScalarProperty Name="W2S_List_Id" ColumnName="W2S_List_Id" />
+          <ScalarProperty Name="List_Name" ColumnName="List_Name" />
+          <ScalarProperty Name="List_Code" ColumnName="List_Code" />
+          <ScalarProperty Name="List_Desc" ColumnName="List_Desc" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_Absent">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_Absent">
+        <MappingFragment StoreEntitySet="W2S_Master_Absent">
+          <ScalarProperty Name="Absent_Id" ColumnName="Absent_Id" />
+          <ScalarProperty Name="PK_Resource_Id" ColumnName="PK_Resource_Id" />
+          <ScalarProperty Name="FK_Designation_Id" ColumnName="FK_Designation_Id" />
+          <ScalarProperty Name="From_Date" ColumnName="From_Date" />
+          <ScalarProperty Name="To_Date" ColumnName="To_Date" />
+          <ScalarProperty Name="Leave_Day_Count" ColumnName="Leave_Day_Count" />
+          <ScalarProperty Name="Leave_Type" ColumnName="Leave_Type" />
+          <ScalarProperty Name="Leave_Type_Detail" ColumnName="Leave_Type_Detail" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_City">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_City">
+        <MappingFragment StoreEntitySet="W2S_Master_City">
+          <ScalarProperty Name="PK_City_Id" ColumnName="PK_City_Id" />
+          <ScalarProperty Name="FK_State_Id" ColumnName="FK_State_Id" />
+          <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_Competitor">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_Competitor">
+        <MappingFragment StoreEntitySet="W2S_Master_Competitor">
+          <ScalarProperty Name="PK_Competitor_Id" ColumnName="PK_Competitor_Id" />
+          <ScalarProperty Name="FK_Competitor_Type_Id" ColumnName="FK_Competitor_Type_Id" />
+          <ScalarProperty Name="Competitor_Name" ColumnName="Competitor_Name" />
+          <ScalarProperty Name="Competitor_Desc" ColumnName="Competitor_Desc" />
+          <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_EnquirySource">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_EnquirySource">
+        <MappingFragment StoreEntitySet="W2S_Master_EnquirySource">
+          <ScalarProperty Name="Enquiry_Source_Id" ColumnName="Enquiry_Source_Id" />
+          <ScalarProperty Name="Enquiry_Source_Name" ColumnName="Enquiry_Source_Name" />
+          <ScalarProperty Name="Enquiry_Source_Desc" ColumnName="Enquiry_Source_Desc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_EnquiryType">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_EnquiryType">
+        <MappingFragment StoreEntitySet="W2S_Master_EnquiryType">
+          <ScalarProperty Name="Enquiry_Type_Id" ColumnName="Enquiry_Type_Id" />
+          <ScalarProperty Name="Enquiry_Type_Name" ColumnName="Enquiry_Type_Name" />
+          <ScalarProperty Name="Enquiry_Type_Description" ColumnName="Enquiry_Type_Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_Holiday">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_Holiday">
+        <MappingFragment StoreEntitySet="W2S_Master_Holiday">
+          <ScalarProperty Name="PK_Holiday_Id" ColumnName="PK_Holiday_Id" />
+          <ScalarProperty Name="Holiday_Name" ColumnName="Holiday_Name" />
+          <ScalarProperty Name="Holiday_Description" ColumnName="Holiday_Description" />
+          <ScalarProperty Name="Holiday_Date" ColumnName="Holiday_Date" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+          <ScalarProperty Name="Modify_By" ColumnName="Modify_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_Industry">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_Industry">
+        <MappingFragment StoreEntitySet="W2S_Master_Industry">
+          <ScalarProperty Name="Industry_Id" ColumnName="Industry_Id" />
+          <ScalarProperty Name="Industry_Name" ColumnName="Industry_Name" />
+          <ScalarProperty Name="Industry_Desc" ColumnName="Industry_Desc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_Nav_Role_Map">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_Nav_Role_Map">
+        <MappingFragment StoreEntitySet="W2S_Master_Nav_Role_Map">
+          <ScalarProperty Name="PK_Navigation_Role_Id" ColumnName="PK_Navigation_Role_Id" />
+          <ScalarProperty Name="FK_Navigation_Id" ColumnName="FK_Navigation_Id" />
+          <ScalarProperty Name="FK_Designation_Id" ColumnName="FK_Designation_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+          <ScalarProperty Name="Modify_By" ColumnName="Modify_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_Navigation">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_Navigation">
+        <MappingFragment StoreEntitySet="W2S_Master_Navigation">
+          <ScalarProperty Name="PK_Navigaion_Id" ColumnName="PK_Navigaion_Id" />
+          <ScalarProperty Name="Navigation_Menu_Name" ColumnName="Navigation_Menu_Name" />
+          <ScalarProperty Name="Navigation_Description" ColumnName="Navigation_Description" />
+          <ScalarProperty Name="Navigation_URL" ColumnName="Navigation_URL" />
+          <ScalarProperty Name="Navigation_Parent_Id" ColumnName="Navigation_Parent_Id" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_Product">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_Product">
+        <MappingFragment StoreEntitySet="W2S_Master_Product">
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_Desc" ColumnName="Product_Desc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_RangeMapping">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_RangeMapping">
+        <MappingFragment StoreEntitySet="W2S_Master_RangeMapping">
+          <ScalarProperty Name="PK_RangeMapping_Id" ColumnName="PK_RangeMapping_Id" />
+          <ScalarProperty Name="FK_MapType_Id" ColumnName="FK_MapType_Id" />
+          <ScalarProperty Name="FK_Range_Id" ColumnName="FK_Range_Id" />
+          <ScalarProperty Name="FK_Sub_Range_Id" ColumnName="FK_Sub_Range_Id" />
+          <ScalarProperty Name="FK_Prod_Id" ColumnName="FK_Prod_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="FK_W2S_List_Id" ColumnName="FK_W2S_List_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_Resource">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_Resource">
+        <MappingFragment StoreEntitySet="W2S_Master_Resource">
+          <ScalarProperty Name="PK_Resource_Id" ColumnName="PK_Resource_Id" />
+          <ScalarProperty Name="FK_Designation_Id" ColumnName="FK_Designation_Id" />
+          <ScalarProperty Name="FK_Zone_Id" ColumnName="FK_Zone_Id" />
+          <ScalarProperty Name="FK_State_Id" ColumnName="FK_State_Id" />
+          <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+          <ScalarProperty Name="Resource_Login_Id" ColumnName="Resource_Login_Id" />
+          <ScalarProperty Name="Resource_Password" ColumnName="Resource_Password" />
+          <ScalarProperty Name="Resource_Mobile_No" ColumnName="Resource_Mobile_No" />
+          <ScalarProperty Name="Resource_Email_Id" ColumnName="Resource_Email_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Reset_PasswordCode" ColumnName="Reset_PasswordCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_Resource_Map">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_Resource_Map">
+        <MappingFragment StoreEntitySet="W2S_Master_Resource_Map">
+          <ScalarProperty Name="PK_Resource_Map_Id" ColumnName="PK_Resource_Map_Id" />
+          <ScalarProperty Name="FK_Parent_Id" ColumnName="FK_Parent_Id" />
+          <ScalarProperty Name="FK_Child_Id" ColumnName="FK_Child_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_Segment">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_Segment">
+        <MappingFragment StoreEntitySet="W2S_Master_Segment">
+          <ScalarProperty Name="PK_Segment_Id" ColumnName="PK_Segment_Id" />
+          <ScalarProperty Name="Segment_Desc" ColumnName="Segment_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_SubRange">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_SubRange">
+        <MappingFragment StoreEntitySet="W2S_Master_SubRange">
+          <ScalarProperty Name="PK_SubRange_Id" ColumnName="PK_SubRange_Id" />
+          <ScalarProperty Name="FK_W2S_List_Id" ColumnName="FK_W2S_List_Id" />
+          <ScalarProperty Name="SubRange_Name" ColumnName="SubRange_Name" />
+          <ScalarProperty Name="SubRange_Description" ColumnName="SubRange_Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Opportunity">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Opportunity">
+        <MappingFragment StoreEntitySet="W2S_Opportunity">
+          <ScalarProperty Name="PK_Opportunity_Id" ColumnName="PK_Opportunity_Id" />
+          <ScalarProperty Name="FK_Customer_Id" ColumnName="FK_Customer_Id" />
+          <ScalarProperty Name="Customer_Contact_No" ColumnName="Customer_Contact_No" />
+          <ScalarProperty Name="FK_Opportunity_Source" ColumnName="FK_Opportunity_Source" />
+          <ScalarProperty Name="FK_Opportunity_Type" ColumnName="FK_Opportunity_Type" />
+          <ScalarProperty Name="Opportunity_Name" ColumnName="Opportunity_Name" />
+          <ScalarProperty Name="Start_Date" ColumnName="Start_Date" />
+          <ScalarProperty Name="Expected_Value" ColumnName="Expected_Value" />
+          <ScalarProperty Name="Chance_Of_Success" ColumnName="Chance_Of_Success" />
+          <ScalarProperty Name="Sales_Phase" ColumnName="Sales_Phase" />
+          <ScalarProperty Name="Follow_Up_Date" ColumnName="Follow_Up_Date" />
+          <ScalarProperty Name="Closed_Date" ColumnName="Closed_Date" />
+          <ScalarProperty Name="FK_Status" ColumnName="FK_Status" />
+          <ScalarProperty Name="Forecast" ColumnName="Forecast" />
+          <ScalarProperty Name="Added_Date" ColumnName="Added_Date" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+          <ScalarProperty Name="Modify_By" ColumnName="Modify_By" />
+          <ScalarProperty Name="Won_Value" ColumnName="Won_Value" />
+          <ScalarProperty Name="Won_Remarks" ColumnName="Won_Remarks" />
+          <ScalarProperty Name="Lost_Value" ColumnName="Lost_Value" />
+          <ScalarProperty Name="FK_Lost_Competitor_Id" ColumnName="FK_Lost_Competitor_Id" />
+          <ScalarProperty Name="Lost_Remarks" ColumnName="Lost_Remarks" />
+          <ScalarProperty Name="FK_Stop_Reason" ColumnName="FK_Stop_Reason" />
+          <ScalarProperty Name="FK_Stop_Competitor_Id" ColumnName="FK_Stop_Competitor_Id" />
+          <ScalarProperty Name="Stop_Remarks" ColumnName="Stop_Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Opportunity_Competitor">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Opportunity_Competitor">
+        <MappingFragment StoreEntitySet="W2S_Opportunity_Competitor">
+          <ScalarProperty Name="PK_Competitor_Id" ColumnName="PK_Competitor_Id" />
+          <ScalarProperty Name="FK_Opportunity_Id" ColumnName="FK_Opportunity_Id" />
+          <ScalarProperty Name="FK_Competitor_Type_Id" ColumnName="FK_Competitor_Type_Id" />
+          <ScalarProperty Name="FK_Competitor_Id" ColumnName="FK_Competitor_Id" />
+          <ScalarProperty Name="Is_Main" ColumnName="Is_Main" />
+          <ScalarProperty Name="Comp_Product" ColumnName="Comp_Product" />
+          <ScalarProperty Name="Comp_Price" ColumnName="Comp_Price" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Opportunity_Document">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Opportunity_Document">
+        <MappingFragment StoreEntitySet="W2S_Opportunity_Document">
+          <ScalarProperty Name="PK_Document_Id" ColumnName="PK_Document_Id" />
+          <ScalarProperty Name="FK_Opportunity_Id" ColumnName="FK_Opportunity_Id" />
+          <ScalarProperty Name="File_Name" ColumnName="File_Name" />
+          <ScalarProperty Name="Added_Date" ColumnName="Added_Date" />
+          <ScalarProperty Name="Added_Time" ColumnName="Added_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Opportunity_Product">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Opportunity_Product">
+        <MappingFragment StoreEntitySet="W2S_Opportunity_Product">
+          <ScalarProperty Name="PK_Oppor_Product_Id" ColumnName="PK_Oppor_Product_Id" />
+          <ScalarProperty Name="FK_Opportunity_Id" ColumnName="FK_Opportunity_Id" />
+          <ScalarProperty Name="FK_Range_Id" ColumnName="FK_Range_Id" />
+          <ScalarProperty Name="FK_Sub_Range_Id" ColumnName="FK_Sub_Range_Id" />
+          <ScalarProperty Name="FK_Product_Id" ColumnName="FK_Product_Id" />
+          <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+          <ScalarProperty Name="Added_Date" ColumnName="Added_Date" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Opportunity_Quotation">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Opportunity_Quotation">
+        <MappingFragment StoreEntitySet="W2S_Opportunity_Quotation">
+          <ScalarProperty Name="PK_Quotation_Id" ColumnName="PK_Quotation_Id" />
+          <ScalarProperty Name="FK_Opportunity_Id" ColumnName="FK_Opportunity_Id" />
+          <ScalarProperty Name="File_Name" ColumnName="File_Name" />
+          <ScalarProperty Name="Added_Date" ColumnName="Added_Date" />
+          <ScalarProperty Name="Added_Time" ColumnName="Added_Time" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Opportunity_Visits">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Opportunity_Visits">
+        <MappingFragment StoreEntitySet="W2S_Opportunity_Visits">
+          <ScalarProperty Name="PK_Visit" ColumnName="PK_Visit" />
+          <ScalarProperty Name="FK_Opportunity_Id" ColumnName="FK_Opportunity_Id" />
+          <ScalarProperty Name="FK_Visit_Type_Id" ColumnName="FK_Visit_Type_Id" />
+          <ScalarProperty Name="List_Visit_Start_Date" ColumnName="List_Visit_Start_Date" />
+          <ScalarProperty Name="List_Visit_Start_Time" ColumnName="List_Visit_Start_Time" />
+          <ScalarProperty Name="List_Visit_End_Date" ColumnName="List_Visit_End_Date" />
+          <ScalarProperty Name="List_Visit_End_Time" ColumnName="List_Visit_End_Time" />
+          <ScalarProperty Name="Added_Date" ColumnName="Added_Date" />
+          <ScalarProperty Name="Added_By" ColumnName="Added_By" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_Designation">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_Designation">
+        <MappingFragment StoreEntitySet="W2S_Master_Designation">
+          <ScalarProperty Name="PK_Designation_Id" ColumnName="PK_Designation_Id" />
+          <ScalarProperty Name="Designation_Desc" ColumnName="Designation_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_State">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_State">
+        <MappingFragment StoreEntitySet="W2S_Master_State">
+          <ScalarProperty Name="PK_State_Id" ColumnName="PK_State_Id" />
+          <ScalarProperty Name="State_Desc" ColumnName="State_Desc" />
+          <ScalarProperty Name="FK_Zone_Id" ColumnName="FK_Zone_Id" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="W2S_Master_Zone">
+      <EntityTypeMapping TypeName="AtlasW2SModel.W2S_Master_Zone">
+        <MappingFragment StoreEntitySet="W2S_Master_Zone">
+          <ScalarProperty Name="PK_Zone_Id" ColumnName="PK_Zone_Id" />
+          <ScalarProperty Name="Zone_Desc" ColumnName="Zone_Desc" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <AssociationSetMapping Name="AspNetUserRoles" TypeName="AtlasW2SModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+      <EndProperty Name="AspNetRoles">
+        <ScalarProperty Name="Id" ColumnName="RoleId" />
+      </EndProperty>
+      <EndProperty Name="AspNetUsers">
+        <ScalarProperty Name="Id" ColumnName="UserId" />
+      </EndProperty>
+    </AssociationSetMapping>
+    <FunctionImportMapping FunctionName="AtlasW2SModel.Store.SplitString" FunctionImportName="SplitString">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.SplitString_Result">
+          <ScalarProperty Name="Item" ColumnName="Item" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Change_Password" FunctionName="AtlasW2SModel.Store.SP_Change_Password">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.SP_Change_Password_Result">
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="TYP_ID" ColumnName="TYP_ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="loginID" ColumnName="loginID" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="IMEINo" ColumnName="IMEINo" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="ResetPasswordCode" ColumnName="ResetPasswordCode" />
+          <ScalarProperty Name="ConfirmPassword" ColumnName="ConfirmPassword" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_ChangePassword" FunctionName="AtlasW2SModel.Store.SP_ChangePassword">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.SP_ChangePassword_Result">
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+          <ScalarProperty Name="UserName" ColumnName="UserName" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Customer_Master" FunctionName="AtlasW2SModel.Store.SP_Customer_Master" />
+    <FunctionImportMapping FunctionImportName="SP_Enquiry_Source" FunctionName="AtlasW2SModel.Store.SP_Enquiry_Source" />
+    <FunctionImportMapping FunctionImportName="SP_GetAllUser" FunctionName="AtlasW2SModel.Store.SP_GetAllUser">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.SP_GetAllUser_Result">
+          <ScalarProperty Name="PK_Resource_Id" ColumnName="PK_Resource_Id" />
+          <ScalarProperty Name="FK_Designation_Id" ColumnName="FK_Designation_Id" />
+          <ScalarProperty Name="FK_Zone_Id" ColumnName="FK_Zone_Id" />
+          <ScalarProperty Name="FK_State_Id" ColumnName="FK_State_Id" />
+          <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+          <ScalarProperty Name="Resource_Login_Id" ColumnName="Resource_Login_Id" />
+          <ScalarProperty Name="Resource_Password" ColumnName="Resource_Password" />
+          <ScalarProperty Name="Resource_Mobile_No" ColumnName="Resource_Mobile_No" />
+          <ScalarProperty Name="Resource_Email_Id" ColumnName="Resource_Email_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Reset_PasswordCode" ColumnName="Reset_PasswordCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetAllUser2" FunctionName="AtlasW2SModel.Store.SP_GetAllUser2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.SP_GetAllUser2_Result">
+          <ScalarProperty Name="PK_Resource_Id" ColumnName="PK_Resource_Id" />
+          <ScalarProperty Name="FK_Designation_Id" ColumnName="FK_Designation_Id" />
+          <ScalarProperty Name="FK_Zone_Id" ColumnName="FK_Zone_Id" />
+          <ScalarProperty Name="FK_State_Id" ColumnName="FK_State_Id" />
+          <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+          <ScalarProperty Name="Resource_Login_Id" ColumnName="Resource_Login_Id" />
+          <ScalarProperty Name="Resource_Password" ColumnName="Resource_Password" />
+          <ScalarProperty Name="Resource_Mobile_No" ColumnName="Resource_Mobile_No" />
+          <ScalarProperty Name="Resource_Email_Id" ColumnName="Resource_Email_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Reset_PasswordCode" ColumnName="Reset_PasswordCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_Industry_Master" FunctionName="AtlasW2SModel.Store.SP_Industry_Master" />
+    <FunctionImportMapping FunctionImportName="SP_InsUpdDelCustomer" FunctionName="AtlasW2SModel.Store.SP_InsUpdDelCustomer" />
+    <FunctionImportMapping FunctionImportName="SP_InsUpdDelIndustry_Master" FunctionName="AtlasW2SModel.Store.SP_InsUpdDelIndustry_Master" />
+    <FunctionImportMapping FunctionImportName="SP_Product_Master" FunctionName="AtlasW2SModel.Store.SP_Product_Master" />
+    <FunctionImportMapping FunctionImportName="SP_USERAUTHFOR_AtlasSales" FunctionName="AtlasW2SModel.Store.SP_USERAUTHFOR_AtlasSales">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.SP_USERAUTHFOR_AtlasSales_Result">
+          <ScalarProperty Name="PK_Resource_Id" ColumnName="PK_Resource_Id" />
+          <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+          <ScalarProperty Name="Resource_Password" ColumnName="Resource_Password" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Calender" FunctionName="AtlasW2SModel.Store.W2S_SP_Calender">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Calender_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Enquiry_Master" FunctionName="AtlasW2SModel.Store.W2S_SP_Enquiry_Master" />
+    <FunctionImportMapping FunctionImportName="W2S_SP_Insert_OTP" FunctionName="AtlasW2SModel.Store.W2S_SP_Insert_OTP">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Insert_OTP_Result">
+          <ScalarProperty Name="PK_Resource_Id" ColumnName="PK_Resource_Id" />
+          <ScalarProperty Name="FK_Designation_Id" ColumnName="FK_Designation_Id" />
+          <ScalarProperty Name="FK_Zone_Id" ColumnName="FK_Zone_Id" />
+          <ScalarProperty Name="FK_State_Id" ColumnName="FK_State_Id" />
+          <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+          <ScalarProperty Name="Resource_Login_Id" ColumnName="Resource_Login_Id" />
+          <ScalarProperty Name="Resource_Password" ColumnName="Resource_Password" />
+          <ScalarProperty Name="Resource_Mobile_No" ColumnName="Resource_Mobile_No" />
+          <ScalarProperty Name="Resource_Email_Id" ColumnName="Resource_Email_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Reset_PasswordCode" ColumnName="Reset_PasswordCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_LeaveType" FunctionName="AtlasW2SModel.Store.W2S_SP_LeaveType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_LeaveType_Result">
+          <ScalarProperty Name="W2S_List_Id" ColumnName="W2S_List_Id" />
+          <ScalarProperty Name="List_Code" ColumnName="List_Code" />
+          <ScalarProperty Name="List_Desc" ColumnName="List_Desc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Competitor" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Competitor">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_Competitor_Result">
+          <ScalarProperty Name="PK_Competitor_Id" ColumnName="PK_Competitor_Id" />
+          <ScalarProperty Name="FK_Competitor_Type_Id" ColumnName="FK_Competitor_Type_Id" />
+          <ScalarProperty Name="Competitor_Name" ColumnName="Competitor_Name" />
+          <ScalarProperty Name="Competitor_Desc" ColumnName="Competitor_Desc" />
+          <ScalarProperty Name="IsMain" ColumnName="IsMain" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Customer" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Customer" />
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Enquiry" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Enquiry" />
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Enquiry_Source" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Enquiry_Source">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_Enquiry_Source_Result">
+          <ScalarProperty Name="Enquiry_Source_Id" ColumnName="Enquiry_Source_Id" />
+          <ScalarProperty Name="Enquiry_Source_Name" ColumnName="Enquiry_Source_Name" />
+          <ScalarProperty Name="Enquiry_Source_Desc" ColumnName="Enquiry_Source_Desc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Enquiry_Type" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Enquiry_Type">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_Enquiry_Type_Result">
+          <ScalarProperty Name="Enquiry_Type_Id" ColumnName="Enquiry_Type_Id" />
+          <ScalarProperty Name="Enquiry_Type_Name" ColumnName="Enquiry_Type_Name" />
+          <ScalarProperty Name="Enquiry_Type_Description" ColumnName="Enquiry_Type_Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="ModifiedBy" ColumnName="ModifiedBy" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_GetAll_RangeType" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_GetAll_RangeType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_GetAll_RangeType_Result">
+          <ScalarProperty Name="PK_SubRange_Id" ColumnName="PK_SubRange_Id" />
+          <ScalarProperty Name="SubRange_Name" ColumnName="SubRange_Name" />
+          <ScalarProperty Name="SubRange_Description" ColumnName="SubRange_Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Holiday" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Holiday">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_Holiday_Result">
+          <ScalarProperty Name="PK_Holiday_Id" ColumnName="PK_Holiday_Id" />
+          <ScalarProperty Name="Holiday_Name" ColumnName="Holiday_Name" />
+          <ScalarProperty Name="HOLIDAYDATE" ColumnName="HOLIDAYDATE" />
+          <ScalarProperty Name="Holiday_Date" ColumnName="Holiday_Date" />
+          <ScalarProperty Name="Holiday_Description" ColumnName="Holiday_Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Industry" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Industry">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_Industry_Result">
+          <ScalarProperty Name="Industry_Id" ColumnName="Industry_Id" />
+          <ScalarProperty Name="Industry_Name" ColumnName="Industry_Name" />
+          <ScalarProperty Name="Industry_Desc" ColumnName="Industry_Desc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_LIST" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_LIST">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_LIST_Result">
+          <ScalarProperty Name="W2S_List_Id" ColumnName="W2S_List_Id" />
+          <ScalarProperty Name="List_Desc" ColumnName="List_Desc" />
+          <ScalarProperty Name="List_Name" ColumnName="List_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Navigation" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Navigation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_Navigation_Result">
+          <ScalarProperty Name="PK_Navigaion_Id" ColumnName="PK_Navigaion_Id" />
+          <ScalarProperty Name="Navigation_Menu_Name" ColumnName="Navigation_Menu_Name" />
+          <ScalarProperty Name="Navigation_Description" ColumnName="Navigation_Description" />
+          <ScalarProperty Name="Navigation_Parent_Id" ColumnName="Navigation_Parent_Id" />
+          <ScalarProperty Name="Navigation_URL" ColumnName="Navigation_URL" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Navigation_Map" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Navigation_Map">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_Navigation_Map_Result">
+          <ScalarProperty Name="Designation_Desc" ColumnName="Designation_Desc" />
+          <ScalarProperty Name="PK_Navigation_Role_Id" ColumnName="PK_Navigation_Role_Id" />
+          <ScalarProperty Name="FK_Navigation_Id" ColumnName="FK_Navigation_Id" />
+          <ScalarProperty Name="Navigation_Menu_Name" ColumnName="Navigation_Menu_Name" />
+          <ScalarProperty Name="FK_Designation_Id" ColumnName="FK_Designation_Id" />
+          <ScalarProperty Name="ISACTIVE" ColumnName="ISACTIVE" />
+          <ScalarProperty Name="PK_Designation_Id" ColumnName="PK_Designation_Id" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Product" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Product">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_Product_Result">
+          <ScalarProperty Name="Product_Id" ColumnName="Product_Id" />
+          <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+          <ScalarProperty Name="Product_Desc" ColumnName="Product_Desc" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Range_Mapping" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Range_Mapping">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_Range_Mapping_Result">
+          <ScalarProperty Name="PK_SubRange_Id" ColumnName="PK_SubRange_Id" />
+          <ScalarProperty Name="FK_W2S_List_Id" ColumnName="FK_W2S_List_Id" />
+          <ScalarProperty Name="SubRange_Name" ColumnName="SubRange_Name" />
+          <ScalarProperty Name="SubRange_Description" ColumnName="SubRange_Description" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_RangeType" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_RangeType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_RangeType_Result">
+          <ScalarProperty Name="FK_W2S_List_Id" ColumnName="FK_W2S_List_Id" />
+          <ScalarProperty Name="List_Desc" ColumnName="List_Desc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Resource" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Resource">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_Resource_Result">
+          <ScalarProperty Name="PK_Resource_Id" ColumnName="PK_Resource_Id" />
+          <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+          <ScalarProperty Name="Resource_Login_Id" ColumnName="Resource_Login_Id" />
+          <ScalarProperty Name="Resource_Password" ColumnName="Resource_Password" />
+          <ScalarProperty Name="Resource_Mobile_No" ColumnName="Resource_Mobile_No" />
+          <ScalarProperty Name="Resource_Email_Id" ColumnName="Resource_Email_Id" />
+          <ScalarProperty Name="FK_Designation_Id" ColumnName="FK_Designation_Id" />
+          <ScalarProperty Name="FK_Zone_Id" ColumnName="FK_Zone_Id" />
+          <ScalarProperty Name="FK_State_Id" ColumnName="FK_State_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Designation_Desc" ColumnName="Designation_Desc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_Resource_Map" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_Resource_Map">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_Resource_Map_Result">
+          <ScalarProperty Name="PK_Resource_Id" ColumnName="PK_Resource_Id" />
+          <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Master_SubRange" FunctionName="AtlasW2SModel.Store.W2S_SP_Master_SubRange">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Master_SubRange_Result">
+          <ScalarProperty Name="PK_SubRange_Id" ColumnName="PK_SubRange_Id" />
+          <ScalarProperty Name="SubRange_Name" ColumnName="SubRange_Name" />
+          <ScalarProperty Name="SubRange_Description" ColumnName="SubRange_Description" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_MASTER_USER" FunctionName="AtlasW2SModel.Store.W2S_SP_MASTER_USER">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_MASTER_USER_Result">
+          <ScalarProperty Name="PK_Resource_Id" ColumnName="PK_Resource_Id" />
+          <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+          <ScalarProperty Name="Resource_Login_Id" ColumnName="Resource_Login_Id" />
+          <ScalarProperty Name="Resource_Password" ColumnName="Resource_Password" />
+          <ScalarProperty Name="Resource_Mobile_No" ColumnName="Resource_Mobile_No" />
+          <ScalarProperty Name="Resource_Email_Id" ColumnName="Resource_Email_Id" />
+          <ScalarProperty Name="FK_Designation_Id" ColumnName="FK_Designation_Id" />
+          <ScalarProperty Name="FK_Zone_Id" ColumnName="FK_Zone_Id" />
+          <ScalarProperty Name="FK_State_Id" ColumnName="FK_State_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Designation_Desc" ColumnName="Designation_Desc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Nav_Role_Map" FunctionName="AtlasW2SModel.Store.W2S_SP_Nav_Role_Map" />
+    <FunctionImportMapping FunctionImportName="W2S_SP_Opportunity" FunctionName="AtlasW2SModel.Store.W2S_SP_Opportunity">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Opportunity_Result">
+          <ScalarProperty Name="PK_Opportunity_Id" ColumnName="PK_Opportunity_Id" />
+          <ScalarProperty Name="Opportunity_Name" ColumnName="Opportunity_Name" />
+          <ScalarProperty Name="Cust_Name" ColumnName="Cust_Name" />
+          <ScalarProperty Name="Closed_Date" ColumnName="Closed_Date" />
+          <ScalarProperty Name="FK_Status" ColumnName="FK_Status" />
+          <ScalarProperty Name="Added_Date" ColumnName="Added_Date" />
+          <ScalarProperty Name="Expected_Value" ColumnName="Expected_Value" />
+          <ScalarProperty Name="Sales_Phase" ColumnName="Sales_Phase" />
+          <ScalarProperty Name="Status" ColumnName="Status" />
+          <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+          <ScalarProperty Name="FK_Status1" ColumnName="FK_Status1" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_RangeType" FunctionName="AtlasW2SModel.Store.W2S_SP_RangeType">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_RangeType_Result">
+          <ScalarProperty Name="W2S_List_Id" ColumnName="W2S_List_Id" />
+          <ScalarProperty Name="List_Code" ColumnName="List_Code" />
+          <ScalarProperty Name="List_Desc" ColumnName="List_Desc" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Reset_Password" FunctionName="AtlasW2SModel.Store.W2S_SP_Reset_Password">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_Reset_Password_Result">
+          <ScalarProperty Name="PK_Resource_Id" ColumnName="PK_Resource_Id" />
+          <ScalarProperty Name="FK_Designation_Id" ColumnName="FK_Designation_Id" />
+          <ScalarProperty Name="FK_Zone_Id" ColumnName="FK_Zone_Id" />
+          <ScalarProperty Name="FK_State_Id" ColumnName="FK_State_Id" />
+          <ScalarProperty Name="Resource_Name" ColumnName="Resource_Name" />
+          <ScalarProperty Name="Resource_Login_Id" ColumnName="Resource_Login_Id" />
+          <ScalarProperty Name="Resource_Password" ColumnName="Resource_Password" />
+          <ScalarProperty Name="Resource_Mobile_No" ColumnName="Resource_Mobile_No" />
+          <ScalarProperty Name="Resource_Email_Id" ColumnName="Resource_Email_Id" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="Reset_PasswordCode" ColumnName="Reset_PasswordCode" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="W2S_SP_Reset_Password2" FunctionName="AtlasW2SModel.Store.W2S_SP_Reset_Password2" />
+    <FunctionImportMapping FunctionImportName="W2S_SP_ROOT_MENU_LIST" FunctionName="AtlasW2SModel.Store.W2S_SP_ROOT_MENU_LIST">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AtlasW2SModel.W2S_SP_ROOT_MENU_LIST_Result">
+          <ScalarProperty Name="PK_Navigaion_Id" ColumnName="PK_Navigaion_Id" />
+          <ScalarProperty Name="Navigation_Menu_Name" ColumnName="Navigation_Menu_Name" />
+          <ScalarProperty Name="Navigation_Description" ColumnName="Navigation_Description" />
+          <ScalarProperty Name="Navigation_URL" ColumnName="Navigation_URL" />
+          <ScalarProperty Name="Navigation_Parent_Id" ColumnName="Navigation_Parent_Id" />
+          <ScalarProperty Name="Priority" ColumnName="Priority" />
+          <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+          <ScalarProperty Name="Created_Date" ColumnName="Created_Date" />
+          <ScalarProperty Name="Created_By" ColumnName="Created_By" />
+          <ScalarProperty Name="Modified_Date" ColumnName="Modified_Date" />
+          <ScalarProperty Name="Modified_By" ColumnName="Modified_By" />
+          <ScalarProperty Name="PK_Navigation_Role_Id" ColumnName="PK_Navigation_Role_Id" />
+          <ScalarProperty Name="FK_Navigation_Id" ColumnName="FK_Navigation_Id" />
+          <ScalarProperty Name="FK_Designation_Id" ColumnName="FK_Designation_Id" />
+          <ScalarProperty Name="IsActive1" ColumnName="IsActive1" />
+          <ScalarProperty Name="Created_Date1" ColumnName="Created_Date1" />
+          <ScalarProperty Name="Created_By1" ColumnName="Created_By1" />
+          <ScalarProperty Name="Modify_Date" ColumnName="Modify_Date" />
+          <ScalarProperty Name="Modify_By" ColumnName="Modify_By" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

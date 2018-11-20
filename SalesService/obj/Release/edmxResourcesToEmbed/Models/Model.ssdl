@@ -1,0 +1,1191 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AtlasW2SModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRoles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaims">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ClaimType" Type="nvarchar(max)" />
+    <Property Name="ClaimValue" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogins">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="ProviderKey" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUserRoles">
+    <Key>
+      <PropertyRef Name="UserId" />
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetUsers">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="256" />
+    <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+    <Property Name="PasswordHash" Type="nvarchar(max)" />
+    <Property Name="SecurityStamp" Type="nvarchar(max)" />
+    <Property Name="PhoneNumber" Type="nvarchar(max)" />
+    <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="datetime" />
+    <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Enquiry_Source_Id" />
+    </Key>
+    <Property Name="Enquiry_Source_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Enquiry_Source_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Enquiry_Source_Desc" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsActive" Type="nvarchar" MaxLength="100" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="USERDETAIL">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TYP_ID" Type="int" />
+    <Property Name="UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="loginID" Type="nvarchar" MaxLength="50" />
+    <Property Name="Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailID" Type="nvarchar" MaxLength="50" />
+    <Property Name="IMEINo" Type="nvarchar" MaxLength="50" />
+    <Property Name="Status" Type="bit" />
+    <Property Name="ResetPasswordCode" Type="nvarchar" MaxLength="50" />
+    <Property Name="ConfirmPassword" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="USERTYPE">
+    <Key>
+      <PropertyRef Name="Typ_ID" />
+    </Key>
+    <Property Name="Typ_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Type_Name" Type="varchar" MaxLength="30" />
+    <Property Name="Type_Detail" Type="nvarchar" MaxLength="100" />
+    <Property Name="Log_Update" Type="varchar" MaxLength="50" />
+    <Property Name="Time_Stamp_Add_Date" Type="datetime" />
+    <Property Name="Time_Stamp_Update_Date" Type="datetime" />
+  </EntityType>
+  <EntityType Name="W2S_ Master_Enquiry">
+    <Key>
+      <PropertyRef Name="Enqry_Id" />
+    </Key>
+    <Property Name="Enqry_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Enqry_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cust_Id" Type="int" />
+    <Property Name="Enquiry_Source_Id" Type="int" />
+    <Property Name="Product_Id" Type="int" />
+    <Property Name="IsQuotationSend" Type="int" />
+    <Property Name="Quotation_Remark" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status_Id" Type="int" />
+    <Property Name="Competitor_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Competitor_Desc" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+    <Property Name="Brief" Type="nvarchar" MaxLength="100" />
+    <Property Name="Source" Type="nvarchar" MaxLength="50" />
+    <Property Name="ProductOffered" Type="nvarchar" MaxLength="100" />
+    <Property Name="Range" Type="nvarchar" MaxLength="100" />
+    <Property Name="VisitType" Type="nvarchar" MaxLength="50" />
+    <Property Name="NextVisitDate" Type="nvarchar" MaxLength="50" />
+    <Property Name="NextVisitTime" Type="nvarchar" MaxLength="50" />
+    <Property Name="RecordNotes" Type="nvarchar" MaxLength="200" />
+    <Property Name="EnquiryType" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="W2S_ Master_Enquiry_History">
+    <Key>
+      <PropertyRef Name="Enqry_Hist_Id" />
+    </Key>
+    <Property Name="Enqry_Hist_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Enqry_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cust_Id" Type="int" />
+    <Property Name="Enquiry_Source_Id" Type="int" />
+    <Property Name="Product_Id" Type="int" />
+    <Property Name="IsQuotationSend" Type="int" />
+    <Property Name="Quotation_Remark" Type="nvarchar" MaxLength="100" />
+    <Property Name="Status_Id" Type="int" />
+    <Property Name="Competitior_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Competitior_Desc" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_ Master_Enquiry_Range_Mapping">
+    <Key>
+      <PropertyRef Name="Enqry_Range_Id" />
+    </Key>
+    <Property Name="Enqry_Range_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Enqry_Id" Type="int" />
+    <Property Name="Range_Id" Type="int" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_ Master_Enquiry_Visit&#x9;">
+    <Key>
+      <PropertyRef Name="Enqry_Visit_Id" />
+    </Key>
+    <Property Name="Enqry_Visit_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Enqry_Id" Type="int" />
+    <Property Name="Visit_Cd" Type="nvarchar" MaxLength="50" />
+    <Property Name="Visit_Date" Type="date" />
+    <Property Name="Visit_Start_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="Visit_End_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_ Master_Navigation">
+    <Key>
+      <PropertyRef Name="Navigation_Id" />
+    </Key>
+    <Property Name="Navigation_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nevigation_Menu_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Nevigation_Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="Nevigation_URL" Type="nvarchar" MaxLength="100" />
+    <Property Name="Nevigation_Parent_Id" Type="int" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="date" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_ Master_Navigation Role Mapping">
+    <Key>
+      <PropertyRef Name="Navigation_Role_Id" />
+    </Key>
+    <Property Name="Navigation_Role_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Navigation_Id" Type="int" />
+    <Property Name="Designation_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Customer_CompressorRoom_Mapping">
+    <Key>
+      <PropertyRef Name="PK_Cust_Cmprsor_Mapng_Id" />
+    </Key>
+    <Property Name="PK_Cust_Cmprsor_Mapng_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Cust_Id" Type="int" />
+    <Property Name="Cust_Cmprsor_RoomDetails" Type="int" />
+    <Property Name="Cust_Cmprsor_Model" Type="nvarchar(max)" />
+    <Property Name="Cust_Cmprsor_Mfg_Year" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cust_Cmprsor_Commissioning_Year" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cust_Cmprsor_Status" Type="int" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Customer_Contct_Person_Mapping">
+    <Key>
+      <PropertyRef Name="PK_Cust_CntctPrson_Mapng_Id" />
+    </Key>
+    <Property Name="PK_Cust_CntctPrson_Mapng_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Cust_Id" Type="int" Nullable="false" />
+    <Property Name="FK_Cust_CntctPrson_Dsgntn_Id" Type="int" />
+    <Property Name="Cust_CntctPrson_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cust_CntctPrson_Contact_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Cust_CntctPrson_Email_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Customer_Industry_Mapping">
+    <Key>
+      <PropertyRef Name="PK_Cust_Indstry_Mapng_Id" />
+    </Key>
+    <Property Name="PK_Cust_Indstry_Mapng_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Cust_Id" Type="int" />
+    <Property Name="FK_Industry_Type_Id" Type="int" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Customer_Master">
+    <Key>
+      <PropertyRef Name="PK_Cust_Id" />
+    </Key>
+    <Property Name="PK_Cust_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Cust_Name" Type="nvarchar(max)" />
+    <Property Name="Cust_Address_Line1" Type="nvarchar(max)" />
+    <Property Name="Cust_Address_Line2" Type="nvarchar(max)" />
+    <Property Name="FK_Zone_Id" Type="int" />
+    <Property Name="FK_State_Id" Type="int" />
+    <Property Name="FK_City_Id" Type="int" />
+    <Property Name="Cust_Longitude" Type="nvarchar(max)" />
+    <Property Name="Cust_Latitude" Type="nvarchar(max)" />
+    <Property Name="Cust_GSTN_No" Type="nvarchar(max)" />
+    <Property Name="Cust_Cmprsd_Air_App" Type="nvarchar(max)" />
+    <Property Name="Cust_End_Product" Type="nvarchar(max)" />
+    <Property Name="VisitingCardPath" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_List">
+    <Key>
+      <PropertyRef Name="W2S_List_Id" />
+    </Key>
+    <Property Name="W2S_List_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="List_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="List_Code" Type="nvarchar" MaxLength="50" />
+    <Property Name="List_Desc" Type="nvarchar" MaxLength="100" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Absent">
+    <Key>
+      <PropertyRef Name="Absent_Id" />
+    </Key>
+    <Property Name="Absent_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="PK_Resource_Id" Type="int" />
+    <Property Name="FK_Designation_Id" Type="nchar" MaxLength="10" />
+    <Property Name="From_Date" Type="date" />
+    <Property Name="To_Date" Type="date" />
+    <Property Name="Leave_Day_Count" Type="int" />
+    <Property Name="Leave_Type" Type="int" />
+    <Property Name="Leave_Type_Detail" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Master_City">
+    <Key>
+      <PropertyRef Name="PK_City_Id" />
+    </Key>
+    <Property Name="PK_City_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_State_Id" Type="int" />
+    <Property Name="City_Name" Type="nvarchar(max)" />
+    <Property Name="IsActive" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Competitor">
+    <Key>
+      <PropertyRef Name="PK_Competitor_Id" />
+    </Key>
+    <Property Name="PK_Competitor_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Competitor_Type_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Competitor_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Competitor_Desc" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsMain" Type="int" />
+    <Property Name="IsActive" Type="int" Nullable="false" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AtlasW2S.dbo.W2S_Master_Designation' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="W2S_Master_Designation">
+    <Key>
+      <PropertyRef Name="PK_Designation_Id" />
+    </Key>
+    <Property Name="PK_Designation_Id" Type="int" Nullable="false" />
+    <Property Name="Designation_Desc" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="W2S_Master_EnquirySource">
+    <Key>
+      <PropertyRef Name="Enquiry_Source_Id" />
+    </Key>
+    <Property Name="Enquiry_Source_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Enquiry_Source_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Enquiry_Source_Desc" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Master_EnquiryType">
+    <Key>
+      <PropertyRef Name="Enquiry_Type_Id" />
+    </Key>
+    <Property Name="Enquiry_Type_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Enquiry_Type_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Enquiry_Type_Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="ModifiedBy" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Holiday">
+    <Key>
+      <PropertyRef Name="PK_Holiday_Id" />
+    </Key>
+    <Property Name="PK_Holiday_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Holiday_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Holiday_Description" Type="nvarchar" MaxLength="500" />
+    <Property Name="Holiday_Date" Type="date" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modify_Date" Type="date" />
+    <Property Name="Modify_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Industry">
+    <Key>
+      <PropertyRef Name="Industry_Id" />
+    </Key>
+    <Property Name="Industry_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Industry_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Industry_Desc" Type="nvarchar" MaxLength="500" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Nav_Role_Map">
+    <Key>
+      <PropertyRef Name="PK_Navigation_Role_Id" />
+    </Key>
+    <Property Name="PK_Navigation_Role_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Navigation_Id" Type="int" />
+    <Property Name="FK_Designation_Id" Type="int" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modify_Date" Type="date" />
+    <Property Name="Modify_By" Type="date" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Navigation">
+    <Key>
+      <PropertyRef Name="PK_Navigaion_Id" />
+    </Key>
+    <Property Name="PK_Navigaion_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Navigation_Menu_Name" Type="varchar" MaxLength="50" />
+    <Property Name="Navigation_Description" Type="varchar" MaxLength="500" />
+    <Property Name="Navigation_URL" Type="varchar" MaxLength="100" />
+    <Property Name="Navigation_Parent_Id" Type="int" />
+    <Property Name="Priority" Type="int" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Product">
+    <Key>
+      <PropertyRef Name="Product_Id" />
+    </Key>
+    <Property Name="Product_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Product_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Product_Desc" Type="nvarchar" MaxLength="200" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Master_RangeMapping">
+    <Key>
+      <PropertyRef Name="PK_RangeMapping_Id" />
+    </Key>
+    <Property Name="PK_RangeMapping_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_MapType_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="FK_Range_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="FK_Sub_Range_Id" Type="int" />
+    <Property Name="FK_Prod_Id" Type="int" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+    <Property Name="FK_W2S_List_Id" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Resource">
+    <Key>
+      <PropertyRef Name="PK_Resource_Id" />
+    </Key>
+    <Property Name="PK_Resource_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Designation_Id" Type="int" />
+    <Property Name="FK_Zone_Id" Type="int" />
+    <Property Name="FK_State_Id" Type="int" />
+    <Property Name="Resource_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Resource_Login_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="Resource_Password" Type="nvarchar" MaxLength="50" />
+    <Property Name="Resource_Mobile_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="Resource_Email_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+    <Property Name="Reset_PasswordCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Resource_Map">
+    <Key>
+      <PropertyRef Name="PK_Resource_Map_Id" />
+    </Key>
+    <Property Name="PK_Resource_Map_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Parent_Id" Type="int" />
+    <Property Name="FK_Child_Id" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6013: The table/view 'AtlasW2S.dbo.W2S_Master_Role_User_Map' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="W2S_Master_Role_User_Map">
+          <Property Name="PK_Role_User_Map" Type="int" />
+          <Property Name="FK_Parent_RoleId" Type="int" />
+          <Property Name="FK_Child_Role" Type="nvarchar" MaxLength="50" />
+          <Property Name="Is_Zone" Type="int" />
+          <Property Name="IsState" Type="int" />
+          <Property Name="IsActive" Type="int" />
+        </EntityType>-->
+  <EntityType Name="W2S_Master_Segment">
+    <Key>
+      <PropertyRef Name="PK_Segment_Id" />
+    </Key>
+    <Property Name="PK_Segment_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Segment_Desc" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AtlasW2S.dbo.W2S_Master_State' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="W2S_Master_State">
+    <Key>
+      <PropertyRef Name="PK_State_Id" />
+      <PropertyRef Name="FK_Zone_Id" />
+    </Key>
+    <Property Name="PK_State_Id" Type="int" Nullable="false" />
+    <Property Name="State_Desc" Type="nvarchar" MaxLength="50" />
+    <Property Name="FK_Zone_Id" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="W2S_Master_SubRange">
+    <Key>
+      <PropertyRef Name="PK_SubRange_Id" />
+    </Key>
+    <Property Name="PK_SubRange_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_W2S_List_Id" Type="nvarchar" MaxLength="30" />
+    <Property Name="SubRange_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="SubRange_Description" Type="nvarchar" MaxLength="100" />
+    <Property Name="IsActive" Type="int" />
+    <Property Name="Created_Date" Type="date" />
+    <Property Name="Created_By" Type="int" />
+    <Property Name="Modified_Date" Type="date" />
+    <Property Name="Modified_By" Type="int" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'AtlasW2S.dbo.W2S_Master_Zone' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="W2S_Master_Zone">
+    <Key>
+      <PropertyRef Name="PK_Zone_Id" />
+    </Key>
+    <Property Name="PK_Zone_Id" Type="int" Nullable="false" />
+    <Property Name="Zone_Desc" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="W2S_Opportunity">
+    <Key>
+      <PropertyRef Name="PK_Opportunity_Id" />
+    </Key>
+    <Property Name="PK_Opportunity_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Customer_Id" Type="int" />
+    <Property Name="Customer_Contact_No" Type="nvarchar" MaxLength="50" />
+    <Property Name="FK_Opportunity_Source" Type="int" />
+    <Property Name="FK_Opportunity_Type" Type="int" />
+    <Property Name="Opportunity_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Start_Date" Type="date" />
+    <Property Name="Expected_Value" Type="int" />
+    <Property Name="Chance_Of_Success" Type="nvarchar" MaxLength="50" />
+    <Property Name="Sales_Phase" Type="nvarchar" MaxLength="50" />
+    <Property Name="Follow_Up_Date" Type="date" />
+    <Property Name="Closed_Date" Type="date" />
+    <Property Name="FK_Status" Type="nvarchar" MaxLength="50" />
+    <Property Name="Forecast" Type="bit" />
+    <Property Name="Added_Date" Type="date" />
+    <Property Name="Added_By" Type="int" />
+    <Property Name="Modify_Date" Type="date" />
+    <Property Name="Modify_By" Type="int" />
+    <Property Name="Won_Value" Type="bigint" />
+    <Property Name="Won_Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="Lost_Value" Type="bigint" />
+    <Property Name="FK_Lost_Competitor_Id" Type="int" />
+    <Property Name="Lost_Remarks" Type="nvarchar" MaxLength="500" />
+    <Property Name="FK_Stop_Reason" Type="nvarchar" MaxLength="50" />
+    <Property Name="FK_Stop_Competitor_Id" Type="int" />
+    <Property Name="Stop_Remarks" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="W2S_Opportunity_Competitor">
+    <Key>
+      <PropertyRef Name="PK_Competitor_Id" />
+    </Key>
+    <Property Name="PK_Competitor_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Opportunity_Id" Type="bigint" />
+    <Property Name="FK_Competitor_Type_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="FK_Competitor_Id" Type="int" />
+    <Property Name="Is_Main" Type="bit" />
+    <Property Name="Comp_Product" Type="nvarchar" MaxLength="500" />
+    <Property Name="Comp_Price" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="W2S_Opportunity_Document">
+    <Key>
+      <PropertyRef Name="PK_Document_Id" />
+    </Key>
+    <Property Name="PK_Document_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Opportunity_Id" Type="bigint" />
+    <Property Name="File_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Added_Date" Type="date" />
+    <Property Name="Added_Time" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Opportunity_Product">
+    <Key>
+      <PropertyRef Name="PK_Oppor_Product_Id" />
+    </Key>
+    <Property Name="PK_Oppor_Product_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Opportunity_Id" Type="bigint" />
+    <Property Name="FK_Range_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="FK_Sub_Range_Id" Type="int" />
+    <Property Name="FK_Product_Id" Type="int" />
+    <Property Name="Quantity" Type="int" />
+    <Property Name="Price" Type="nvarchar" MaxLength="50" />
+    <Property Name="Added_By" Type="int" />
+    <Property Name="Added_Date" Type="date" />
+  </EntityType>
+  <EntityType Name="W2S_Opportunity_Quotation">
+    <Key>
+      <PropertyRef Name="PK_Quotation_Id" />
+    </Key>
+    <Property Name="PK_Quotation_Id" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Opportunity_Id" Type="bigint" />
+    <Property Name="File_Name" Type="nvarchar" MaxLength="100" />
+    <Property Name="Added_Date" Type="date" />
+    <Property Name="Added_Time" Type="int" />
+  </EntityType>
+  <EntityType Name="W2S_Opportunity_Visits">
+    <Key>
+      <PropertyRef Name="PK_Visit" />
+    </Key>
+    <Property Name="PK_Visit" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FK_Opportunity_Id" Type="int" />
+    <Property Name="FK_Visit_Type_Id" Type="nvarchar" MaxLength="50" />
+    <Property Name="List_Visit_Start_Date" Type="date" />
+    <Property Name="List_Visit_Start_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="List_Visit_End_Date" Type="date" />
+    <Property Name="List_Visit_End_Time" Type="nvarchar" MaxLength="50" />
+    <Property Name="Added_Date" Type="date" />
+    <Property Name="Added_By" Type="int" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaims" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogins" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+    <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetRoles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserRoles">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enquiry_Master_Enquiry Source Master">
+    <End Role="W2S_Master_EnquirySource" Type="Self.W2S_Master_EnquirySource" Multiplicity="0..1" />
+    <End Role="W2S_ Master_Enquiry" Type="Self.W2S_ Master_Enquiry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="W2S_Master_EnquirySource">
+        <PropertyRef Name="Enquiry_Source_Id" />
+      </Principal>
+      <Dependent Role="W2S_ Master_Enquiry">
+        <PropertyRef Name="Enquiry_Source_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Navigation Role Mapping_Navigation Master">
+    <End Role="W2S_ Master_Navigation" Type="Self.W2S_ Master_Navigation" Multiplicity="0..1" />
+    <End Role="W2S_ Master_Navigation Role Mapping" Type="Self.W2S_ Master_Navigation Role Mapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="W2S_ Master_Navigation">
+        <PropertyRef Name="Navigation_Id" />
+      </Principal>
+      <Dependent Role="W2S_ Master_Navigation Role Mapping">
+        <PropertyRef Name="Navigation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SP_Change_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="NEWPassword" Type="varchar" Mode="In" />
+    <Parameter Name="User_ID" Type="int" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_ChangePassword" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="ConfirmPassword" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Customer_Master" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CustName" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustAddress" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustPinCode" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustLongitude" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustLatitude" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustGSTNNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="CustCmprsdAirApp" Type="nvarchar" Mode="In" />
+    <Parameter Name="TypeOfIndustry" Type="nvarchar" Mode="In" />
+    <Parameter Name="EndProduct" Type="nvarchar" Mode="In" />
+    <Parameter Name="CompRoomDetails" Type="nvarchar" Mode="In" />
+    <Parameter Name="City" Type="nvarchar" Mode="In" />
+    <Parameter Name="State" Type="nvarchar" Mode="In" />
+    <Parameter Name="type" Type="varchar" Mode="In" />
+    <Parameter Name="CustId" Type="int" Mode="In" />
+    <Parameter Name="Result" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SP_Enquiry_Source" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="enquirysource_id" Type="int" Mode="In" />
+    <Parameter Name="enquirysource_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="enquirysource_desc" Type="nvarchar" Mode="In" />
+    <Parameter Name="type" Type="varchar" Mode="In" />
+    <Parameter Name="Result" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SP_GetAllUser" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EmailID" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAllUser2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OTP" Type="int" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_Industry_Master" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Industrysource_id" Type="int" Mode="In" />
+    <Parameter Name="Industrysource_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Industrysource_desc" Type="nvarchar" Mode="In" />
+    <Parameter Name="type" Type="varchar" Mode="In" />
+    <Parameter Name="Result" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SP_InsUpdDelCustomer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="prodname" Type="nvarchar" Mode="In" />
+    <Parameter Name="proddesc" Type="nvarchar" Mode="In" />
+    <Parameter Name="type" Type="varchar" Mode="In" />
+    <Parameter Name="prodid" Type="int" Mode="In" />
+    <Parameter Name="Result" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SP_InsUpdDelIndustry_Master" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Industrysource_id" Type="int" Mode="In" />
+    <Parameter Name="Industrysource_name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Industrysource_desc" Type="nvarchar" Mode="In" />
+    <Parameter Name="type" Type="varchar" Mode="In" />
+    <Parameter Name="Result" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SP_Product_Master" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="prodname" Type="nvarchar" Mode="In" />
+    <Parameter Name="proddesc" Type="nvarchar" Mode="In" />
+    <Parameter Name="type" Type="varchar" Mode="In" />
+    <Parameter Name="prodid" Type="int" Mode="In" />
+    <Parameter Name="Result" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="SP_USERAUTHFOR_AtlasSales" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_ID" Type="int" Mode="In" />
+    <Parameter Name="Password" Type="varchar" Mode="In" />
+    <Parameter Name="NEWPassword" Type="varchar" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SplitString" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Input" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Character" Type="char" Mode="In" />
+    <ReturnType>
+      <CollectionType>
+        <RowType>
+          <Property Name="Item" Type="nvarchar" MaxLength="1000" />
+        </RowType>
+      </CollectionType>
+    </ReturnType>
+  </Function>
+  <Function Name="W2S_SP_Calender" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="PK_Navigaion_Id" Type="int" Mode="In" />
+    <Parameter Name="Navigation_Menu_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Navigation_Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Navigation_URL" Type="nvarchar" Mode="In" />
+    <Parameter Name="Navigation_Parent_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Designation_Id" Type="int" Mode="In" />
+    <Parameter Name="isActive" Type="int" Mode="In" />
+    <Parameter Name="Created_By" Type="int" Mode="In" />
+    <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Modified_By" Type="int" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+    <Parameter Name="ROLE_ID" Type="int" Mode="In" />
+    <Parameter Name="USERID" Type="int" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Enquiry_Master" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EnqryNo" Type="nvarchar" Mode="In" />
+    <Parameter Name="EnqryType" Type="int" Mode="In" />
+    <Parameter Name="Source" Type="nvarchar" Mode="In" />
+    <Parameter Name="ProductOffered" Type="nvarchar" Mode="In" />
+    <Parameter Name="Range" Type="nvarchar" Mode="In" />
+    <Parameter Name="VisitType" Type="nvarchar" Mode="In" />
+    <Parameter Name="NextVisitDate" Type="nvarchar" Mode="In" />
+    <Parameter Name="NextVisitTime" Type="nvarchar" Mode="In" />
+    <Parameter Name="RecordNotes" Type="nvarchar" Mode="In" />
+    <Parameter Name="EnqryId" Type="int" Mode="In" />
+    <Parameter Name="type" Type="varchar" Mode="In" />
+    <Parameter Name="Result" Type="int" Mode="InOut" />
+  </Function>
+  <Function Name="W2S_SP_Insert_OTP" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="OTP" Type="int" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_LeaveType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Competitor" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FK_Competitor_Type_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="Competitor_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Competitor_Desc" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="int" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+    <Parameter Name="PK_Competitor_Id" Type="int" Mode="In" />
+    <Parameter Name="Created_By" Type="int" Mode="In" />
+    <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Modified_By" Type="int" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Customer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PK_Cust_Id" Type="int" Mode="In" />
+    <Parameter Name="Cust_Name" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Cust_Address_Line1" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Cust_Address_Line2" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="FK_Zone_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_State_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_City_Id" Type="int" Mode="In" />
+    <Parameter Name="Cust_GSTN_No" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Cust_Cmprsd_Air_App" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Cust_End_Product" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="FK_Cust_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Cust_CntctPrson_Dsgntn_Id" Type="int" Mode="In" />
+    <Parameter Name="Cust_CntctPrson_Name" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Cust_CntctPrson_Contact_No" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Cust_CntctPrson_Email_Id" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Cust_Cmprsor_RoomDetails" Type="int" Mode="In" />
+    <Parameter Name="Cust_Cmprsor_Model" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Cust_Cmprsor_Mfg_Year" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Cust_Cmprsor_Commissioning_Year" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Cust_Cmprsor_Status" Type="int" Mode="In" />
+    <Parameter Name="Created_By" Type="int" Mode="In" />
+    <Parameter Name="FK_Industry_Type_Id" Type="int" Mode="In" />
+    <Parameter Name="PK_Cust_CntctPrson_Mapng_Id" Type="int" Mode="In" />
+    <Parameter Name="PK_Cust_Cmprsor_Mapng_Id" Type="int" Mode="In" />
+    <Parameter Name="VisitingCardPath" Type="nvarchar(max)" Mode="In" />
+    <Parameter Name="Action" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Enquiry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="EnquirySource_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="EnquirySource_Desc" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+    <Parameter Name="EnquirySource_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Enquiry_Source" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Enquiry_Source_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Enquiry_Source_Desc" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="int" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+    <Parameter Name="Enquiry_Source_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Enquiry_Type" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Enquiry_Type_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Enquiry_Type_Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="int" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+    <Parameter Name="Enquiry_Type_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_GetAll_RangeType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Holiday" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="PK_Holiday_Id" Type="int" Mode="In" />
+    <Parameter Name="Holiday_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Holiday_Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Holiday_Date" Type="datetime" Mode="In" />
+    <Parameter Name="FK_Dealer_Id" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="nvarchar" Mode="In" />
+    <Parameter Name="isActive" Type="int" Mode="In" />
+    <Parameter Name="Created_By" Type="int" Mode="In" />
+    <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Modified_By" Type="int" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Industry" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Industry_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Industry_Desc" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="int" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+    <Parameter Name="Industry_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_LIST" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="FK_Zone_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_State_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Navigation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="PK_Navigaion_Id" Type="int" Mode="In" />
+    <Parameter Name="Navigation_Menu_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Navigation_Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Navigation_URL" Type="nvarchar" Mode="In" />
+    <Parameter Name="Navigation_Parent_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Designation_Id" Type="int" Mode="In" />
+    <Parameter Name="isActive" Type="int" Mode="In" />
+    <Parameter Name="Created_By" Type="int" Mode="In" />
+    <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Modified_By" Type="int" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Navigation_Map" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="PK_Navigaion_Role_Id" Type="int" Mode="In" />
+    <Parameter Name="PK_Navigaion_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Designation_Id" Type="int" Mode="In" />
+    <Parameter Name="MENULIST" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Product" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Product_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Product_Desc" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+    <Parameter Name="IsActive" Type="int" Mode="In" />
+    <Parameter Name="Created_By" Type="int" Mode="In" />
+    <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Modified_By" Type="int" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Product_Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Range_Mapping" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="FK_W2S_List_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="PK_SubRange_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Parent_Id" Type="int" Mode="In" />
+    <Parameter Name="User_Designations" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_RangeType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Resource" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="PK_Resource_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Designation_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Zone_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_State_Id" Type="int" Mode="In" />
+    <Parameter Name="Resource_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Resource_Login_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="Resource_Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="Resource_Mobile_No" Type="nvarchar" Mode="In" />
+    <Parameter Name="Navigation_Parent_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="Resource_Email_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="isActive" Type="int" Mode="In" />
+    <Parameter Name="Created_By" Type="int" Mode="In" />
+    <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Modified_By" Type="int" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_Resource_Map" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="FK_Designation_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Zone_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_State_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Resource_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Parent_Id" Type="int" Mode="In" />
+    <Parameter Name="User_Designations" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Master_SubRange" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="FK_W2S_List_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="SubRange_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="SubRange_Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="IsActive" Type="int" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+    <Parameter Name="PK_SubRange_Id" Type="int" Mode="In" />
+    <Parameter Name="Created_By" Type="int" Mode="In" />
+    <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Modified_By" Type="int" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_MASTER_USER" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="PK_Resource_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Designation_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Zone_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_State_Id" Type="int" Mode="In" />
+    <Parameter Name="Resource_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Resource_Login_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="Resource_Password" Type="nvarchar" Mode="In" />
+    <Parameter Name="Resource_Mobile_No" Type="nvarchar" Mode="In" />
+    <Parameter Name="Navigation_Parent_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="Resource_Email_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="isActive" Type="int" Mode="In" />
+    <Parameter Name="Created_By" Type="int" Mode="In" />
+    <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Modified_By" Type="int" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Nav_Role_Map" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="PK_Navigation_Role_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Navigation_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Designation_Id" Type="int" Mode="In" />
+    <Parameter Name="isActive" Type="int" Mode="In" />
+    <Parameter Name="Created_By" Type="int" Mode="In" />
+    <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Modified_By" Type="int" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+    <Parameter Name="MENULIST" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Opportunity" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="PK_Opportunity_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Customer_Id" Type="int" Mode="In" />
+    <Parameter Name="Customer_Contact_No" Type="nvarchar" Mode="In" />
+    <Parameter Name="FK_Opportunity_Source" Type="int" Mode="In" />
+    <Parameter Name="FK_Opportunity_Type" Type="int" Mode="In" />
+    <Parameter Name="Opportunity_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Start_Date" Type="date" Mode="In" />
+    <Parameter Name="Expected_Value" Type="int" Mode="In" />
+    <Parameter Name="Chance_Of_Success" Type="nvarchar" Mode="In" />
+    <Parameter Name="Sales_Phase" Type="nvarchar" Mode="In" />
+    <Parameter Name="Follow_Up_Date" Type="date" Mode="In" />
+    <Parameter Name="Closed_Date" Type="date" Mode="In" />
+    <Parameter Name="FK_Status" Type="nvarchar" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+    <Parameter Name="Forecast" Type="bit" Mode="In" />
+    <Parameter Name="FK_Opportunity_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Visit_Type_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="List_Visit_Start_Date" Type="date" Mode="In" />
+    <Parameter Name="List_Visit_Start_Time" Type="nvarchar" Mode="In" />
+    <Parameter Name="List_Visit_End_Date" Type="date" Mode="In" />
+    <Parameter Name="List_Visit_End_Time" Type="nvarchar" Mode="In" />
+    <Parameter Name="PK_Visit" Type="int" Mode="In" />
+    <Parameter Name="PK_Competitor_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Competitor_Type_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="FK_Competitor_Id" Type="int" Mode="In" />
+    <Parameter Name="Is_Main" Type="bit" Mode="In" />
+    <Parameter Name="Comp_Product" Type="nvarchar" Mode="In" />
+    <Parameter Name="Comp_Price" Type="nvarchar" Mode="In" />
+    <Parameter Name="File_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="PK_Quotation_Id" Type="int" Mode="In" />
+    <Parameter Name="PK_Document_Id" Type="int" Mode="In" />
+    <Parameter Name="Won_Value" Type="bigint" Mode="In" />
+    <Parameter Name="Won_Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="Lost_Value" Type="bigint" Mode="In" />
+    <Parameter Name="FK_Lost_Competitor_Id" Type="int" Mode="In" />
+    <Parameter Name="Lost_Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="FK_Stop_Reason" Type="nvarchar" Mode="In" />
+    <Parameter Name="FK_Stop_Competitor_Id" Type="int" Mode="In" />
+    <Parameter Name="Stop_Remarks" Type="nvarchar" Mode="In" />
+    <Parameter Name="FK_Range_Id" Type="nvarchar" Mode="In" />
+    <Parameter Name="FK_Sub_Range_Id" Type="int" Mode="In" />
+    <Parameter Name="Quantity" Type="int" Mode="In" />
+    <Parameter Name="Price" Type="nvarchar" Mode="In" />
+    <Parameter Name="FK_Product_Id" Type="int" Mode="In" />
+    <Parameter Name="Created_By" Type="int" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_RangeType" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Reset_Password" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_ID" Type="int" Mode="In" />
+    <Parameter Name="NEWPassword" Type="varchar" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_Reset_Password2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="User_ID" Type="int" Mode="In" />
+    <Parameter Name="NEWPassword" Type="varchar" Mode="In" />
+    <Parameter Name="ACTION" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="W2S_SP_ROOT_MENU_LIST" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Action" Type="varchar" Mode="In" />
+    <Parameter Name="PK_Navigaion_Id" Type="int" Mode="In" />
+    <Parameter Name="Navigation_Menu_Name" Type="nvarchar" Mode="In" />
+    <Parameter Name="Navigation_Description" Type="nvarchar" Mode="In" />
+    <Parameter Name="Navigation_URL" Type="nvarchar" Mode="In" />
+    <Parameter Name="Navigation_Parent_Id" Type="int" Mode="In" />
+    <Parameter Name="FK_Designation_Id" Type="int" Mode="In" />
+    <Parameter Name="isActive" Type="int" Mode="In" />
+    <Parameter Name="Created_By" Type="int" Mode="In" />
+    <Parameter Name="Created_Date" Type="datetime" Mode="In" />
+    <Parameter Name="Modified_By" Type="int" Mode="In" />
+    <Parameter Name="Modified_Date" Type="datetime" Mode="In" />
+    <Parameter Name="ROLE_ID" Type="int" Mode="In" />
+    <Parameter Name="USERID" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="AtlasW2SModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaims" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogins" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Employee" EntityType="Self.Employee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERDETAIL" EntityType="Self.USERDETAIL" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERTYPE" EntityType="Self.USERTYPE" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_ Master_Enquiry" EntityType="Self.W2S_ Master_Enquiry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_ Master_Enquiry_History" EntityType="Self.W2S_ Master_Enquiry_History" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_ Master_Enquiry_Range_Mapping" EntityType="Self.W2S_ Master_Enquiry_Range_Mapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_ Master_Enquiry_Visit&#x9;" EntityType="Self.W2S_ Master_Enquiry_Visit&#x9;" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_ Master_Navigation" EntityType="Self.W2S_ Master_Navigation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_ Master_Navigation Role Mapping" EntityType="Self.W2S_ Master_Navigation Role Mapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Customer_CompressorRoom_Mapping" EntityType="Self.W2S_Customer_CompressorRoom_Mapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Customer_Contct_Person_Mapping" EntityType="Self.W2S_Customer_Contct_Person_Mapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Customer_Industry_Mapping" EntityType="Self.W2S_Customer_Industry_Mapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Customer_Master" EntityType="Self.W2S_Customer_Master" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_List" EntityType="Self.W2S_List" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_Absent" EntityType="Self.W2S_Master_Absent" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_City" EntityType="Self.W2S_Master_City" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_Competitor" EntityType="Self.W2S_Master_Competitor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_EnquirySource" EntityType="Self.W2S_Master_EnquirySource" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_EnquiryType" EntityType="Self.W2S_Master_EnquiryType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_Holiday" EntityType="Self.W2S_Master_Holiday" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_Industry" EntityType="Self.W2S_Master_Industry" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_Nav_Role_Map" EntityType="Self.W2S_Master_Nav_Role_Map" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_Navigation" EntityType="Self.W2S_Master_Navigation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_Product" EntityType="Self.W2S_Master_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_RangeMapping" EntityType="Self.W2S_Master_RangeMapping" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_Resource" EntityType="Self.W2S_Master_Resource" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_Resource_Map" EntityType="Self.W2S_Master_Resource_Map" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_Segment" EntityType="Self.W2S_Master_Segment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_SubRange" EntityType="Self.W2S_Master_SubRange" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Opportunity" EntityType="Self.W2S_Opportunity" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Opportunity_Competitor" EntityType="Self.W2S_Opportunity_Competitor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Opportunity_Document" EntityType="Self.W2S_Opportunity_Document" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Opportunity_Product" EntityType="Self.W2S_Opportunity_Product" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Opportunity_Quotation" EntityType="Self.W2S_Opportunity_Quotation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Opportunity_Visits" EntityType="Self.W2S_Opportunity_Visits" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="W2S_Master_Designation" EntityType="Self.W2S_Master_Designation" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [W2S_Master_Designation].[PK_Designation_Id] AS [PK_Designation_Id], 
+    [W2S_Master_Designation].[Designation_Desc] AS [Designation_Desc]
+    FROM [dbo].[W2S_Master_Designation] AS [W2S_Master_Designation]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="W2S_Master_State" EntityType="Self.W2S_Master_State" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [W2S_Master_State].[PK_State_Id] AS [PK_State_Id], 
+    [W2S_Master_State].[State_Desc] AS [State_Desc], 
+    [W2S_Master_State].[FK_Zone_Id] AS [FK_Zone_Id]
+    FROM [dbo].[W2S_Master_State] AS [W2S_Master_State]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="W2S_Master_Zone" EntityType="Self.W2S_Master_Zone" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [W2S_Master_Zone].[PK_Zone_Id] AS [PK_Zone_Id], 
+    [W2S_Master_Zone].[Zone_Desc] AS [Zone_Desc]
+    FROM [dbo].[W2S_Master_Zone] AS [W2S_Master_Zone]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enquiry_Master_Enquiry Source Master" Association="Self.FK_Enquiry_Master_Enquiry Source Master">
+      <End Role="W2S_Master_EnquirySource" EntitySet="W2S_Master_EnquirySource" />
+      <End Role="W2S_ Master_Enquiry" EntitySet="W2S_ Master_Enquiry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Navigation Role Mapping_Navigation Master" Association="Self.FK_Navigation Role Mapping_Navigation Master">
+      <End Role="W2S_ Master_Navigation" EntitySet="W2S_ Master_Navigation" />
+      <End Role="W2S_ Master_Navigation Role Mapping" EntitySet="W2S_ Master_Navigation Role Mapping" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

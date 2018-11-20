@@ -1,0 +1,1395 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AtlasW2SModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <ComplexType Name="SplitString_Result">
+    <Property Name="Item" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+  </ComplexType>
+  <EntityType Name="C__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+    <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AspNetRole">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserClaim">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ClaimType" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="ClaimValue" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUserClaims" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUserLogin">
+    <Key>
+      <PropertyRef Name="LoginProvider" />
+      <PropertyRef Name="ProviderKey" />
+      <PropertyRef Name="UserId" />
+    </Key>
+    <Property Name="LoginProvider" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="ProviderKey" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="UserId" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUser" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUserLogins" ToRole="AspNetUsers" />
+  </EntityType>
+  <EntityType Name="AspNetUser">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+    <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+    <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+    <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+    <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+    <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+    <NavigationProperty Name="AspNetUserClaims" Relationship="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserClaims" />
+    <NavigationProperty Name="AspNetUserLogins" Relationship="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" FromRole="AspNetUsers" ToRole="AspNetUserLogins" />
+    <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+  </EntityType>
+  <EntityType Name="Employee">
+    <Key>
+      <PropertyRef Name="Enquiry_Source_Id" />
+    </Key>
+    <Property Name="Enquiry_Source_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Enquiry_Source_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Enquiry_Source_Desc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="USERDETAIL">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TYP_ID" Type="Int32" />
+    <Property Name="UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="loginID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmailID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IMEINo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Status" Type="Boolean" />
+    <Property Name="ResetPasswordCode" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ConfirmPassword" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="USERTYPE">
+    <Key>
+      <PropertyRef Name="Typ_ID" />
+    </Key>
+    <Property Name="Typ_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Type_Name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="Type_Detail" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Log_Update" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Time_Stamp_Add_Date" Type="DateTime" Precision="3" />
+    <Property Name="Time_Stamp_Update_Date" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="W2S__Master_Enquiry">
+    <Key>
+      <PropertyRef Name="Enqry_Id" />
+    </Key>
+    <Property Name="Enqry_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Enqry_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Id" Type="Int32" />
+    <Property Name="Enquiry_Source_Id" Type="Int32" />
+    <Property Name="Product_Id" Type="Int32" />
+    <Property Name="IsQuotationSend" Type="Int32" />
+    <Property Name="Quotation_Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Status_Id" Type="Int32" />
+    <Property Name="Competitor_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Competitor_Desc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+    <Property Name="Brief" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Source" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ProductOffered" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Range" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="VisitType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NextVisitDate" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="NextVisitTime" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="RecordNotes" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="EnquiryType" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="W2S_Master_EnquirySource" Relationship="Self.FK_Enquiry_Master_Enquiry_Source_Master" FromRole="W2S__Master_Enquiry" ToRole="W2S_Master_EnquirySource" />
+  </EntityType>
+  <EntityType Name="W2S__Master_Enquiry_History">
+    <Key>
+      <PropertyRef Name="Enqry_Hist_Id" />
+    </Key>
+    <Property Name="Enqry_Hist_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Enqry_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Id" Type="Int32" />
+    <Property Name="Enquiry_Source_Id" Type="Int32" />
+    <Property Name="Product_Id" Type="Int32" />
+    <Property Name="IsQuotationSend" Type="Int32" />
+    <Property Name="Quotation_Remark" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Status_Id" Type="Int32" />
+    <Property Name="Competitior_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Competitior_Desc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S__Master_Enquiry_Range_Mapping">
+    <Key>
+      <PropertyRef Name="Enqry_Range_Id" />
+    </Key>
+    <Property Name="Enqry_Range_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Enqry_Id" Type="Int32" />
+    <Property Name="Range_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S__Master_Enquiry_Visit_">
+    <Key>
+      <PropertyRef Name="Enqry_Visit_Id" />
+    </Key>
+    <Property Name="Enqry_Visit_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Enqry_Id" Type="Int32" />
+    <Property Name="Visit_Cd" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Visit_Date" Type="DateTime" Precision="0" />
+    <Property Name="Visit_Start_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Visit_End_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S__Master_Navigation">
+    <Key>
+      <PropertyRef Name="Navigation_Id" />
+    </Key>
+    <Property Name="Navigation_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Nevigation_Menu_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Nevigation_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Nevigation_URL" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Nevigation_Parent_Id" Type="Int32" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="DateTime" Precision="0" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+    <NavigationProperty Name="W2S__Master_Navigation_Role_Mapping" Relationship="Self.FK_Navigation_Role_Mapping_Navigation_Master" FromRole="W2S__Master_Navigation" ToRole="W2S__Master_Navigation_Role_Mapping" />
+  </EntityType>
+  <EntityType Name="W2S__Master_Navigation_Role_Mapping">
+    <Key>
+      <PropertyRef Name="Navigation_Role_Id" />
+    </Key>
+    <Property Name="Navigation_Role_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Navigation_Id" Type="Int32" />
+    <Property Name="Designation_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+    <NavigationProperty Name="W2S__Master_Navigation" Relationship="Self.FK_Navigation_Role_Mapping_Navigation_Master" FromRole="W2S__Master_Navigation_Role_Mapping" ToRole="W2S__Master_Navigation" />
+  </EntityType>
+  <EntityType Name="W2S_Customer_CompressorRoom_Mapping">
+    <Key>
+      <PropertyRef Name="PK_Cust_Cmprsor_Mapng_Id" />
+    </Key>
+    <Property Name="PK_Cust_Cmprsor_Mapng_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Cust_Id" Type="Int32" />
+    <Property Name="Cust_Cmprsor_RoomDetails" Type="Int32" />
+    <Property Name="Cust_Cmprsor_Model" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Cmprsor_Mfg_Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Cmprsor_Commissioning_Year" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Cmprsor_Status" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Customer_Contct_Person_Mapping">
+    <Key>
+      <PropertyRef Name="PK_Cust_CntctPrson_Mapng_Id" />
+    </Key>
+    <Property Name="PK_Cust_CntctPrson_Mapng_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Cust_Id" Type="Int32" Nullable="false" />
+    <Property Name="FK_Cust_CntctPrson_Dsgntn_Id" Type="Int32" />
+    <Property Name="Cust_CntctPrson_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_CntctPrson_Contact_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_CntctPrson_Email_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Customer_Industry_Mapping">
+    <Key>
+      <PropertyRef Name="PK_Cust_Indstry_Mapng_Id" />
+    </Key>
+    <Property Name="PK_Cust_Indstry_Mapng_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Cust_Id" Type="Int32" />
+    <Property Name="FK_Industry_Type_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Customer_Master">
+    <Key>
+      <PropertyRef Name="PK_Cust_Id" />
+    </Key>
+    <Property Name="PK_Cust_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cust_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Address_Line1" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Address_Line2" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Zone_Id" Type="Int32" />
+    <Property Name="FK_State_Id" Type="Int32" />
+    <Property Name="FK_City_Id" Type="Int32" />
+    <Property Name="Cust_Longitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Latitude" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_GSTN_No" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_Cmprsd_Air_App" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Cust_End_Product" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="VisitingCardPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_List">
+    <Key>
+      <PropertyRef Name="W2S_List_Id" />
+    </Key>
+    <Property Name="W2S_List_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="List_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="List_Code" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="List_Desc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Absent">
+    <Key>
+      <PropertyRef Name="Absent_Id" />
+    </Key>
+    <Property Name="Absent_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PK_Resource_Id" Type="Int32" />
+    <Property Name="FK_Designation_Id" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="From_Date" Type="DateTime" Precision="0" />
+    <Property Name="To_Date" Type="DateTime" Precision="0" />
+    <Property Name="Leave_Day_Count" Type="Int32" />
+    <Property Name="Leave_Type" Type="Int32" />
+    <Property Name="Leave_Type_Detail" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Master_City">
+    <Key>
+      <PropertyRef Name="PK_City_Id" />
+    </Key>
+    <Property Name="PK_City_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_State_Id" Type="Int32" />
+    <Property Name="City_Name" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Competitor">
+    <Key>
+      <PropertyRef Name="PK_Competitor_Id" />
+    </Key>
+    <Property Name="PK_Competitor_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Competitor_Type_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Competitor_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Competitor_Desc" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsMain" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" Nullable="false" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Master_EnquirySource">
+    <Key>
+      <PropertyRef Name="Enquiry_Source_Id" />
+    </Key>
+    <Property Name="Enquiry_Source_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Enquiry_Source_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Enquiry_Source_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+    <NavigationProperty Name="W2S__Master_Enquiry" Relationship="Self.FK_Enquiry_Master_Enquiry_Source_Master" FromRole="W2S_Master_EnquirySource" ToRole="W2S__Master_Enquiry" />
+  </EntityType>
+  <EntityType Name="W2S_Master_EnquiryType">
+    <Key>
+      <PropertyRef Name="Enquiry_Type_Id" />
+    </Key>
+    <Property Name="Enquiry_Type_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Enquiry_Type_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Enquiry_Type_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="ModifiedBy" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Holiday">
+    <Key>
+      <PropertyRef Name="PK_Holiday_Id" />
+    </Key>
+    <Property Name="PK_Holiday_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Holiday_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Holiday_Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Holiday_Date" Type="DateTime" Precision="0" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modify_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modify_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Industry">
+    <Key>
+      <PropertyRef Name="Industry_Id" />
+    </Key>
+    <Property Name="Industry_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Industry_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Industry_Desc" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Nav_Role_Map">
+    <Key>
+      <PropertyRef Name="PK_Navigation_Role_Id" />
+    </Key>
+    <Property Name="PK_Navigation_Role_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Navigation_Id" Type="Int32" />
+    <Property Name="FK_Designation_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modify_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modify_By" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Navigation">
+    <Key>
+      <PropertyRef Name="PK_Navigaion_Id" />
+    </Key>
+    <Property Name="PK_Navigaion_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Navigation_Menu_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Navigation_Description" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="Navigation_URL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Navigation_Parent_Id" Type="Int32" />
+    <Property Name="Priority" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Product">
+    <Key>
+      <PropertyRef Name="Product_Id" />
+    </Key>
+    <Property Name="Product_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Product_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Product_Desc" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Master_RangeMapping">
+    <Key>
+      <PropertyRef Name="PK_RangeMapping_Id" />
+    </Key>
+    <Property Name="PK_RangeMapping_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_MapType_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Range_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Sub_Range_Id" Type="Int32" />
+    <Property Name="FK_Prod_Id" Type="Int32" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+    <Property Name="FK_W2S_List_Id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Resource">
+    <Key>
+      <PropertyRef Name="PK_Resource_Id" />
+    </Key>
+    <Property Name="PK_Resource_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Designation_Id" Type="Int32" />
+    <Property Name="FK_Zone_Id" Type="Int32" />
+    <Property Name="FK_State_Id" Type="Int32" />
+    <Property Name="Resource_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Resource_Login_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Resource_Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Resource_Mobile_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Resource_Email_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+    <Property Name="Reset_PasswordCode" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Resource_Map">
+    <Key>
+      <PropertyRef Name="PK_Resource_Map_Id" />
+    </Key>
+    <Property Name="PK_Resource_Map_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Parent_Id" Type="Int32" />
+    <Property Name="FK_Child_Id" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Segment">
+    <Key>
+      <PropertyRef Name="PK_Segment_Id" />
+    </Key>
+    <Property Name="PK_Segment_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Segment_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="W2S_Master_SubRange">
+    <Key>
+      <PropertyRef Name="PK_SubRange_Id" />
+    </Key>
+    <Property Name="PK_SubRange_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_W2S_List_Id" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="SubRange_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="SubRange_Description" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="IsActive" Type="Int32" />
+    <Property Name="Created_Date" Type="DateTime" Precision="0" />
+    <Property Name="Created_By" Type="Int32" />
+    <Property Name="Modified_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modified_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Opportunity">
+    <Key>
+      <PropertyRef Name="PK_Opportunity_Id" />
+    </Key>
+    <Property Name="PK_Opportunity_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Customer_Id" Type="Int32" />
+    <Property Name="Customer_Contact_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Opportunity_Source" Type="Int32" />
+    <Property Name="FK_Opportunity_Type" Type="Int32" />
+    <Property Name="Opportunity_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Start_Date" Type="DateTime" Precision="0" />
+    <Property Name="Expected_Value" Type="Int32" />
+    <Property Name="Chance_Of_Success" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Sales_Phase" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Follow_Up_Date" Type="DateTime" Precision="0" />
+    <Property Name="Closed_Date" Type="DateTime" Precision="0" />
+    <Property Name="FK_Status" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Forecast" Type="Boolean" />
+    <Property Name="Added_Date" Type="DateTime" Precision="0" />
+    <Property Name="Added_By" Type="Int32" />
+    <Property Name="Modify_Date" Type="DateTime" Precision="0" />
+    <Property Name="Modify_By" Type="Int32" />
+    <Property Name="Won_Value" Type="Int64" />
+    <Property Name="Won_Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Lost_Value" Type="Int64" />
+    <Property Name="FK_Lost_Competitor_Id" Type="Int32" />
+    <Property Name="Lost_Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Stop_Reason" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Stop_Competitor_Id" Type="Int32" />
+    <Property Name="Stop_Remarks" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="W2S_Opportunity_Competitor">
+    <Key>
+      <PropertyRef Name="PK_Competitor_Id" />
+    </Key>
+    <Property Name="PK_Competitor_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Opportunity_Id" Type="Int64" />
+    <Property Name="FK_Competitor_Type_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Competitor_Id" Type="Int32" />
+    <Property Name="Is_Main" Type="Boolean" />
+    <Property Name="Comp_Product" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="Comp_Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="W2S_Opportunity_Document">
+    <Key>
+      <PropertyRef Name="PK_Document_Id" />
+    </Key>
+    <Property Name="PK_Document_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Opportunity_Id" Type="Int64" />
+    <Property Name="File_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Added_Date" Type="DateTime" Precision="0" />
+    <Property Name="Added_Time" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Opportunity_Product">
+    <Key>
+      <PropertyRef Name="PK_Oppor_Product_Id" />
+    </Key>
+    <Property Name="PK_Oppor_Product_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Opportunity_Id" Type="Int64" />
+    <Property Name="FK_Range_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Sub_Range_Id" Type="Int32" />
+    <Property Name="FK_Product_Id" Type="Int32" />
+    <Property Name="Quantity" Type="Int32" />
+    <Property Name="Price" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Added_By" Type="Int32" />
+    <Property Name="Added_Date" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="W2S_Opportunity_Quotation">
+    <Key>
+      <PropertyRef Name="PK_Quotation_Id" />
+    </Key>
+    <Property Name="PK_Quotation_Id" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Opportunity_Id" Type="Int64" />
+    <Property Name="File_Name" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Added_Date" Type="DateTime" Precision="0" />
+    <Property Name="Added_Time" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Opportunity_Visits">
+    <Key>
+      <PropertyRef Name="PK_Visit" />
+    </Key>
+    <Property Name="PK_Visit" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FK_Opportunity_Id" Type="Int32" />
+    <Property Name="FK_Visit_Type_Id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="List_Visit_Start_Date" Type="DateTime" Precision="0" />
+    <Property Name="List_Visit_Start_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="List_Visit_End_Date" Type="DateTime" Precision="0" />
+    <Property Name="List_Visit_End_Time" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Added_Date" Type="DateTime" Precision="0" />
+    <Property Name="Added_By" Type="Int32" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Designation">
+    <Key>
+      <PropertyRef Name="PK_Designation_Id" />
+    </Key>
+    <Property Name="PK_Designation_Id" Type="Int32" Nullable="false" />
+    <Property Name="Designation_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="W2S_Master_State">
+    <Key>
+      <PropertyRef Name="PK_State_Id" />
+      <PropertyRef Name="FK_Zone_Id" />
+    </Key>
+    <Property Name="PK_State_Id" Type="Int32" Nullable="false" />
+    <Property Name="State_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="FK_Zone_Id" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="W2S_Master_Zone">
+    <Key>
+      <PropertyRef Name="PK_Zone_Id" />
+    </Key>
+    <Property Name="PK_Zone_Id" Type="Int32" Nullable="false" />
+    <Property Name="Zone_Desc" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserClaims" Type="Self.AspNetUserClaim" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserClaims">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="AspNetUserLogins" Type="Self.AspNetUserLogin" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="AspNetUsers">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AspNetUserLogins">
+        <PropertyRef Name="UserId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Enquiry_Master_Enquiry_Source_Master">
+    <End Role="W2S_Master_EnquirySource" Type="Self.W2S_Master_EnquirySource" Multiplicity="0..1" />
+    <End Role="W2S__Master_Enquiry" Type="Self.W2S__Master_Enquiry" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="W2S_Master_EnquirySource">
+        <PropertyRef Name="Enquiry_Source_Id" />
+      </Principal>
+      <Dependent Role="W2S__Master_Enquiry">
+        <PropertyRef Name="Enquiry_Source_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Navigation_Role_Mapping_Navigation_Master">
+    <End Role="W2S__Master_Navigation" Type="Self.W2S__Master_Navigation" Multiplicity="0..1" />
+    <End Role="W2S__Master_Navigation_Role_Mapping" Type="Self.W2S__Master_Navigation_Role_Mapping" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="W2S__Master_Navigation">
+        <PropertyRef Name="Navigation_Id" />
+      </Principal>
+      <Dependent Role="W2S__Master_Navigation_Role_Mapping">
+        <PropertyRef Name="Navigation_Id" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AspNetUserRoles">
+    <End Role="AspNetRoles" Type="Self.AspNetRole" Multiplicity="*" />
+    <End Role="AspNetUsers" Type="Self.AspNetUser" Multiplicity="*" />
+  </Association>
+  <EntityContainer Name="AtlasW2SEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+    <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRole" />
+    <EntitySet Name="AspNetUserClaims" EntityType="Self.AspNetUserClaim" />
+    <EntitySet Name="AspNetUserLogins" EntityType="Self.AspNetUserLogin" />
+    <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUser" />
+    <EntitySet Name="Employees" EntityType="Self.Employee" />
+    <EntitySet Name="USERDETAILs" EntityType="Self.USERDETAIL" />
+    <EntitySet Name="USERTYPEs" EntityType="Self.USERTYPE" />
+    <EntitySet Name="W2S__Master_Enquiry" EntityType="Self.W2S__Master_Enquiry" />
+    <EntitySet Name="W2S__Master_Enquiry_History" EntityType="Self.W2S__Master_Enquiry_History" />
+    <EntitySet Name="W2S__Master_Enquiry_Range_Mapping" EntityType="Self.W2S__Master_Enquiry_Range_Mapping" />
+    <EntitySet Name="W2S__Master_Enquiry_Visit_" EntityType="Self.W2S__Master_Enquiry_Visit_" />
+    <EntitySet Name="W2S__Master_Navigation" EntityType="Self.W2S__Master_Navigation" />
+    <EntitySet Name="W2S__Master_Navigation_Role_Mapping" EntityType="Self.W2S__Master_Navigation_Role_Mapping" />
+    <EntitySet Name="W2S_Customer_CompressorRoom_Mapping" EntityType="Self.W2S_Customer_CompressorRoom_Mapping" />
+    <EntitySet Name="W2S_Customer_Contct_Person_Mapping" EntityType="Self.W2S_Customer_Contct_Person_Mapping" />
+    <EntitySet Name="W2S_Customer_Industry_Mapping" EntityType="Self.W2S_Customer_Industry_Mapping" />
+    <EntitySet Name="W2S_Customer_Master" EntityType="Self.W2S_Customer_Master" />
+    <EntitySet Name="W2S_List" EntityType="Self.W2S_List" />
+    <EntitySet Name="W2S_Master_Absent" EntityType="Self.W2S_Master_Absent" />
+    <EntitySet Name="W2S_Master_City" EntityType="Self.W2S_Master_City" />
+    <EntitySet Name="W2S_Master_Competitor" EntityType="Self.W2S_Master_Competitor" />
+    <EntitySet Name="W2S_Master_EnquirySource" EntityType="Self.W2S_Master_EnquirySource" />
+    <EntitySet Name="W2S_Master_EnquiryType" EntityType="Self.W2S_Master_EnquiryType" />
+    <EntitySet Name="W2S_Master_Holiday" EntityType="Self.W2S_Master_Holiday" />
+    <EntitySet Name="W2S_Master_Industry" EntityType="Self.W2S_Master_Industry" />
+    <EntitySet Name="W2S_Master_Nav_Role_Map" EntityType="Self.W2S_Master_Nav_Role_Map" />
+    <EntitySet Name="W2S_Master_Navigation" EntityType="Self.W2S_Master_Navigation" />
+    <EntitySet Name="W2S_Master_Product" EntityType="Self.W2S_Master_Product" />
+    <EntitySet Name="W2S_Master_RangeMapping" EntityType="Self.W2S_Master_RangeMapping" />
+    <EntitySet Name="W2S_Master_Resource" EntityType="Self.W2S_Master_Resource" />
+    <EntitySet Name="W2S_Master_Resource_Map" EntityType="Self.W2S_Master_Resource_Map" />
+    <EntitySet Name="W2S_Master_Segment" EntityType="Self.W2S_Master_Segment" />
+    <EntitySet Name="W2S_Master_SubRange" EntityType="Self.W2S_Master_SubRange" />
+    <EntitySet Name="W2S_Opportunity" EntityType="Self.W2S_Opportunity" />
+    <EntitySet Name="W2S_Opportunity_Competitor" EntityType="Self.W2S_Opportunity_Competitor" />
+    <EntitySet Name="W2S_Opportunity_Document" EntityType="Self.W2S_Opportunity_Document" />
+    <EntitySet Name="W2S_Opportunity_Product" EntityType="Self.W2S_Opportunity_Product" />
+    <EntitySet Name="W2S_Opportunity_Quotation" EntityType="Self.W2S_Opportunity_Quotation" />
+    <EntitySet Name="W2S_Opportunity_Visits" EntityType="Self.W2S_Opportunity_Visits" />
+    <EntitySet Name="W2S_Master_Designation" EntityType="Self.W2S_Master_Designation" />
+    <EntitySet Name="W2S_Master_State" EntityType="Self.W2S_Master_State" />
+    <EntitySet Name="W2S_Master_Zone" EntityType="Self.W2S_Master_Zone" />
+    <AssociationSet Name="FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserClaims_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserClaims" EntitySet="AspNetUserClaims" />
+    </AssociationSet>
+    <AssociationSet Name="FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserLogins_dbo_AspNetUsers_UserId">
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+      <End Role="AspNetUserLogins" EntitySet="AspNetUserLogins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Enquiry_Master_Enquiry_Source_Master" Association="Self.FK_Enquiry_Master_Enquiry_Source_Master">
+      <End Role="W2S_Master_EnquirySource" EntitySet="W2S_Master_EnquirySource" />
+      <End Role="W2S__Master_Enquiry" EntitySet="W2S__Master_Enquiry" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Navigation_Role_Mapping_Navigation_Master" Association="Self.FK_Navigation_Role_Mapping_Navigation_Master">
+      <End Role="W2S__Master_Navigation" EntitySet="W2S__Master_Navigation" />
+      <End Role="W2S__Master_Navigation_Role_Mapping" EntitySet="W2S__Master_Navigation_Role_Mapping" />
+    </AssociationSet>
+    <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+      <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+      <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+    </AssociationSet>
+    <FunctionImport Name="SplitString" IsComposable="true" ReturnType="Collection(AtlasW2SModel.SplitString_Result)">
+      <Parameter Name="Input" Mode="In" Type="String" />
+      <Parameter Name="Character" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Change_Password" ReturnType="Collection(AtlasW2SModel.SP_Change_Password_Result)">
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="NEWPassword" Mode="In" Type="String" />
+      <Parameter Name="User_ID" Mode="In" Type="Int32" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_ChangePassword" ReturnType="Collection(AtlasW2SModel.SP_ChangePassword_Result)">
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="ConfirmPassword" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Customer_Master">
+      <Parameter Name="CustName" Mode="In" Type="String" />
+      <Parameter Name="CustAddress" Mode="In" Type="String" />
+      <Parameter Name="CustPinCode" Mode="In" Type="String" />
+      <Parameter Name="CustLongitude" Mode="In" Type="String" />
+      <Parameter Name="CustLatitude" Mode="In" Type="String" />
+      <Parameter Name="CustGSTNNo" Mode="In" Type="String" />
+      <Parameter Name="CustCmprsdAirApp" Mode="In" Type="String" />
+      <Parameter Name="TypeOfIndustry" Mode="In" Type="String" />
+      <Parameter Name="EndProduct" Mode="In" Type="String" />
+      <Parameter Name="CompRoomDetails" Mode="In" Type="String" />
+      <Parameter Name="City" Mode="In" Type="String" />
+      <Parameter Name="State" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="CustId" Mode="In" Type="Int32" />
+      <Parameter Name="Result" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Enquiry_Source">
+      <Parameter Name="enquirysource_id" Mode="In" Type="Int32" />
+      <Parameter Name="enquirysource_name" Mode="In" Type="String" />
+      <Parameter Name="enquirysource_desc" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="Result" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetAllUser" ReturnType="Collection(AtlasW2SModel.SP_GetAllUser_Result)">
+      <Parameter Name="EmailID" Mode="In" Type="String" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetAllUser2" ReturnType="Collection(AtlasW2SModel.SP_GetAllUser2_Result)">
+      <Parameter Name="OTP" Mode="In" Type="Int32" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Industry_Master">
+      <Parameter Name="Industrysource_id" Mode="In" Type="Int32" />
+      <Parameter Name="Industrysource_name" Mode="In" Type="String" />
+      <Parameter Name="Industrysource_desc" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="Result" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InsUpdDelCustomer">
+      <Parameter Name="prodname" Mode="In" Type="String" />
+      <Parameter Name="proddesc" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="prodid" Mode="In" Type="Int32" />
+      <Parameter Name="Result" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_InsUpdDelIndustry_Master">
+      <Parameter Name="Industrysource_id" Mode="In" Type="Int32" />
+      <Parameter Name="Industrysource_name" Mode="In" Type="String" />
+      <Parameter Name="Industrysource_desc" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="Result" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_Product_Master">
+      <Parameter Name="prodname" Mode="In" Type="String" />
+      <Parameter Name="proddesc" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="prodid" Mode="In" Type="Int32" />
+      <Parameter Name="Result" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_USERAUTHFOR_AtlasSales" ReturnType="Collection(AtlasW2SModel.SP_USERAUTHFOR_AtlasSales_Result)">
+      <Parameter Name="User_ID" Mode="In" Type="Int32" />
+      <Parameter Name="Password" Mode="In" Type="String" />
+      <Parameter Name="NEWPassword" Mode="In" Type="String" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Calender" ReturnType="Collection(AtlasW2SModel.W2S_SP_Calender_Result)">
+      <Parameter Name="Action" Mode="In" Type="String" />
+      <Parameter Name="PK_Navigaion_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Navigation_Menu_Name" Mode="In" Type="String" />
+      <Parameter Name="Navigation_Description" Mode="In" Type="String" />
+      <Parameter Name="Navigation_URL" Mode="In" Type="String" />
+      <Parameter Name="Navigation_Parent_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Designation_Id" Mode="In" Type="Int32" />
+      <Parameter Name="isActive" Mode="In" Type="Int32" />
+      <Parameter Name="Created_By" Mode="In" Type="Int32" />
+      <Parameter Name="Created_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Modified_By" Mode="In" Type="Int32" />
+      <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="ROLE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="USERID" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Enquiry_Master">
+      <Parameter Name="EnqryNo" Mode="In" Type="String" />
+      <Parameter Name="EnqryType" Mode="In" Type="Int32" />
+      <Parameter Name="Source" Mode="In" Type="String" />
+      <Parameter Name="ProductOffered" Mode="In" Type="String" />
+      <Parameter Name="Range" Mode="In" Type="String" />
+      <Parameter Name="VisitType" Mode="In" Type="String" />
+      <Parameter Name="NextVisitDate" Mode="In" Type="String" />
+      <Parameter Name="NextVisitTime" Mode="In" Type="String" />
+      <Parameter Name="RecordNotes" Mode="In" Type="String" />
+      <Parameter Name="EnqryId" Mode="In" Type="Int32" />
+      <Parameter Name="type" Mode="In" Type="String" />
+      <Parameter Name="Result" Mode="InOut" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Insert_OTP" ReturnType="Collection(AtlasW2SModel.W2S_SP_Insert_OTP_Result)">
+      <Parameter Name="OTP" Mode="In" Type="Int32" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_LeaveType" ReturnType="Collection(AtlasW2SModel.W2S_SP_LeaveType_Result)">
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Competitor" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_Competitor_Result)">
+      <Parameter Name="FK_Competitor_Type_Id" Mode="In" Type="String" />
+      <Parameter Name="Competitor_Name" Mode="In" Type="String" />
+      <Parameter Name="Competitor_Desc" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Int32" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+      <Parameter Name="PK_Competitor_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Created_By" Mode="In" Type="Int32" />
+      <Parameter Name="Created_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Modified_By" Mode="In" Type="Int32" />
+      <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Customer" ReturnType="Collection(Decimal)">
+      <Parameter Name="PK_Cust_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Cust_Name" Mode="In" Type="String" />
+      <Parameter Name="Cust_Address_Line1" Mode="In" Type="String" />
+      <Parameter Name="Cust_Address_Line2" Mode="In" Type="String" />
+      <Parameter Name="FK_Zone_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_State_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_City_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Cust_GSTN_No" Mode="In" Type="String" />
+      <Parameter Name="Cust_Cmprsd_Air_App" Mode="In" Type="String" />
+      <Parameter Name="Cust_End_Product" Mode="In" Type="String" />
+      <Parameter Name="FK_Cust_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Cust_CntctPrson_Dsgntn_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Cust_CntctPrson_Name" Mode="In" Type="String" />
+      <Parameter Name="Cust_CntctPrson_Contact_No" Mode="In" Type="String" />
+      <Parameter Name="Cust_CntctPrson_Email_Id" Mode="In" Type="String" />
+      <Parameter Name="Cust_Cmprsor_RoomDetails" Mode="In" Type="Int32" />
+      <Parameter Name="Cust_Cmprsor_Model" Mode="In" Type="String" />
+      <Parameter Name="Cust_Cmprsor_Mfg_Year" Mode="In" Type="String" />
+      <Parameter Name="Cust_Cmprsor_Commissioning_Year" Mode="In" Type="String" />
+      <Parameter Name="Cust_Cmprsor_Status" Mode="In" Type="Int32" />
+      <Parameter Name="Created_By" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Industry_Type_Id" Mode="In" Type="Int32" />
+      <Parameter Name="PK_Cust_CntctPrson_Mapng_Id" Mode="In" Type="Int32" />
+      <Parameter Name="PK_Cust_Cmprsor_Mapng_Id" Mode="In" Type="Int32" />
+      <Parameter Name="VisitingCardPath" Mode="In" Type="String" />
+      <Parameter Name="Action" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Enquiry">
+      <Parameter Name="EnquirySource_Name" Mode="In" Type="String" />
+      <Parameter Name="EnquirySource_Desc" Mode="In" Type="String" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+      <Parameter Name="EnquirySource_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Enquiry_Source" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_Enquiry_Source_Result)">
+      <Parameter Name="Enquiry_Source_Name" Mode="In" Type="String" />
+      <Parameter Name="Enquiry_Source_Desc" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Int32" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+      <Parameter Name="Enquiry_Source_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Enquiry_Type" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_Enquiry_Type_Result)">
+      <Parameter Name="Enquiry_Type_Name" Mode="In" Type="String" />
+      <Parameter Name="Enquiry_Type_Description" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Int32" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+      <Parameter Name="Enquiry_Type_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_GetAll_RangeType" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_GetAll_RangeType_Result)">
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Holiday" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_Holiday_Result)">
+      <Parameter Name="Action" Mode="In" Type="String" />
+      <Parameter Name="PK_Holiday_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Holiday_Name" Mode="In" Type="String" />
+      <Parameter Name="Holiday_Description" Mode="In" Type="String" />
+      <Parameter Name="Holiday_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="FK_Dealer_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Year" Mode="In" Type="String" />
+      <Parameter Name="isActive" Mode="In" Type="Int32" />
+      <Parameter Name="Created_By" Mode="In" Type="Int32" />
+      <Parameter Name="Created_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Modified_By" Mode="In" Type="Int32" />
+      <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Industry" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_Industry_Result)">
+      <Parameter Name="Industry_Name" Mode="In" Type="String" />
+      <Parameter Name="Industry_Desc" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Int32" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+      <Parameter Name="Industry_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_LIST" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_LIST_Result)">
+      <Parameter Name="Action" Mode="In" Type="String" />
+      <Parameter Name="FK_Zone_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_State_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Navigation" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_Navigation_Result)">
+      <Parameter Name="Action" Mode="In" Type="String" />
+      <Parameter Name="PK_Navigaion_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Navigation_Menu_Name" Mode="In" Type="String" />
+      <Parameter Name="Navigation_Description" Mode="In" Type="String" />
+      <Parameter Name="Navigation_URL" Mode="In" Type="String" />
+      <Parameter Name="Navigation_Parent_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Designation_Id" Mode="In" Type="Int32" />
+      <Parameter Name="isActive" Mode="In" Type="Int32" />
+      <Parameter Name="Created_By" Mode="In" Type="Int32" />
+      <Parameter Name="Created_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Modified_By" Mode="In" Type="Int32" />
+      <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Navigation_Map" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_Navigation_Map_Result)">
+      <Parameter Name="Action" Mode="In" Type="String" />
+      <Parameter Name="PK_Navigaion_Role_Id" Mode="In" Type="Int32" />
+      <Parameter Name="PK_Navigaion_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Designation_Id" Mode="In" Type="Int32" />
+      <Parameter Name="MENULIST" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Product" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_Product_Result)">
+      <Parameter Name="Product_Name" Mode="In" Type="String" />
+      <Parameter Name="Product_Desc" Mode="In" Type="String" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Int32" />
+      <Parameter Name="Created_By" Mode="In" Type="Int32" />
+      <Parameter Name="Created_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Modified_By" Mode="In" Type="Int32" />
+      <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Product_Id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Range_Mapping" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_Range_Mapping_Result)">
+      <Parameter Name="Action" Mode="In" Type="String" />
+      <Parameter Name="FK_W2S_List_Id" Mode="In" Type="String" />
+      <Parameter Name="PK_SubRange_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Parent_Id" Mode="In" Type="Int32" />
+      <Parameter Name="User_Designations" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_RangeType" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_RangeType_Result)">
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Resource" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_Resource_Result)">
+      <Parameter Name="Action" Mode="In" Type="String" />
+      <Parameter Name="PK_Resource_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Designation_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Zone_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_State_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Resource_Name" Mode="In" Type="String" />
+      <Parameter Name="Resource_Login_Id" Mode="In" Type="String" />
+      <Parameter Name="Resource_Password" Mode="In" Type="String" />
+      <Parameter Name="Resource_Mobile_No" Mode="In" Type="String" />
+      <Parameter Name="Navigation_Parent_Id" Mode="In" Type="String" />
+      <Parameter Name="Resource_Email_Id" Mode="In" Type="String" />
+      <Parameter Name="isActive" Mode="In" Type="Int32" />
+      <Parameter Name="Created_By" Mode="In" Type="Int32" />
+      <Parameter Name="Created_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Modified_By" Mode="In" Type="Int32" />
+      <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_Resource_Map" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_Resource_Map_Result)">
+      <Parameter Name="Action" Mode="In" Type="String" />
+      <Parameter Name="FK_Designation_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Zone_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_State_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Resource_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Parent_Id" Mode="In" Type="Int32" />
+      <Parameter Name="User_Designations" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Master_SubRange" ReturnType="Collection(AtlasW2SModel.W2S_SP_Master_SubRange_Result)">
+      <Parameter Name="FK_W2S_List_Id" Mode="In" Type="String" />
+      <Parameter Name="SubRange_Name" Mode="In" Type="String" />
+      <Parameter Name="SubRange_Description" Mode="In" Type="String" />
+      <Parameter Name="IsActive" Mode="In" Type="Int32" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+      <Parameter Name="PK_SubRange_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Created_By" Mode="In" Type="Int32" />
+      <Parameter Name="Created_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Modified_By" Mode="In" Type="Int32" />
+      <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_MASTER_USER" ReturnType="Collection(AtlasW2SModel.W2S_SP_MASTER_USER_Result)">
+      <Parameter Name="Action" Mode="In" Type="String" />
+      <Parameter Name="PK_Resource_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Designation_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Zone_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_State_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Resource_Name" Mode="In" Type="String" />
+      <Parameter Name="Resource_Login_Id" Mode="In" Type="String" />
+      <Parameter Name="Resource_Password" Mode="In" Type="String" />
+      <Parameter Name="Resource_Mobile_No" Mode="In" Type="String" />
+      <Parameter Name="Navigation_Parent_Id" Mode="In" Type="String" />
+      <Parameter Name="Resource_Email_Id" Mode="In" Type="String" />
+      <Parameter Name="isActive" Mode="In" Type="Int32" />
+      <Parameter Name="Created_By" Mode="In" Type="Int32" />
+      <Parameter Name="Created_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Modified_By" Mode="In" Type="Int32" />
+      <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Nav_Role_Map">
+      <Parameter Name="Action" Mode="In" Type="String" />
+      <Parameter Name="PK_Navigation_Role_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Navigation_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Designation_Id" Mode="In" Type="Int32" />
+      <Parameter Name="isActive" Mode="In" Type="Int32" />
+      <Parameter Name="Created_By" Mode="In" Type="Int32" />
+      <Parameter Name="Created_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Modified_By" Mode="In" Type="Int32" />
+      <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="MENULIST" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Opportunity" ReturnType="Collection(AtlasW2SModel.W2S_SP_Opportunity_Result)">
+      <Parameter Name="PK_Opportunity_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Customer_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Customer_Contact_No" Mode="In" Type="String" />
+      <Parameter Name="FK_Opportunity_Source" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Opportunity_Type" Mode="In" Type="Int32" />
+      <Parameter Name="Opportunity_Name" Mode="In" Type="String" />
+      <Parameter Name="Start_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Expected_Value" Mode="In" Type="Int32" />
+      <Parameter Name="Chance_Of_Success" Mode="In" Type="String" />
+      <Parameter Name="Sales_Phase" Mode="In" Type="String" />
+      <Parameter Name="Follow_Up_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Closed_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="FK_Status" Mode="In" Type="String" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+      <Parameter Name="Forecast" Mode="In" Type="Boolean" />
+      <Parameter Name="FK_Opportunity_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Visit_Type_Id" Mode="In" Type="String" />
+      <Parameter Name="List_Visit_Start_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="List_Visit_Start_Time" Mode="In" Type="String" />
+      <Parameter Name="List_Visit_End_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="List_Visit_End_Time" Mode="In" Type="String" />
+      <Parameter Name="PK_Visit" Mode="In" Type="Int32" />
+      <Parameter Name="PK_Competitor_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Competitor_Type_Id" Mode="In" Type="String" />
+      <Parameter Name="FK_Competitor_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Is_Main" Mode="In" Type="Boolean" />
+      <Parameter Name="Comp_Product" Mode="In" Type="String" />
+      <Parameter Name="Comp_Price" Mode="In" Type="String" />
+      <Parameter Name="File_Name" Mode="In" Type="String" />
+      <Parameter Name="PK_Quotation_Id" Mode="In" Type="Int32" />
+      <Parameter Name="PK_Document_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Won_Value" Mode="In" Type="Int64" />
+      <Parameter Name="Won_Remarks" Mode="In" Type="String" />
+      <Parameter Name="Lost_Value" Mode="In" Type="Int64" />
+      <Parameter Name="FK_Lost_Competitor_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Lost_Remarks" Mode="In" Type="String" />
+      <Parameter Name="FK_Stop_Reason" Mode="In" Type="String" />
+      <Parameter Name="FK_Stop_Competitor_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Stop_Remarks" Mode="In" Type="String" />
+      <Parameter Name="FK_Range_Id" Mode="In" Type="String" />
+      <Parameter Name="FK_Sub_Range_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Quantity" Mode="In" Type="Int32" />
+      <Parameter Name="Price" Mode="In" Type="String" />
+      <Parameter Name="FK_Product_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Created_By" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_RangeType" ReturnType="Collection(AtlasW2SModel.W2S_SP_RangeType_Result)">
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Reset_Password" ReturnType="Collection(AtlasW2SModel.W2S_SP_Reset_Password_Result)">
+      <Parameter Name="User_ID" Mode="In" Type="Int32" />
+      <Parameter Name="NEWPassword" Mode="In" Type="String" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_Reset_Password2">
+      <Parameter Name="User_ID" Mode="In" Type="Int32" />
+      <Parameter Name="NEWPassword" Mode="In" Type="String" />
+      <Parameter Name="ACTION" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="W2S_SP_ROOT_MENU_LIST" ReturnType="Collection(AtlasW2SModel.W2S_SP_ROOT_MENU_LIST_Result)">
+      <Parameter Name="Action" Mode="In" Type="String" />
+      <Parameter Name="PK_Navigaion_Id" Mode="In" Type="Int32" />
+      <Parameter Name="Navigation_Menu_Name" Mode="In" Type="String" />
+      <Parameter Name="Navigation_Description" Mode="In" Type="String" />
+      <Parameter Name="Navigation_URL" Mode="In" Type="String" />
+      <Parameter Name="Navigation_Parent_Id" Mode="In" Type="Int32" />
+      <Parameter Name="FK_Designation_Id" Mode="In" Type="Int32" />
+      <Parameter Name="isActive" Mode="In" Type="Int32" />
+      <Parameter Name="Created_By" Mode="In" Type="Int32" />
+      <Parameter Name="Created_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="Modified_By" Mode="In" Type="Int32" />
+      <Parameter Name="Modified_Date" Mode="In" Type="DateTime" />
+      <Parameter Name="ROLE_ID" Mode="In" Type="Int32" />
+      <Parameter Name="USERID" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_Change_Password_Result">
+    <Property Type="Int32" Name="User_ID" Nullable="false" />
+    <Property Type="Int32" Name="TYP_ID" Nullable="true" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="loginID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="EmailID" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="IMEINo" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+    <Property Type="String" Name="ResetPasswordCode" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="ConfirmPassword" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SP_ChangePassword_Result">
+    <Property Type="Int32" Name="User_ID" Nullable="false" />
+    <Property Type="String" Name="UserName" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Password" Nullable="true" MaxLength="50" />
+    <Property Type="Boolean" Name="Status" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_GetAllUser_Result">
+    <Property Type="Int32" Name="PK_Resource_Id" Nullable="false" />
+    <Property Type="Int32" Name="FK_Designation_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_Zone_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_State_Id" Nullable="true" />
+    <Property Type="String" Name="Resource_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Login_Id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Mobile_No" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Email_Id" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="Created_Date" Nullable="true" />
+    <Property Type="Int32" Name="Created_By" Nullable="true" />
+    <Property Type="DateTime" Name="Modified_Date" Nullable="true" />
+    <Property Type="Int32" Name="Modified_By" Nullable="true" />
+    <Property Type="String" Name="Reset_PasswordCode" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SP_GetAllUser2_Result">
+    <Property Type="Int32" Name="PK_Resource_Id" Nullable="false" />
+    <Property Type="Int32" Name="FK_Designation_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_Zone_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_State_Id" Nullable="true" />
+    <Property Type="String" Name="Resource_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Login_Id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Mobile_No" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Email_Id" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="Created_Date" Nullable="true" />
+    <Property Type="Int32" Name="Created_By" Nullable="true" />
+    <Property Type="DateTime" Name="Modified_Date" Nullable="true" />
+    <Property Type="Int32" Name="Modified_By" Nullable="true" />
+    <Property Type="String" Name="Reset_PasswordCode" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="SP_USERAUTHFOR_AtlasSales_Result">
+    <Property Type="Int32" Name="PK_Resource_Id" Nullable="false" />
+    <Property Type="String" Name="Resource_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Password" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Calender_Result">
+    <Property Type="String" Name="id" Nullable="true" />
+    <Property Type="String" Name="name" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Insert_OTP_Result">
+    <Property Type="Int32" Name="PK_Resource_Id" Nullable="false" />
+    <Property Type="Int32" Name="FK_Designation_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_Zone_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_State_Id" Nullable="true" />
+    <Property Type="String" Name="Resource_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Login_Id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Mobile_No" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Email_Id" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="Created_Date" Nullable="true" />
+    <Property Type="Int32" Name="Created_By" Nullable="true" />
+    <Property Type="DateTime" Name="Modified_Date" Nullable="true" />
+    <Property Type="Int32" Name="Modified_By" Nullable="true" />
+    <Property Type="String" Name="Reset_PasswordCode" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_LeaveType_Result">
+    <Property Type="Int32" Name="W2S_List_Id" Nullable="false" />
+    <Property Type="String" Name="List_Code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="List_Desc" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_Competitor_Result">
+    <Property Type="Int32" Name="PK_Competitor_Id" Nullable="false" />
+    <Property Type="String" Name="FK_Competitor_Type_Id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Competitor_Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Competitor_Desc" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsMain" Nullable="true" />
+    <Property Type="Int32" Name="IsActive" Nullable="false" />
+    <Property Type="DateTime" Name="Created_Date" Nullable="true" />
+    <Property Type="Int32" Name="Created_By" Nullable="true" />
+    <Property Type="DateTime" Name="Modified_Date" Nullable="true" />
+    <Property Type="Int32" Name="Modified_By" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_Enquiry_Source_Result">
+    <Property Type="Int32" Name="Enquiry_Source_Id" Nullable="false" />
+    <Property Type="String" Name="Enquiry_Source_Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Enquiry_Source_Desc" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="Created_Date" Nullable="true" />
+    <Property Type="Int32" Name="Created_By" Nullable="true" />
+    <Property Type="DateTime" Name="Modified_Date" Nullable="true" />
+    <Property Type="Int32" Name="Modified_By" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_Enquiry_Type_Result">
+    <Property Type="Int32" Name="Enquiry_Type_Id" Nullable="false" />
+    <Property Type="String" Name="Enquiry_Type_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Enquiry_Type_Description" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="Created_Date" Nullable="true" />
+    <Property Type="Int32" Name="Created_By" Nullable="true" />
+    <Property Type="DateTime" Name="Modified_Date" Nullable="true" />
+    <Property Type="Int32" Name="ModifiedBy" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_GetAll_RangeType_Result">
+    <Property Type="Int32" Name="PK_SubRange_Id" Nullable="false" />
+    <Property Type="String" Name="SubRange_Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="SubRange_Description" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_Holiday_Result">
+    <Property Type="Int32" Name="PK_Holiday_Id" Nullable="false" />
+    <Property Type="String" Name="Holiday_Name" Nullable="true" MaxLength="50" />
+    <Property Type="DateTime" Name="HOLIDAYDATE" Nullable="true" />
+    <Property Type="DateTime" Name="Holiday_Date" Nullable="true" />
+    <Property Type="String" Name="Holiday_Description" Nullable="true" MaxLength="500" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_Industry_Result">
+    <Property Type="Int32" Name="Industry_Id" Nullable="false" />
+    <Property Type="String" Name="Industry_Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Industry_Desc" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_LIST_Result">
+    <Property Type="Int32" Name="W2S_List_Id" Nullable="false" />
+    <Property Type="String" Name="List_Desc" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="List_Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_Navigation_Result">
+    <Property Type="Int32" Name="PK_Navigaion_Id" Nullable="false" />
+    <Property Type="String" Name="Navigation_Menu_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Navigation_Description" Nullable="true" MaxLength="500" />
+    <Property Type="Int32" Name="Navigation_Parent_Id" Nullable="true" />
+    <Property Type="String" Name="Navigation_URL" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_Navigation_Map_Result">
+    <Property Type="String" Name="Designation_Desc" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="PK_Navigation_Role_Id" Nullable="false" />
+    <Property Type="Int32" Name="FK_Navigation_Id" Nullable="true" />
+    <Property Type="String" Name="Navigation_Menu_Name" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FK_Designation_Id" Nullable="true" />
+    <Property Type="Int32" Name="ISACTIVE" Nullable="true" />
+    <Property Type="Int32" Name="PK_Designation_Id" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_Product_Result">
+    <Property Type="Int32" Name="Product_Id" Nullable="false" />
+    <Property Type="String" Name="Product_Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Product_Desc" Nullable="true" MaxLength="200" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="Created_Date" Nullable="true" />
+    <Property Type="Int32" Name="Created_By" Nullable="true" />
+    <Property Type="DateTime" Name="Modified_Date" Nullable="true" />
+    <Property Type="Int32" Name="Modified_By" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_Range_Mapping_Result">
+    <Property Type="Int32" Name="PK_SubRange_Id" Nullable="false" />
+    <Property Type="String" Name="FK_W2S_List_Id" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="SubRange_Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="SubRange_Description" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_RangeType_Result">
+    <Property Type="String" Name="FK_W2S_List_Id" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="List_Desc" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_Resource_Result">
+    <Property Type="Int32" Name="PK_Resource_Id" Nullable="false" />
+    <Property Type="String" Name="Resource_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Login_Id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Mobile_No" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Email_Id" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FK_Designation_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_Zone_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_State_Id" Nullable="true" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="Designation_Desc" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_Resource_Map_Result">
+    <Property Type="Int32" Name="PK_Resource_Id" Nullable="false" />
+    <Property Type="String" Name="Resource_Name" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Master_SubRange_Result">
+    <Property Type="Int32" Name="PK_SubRange_Id" Nullable="false" />
+    <Property Type="String" Name="SubRange_Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="SubRange_Description" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_MASTER_USER_Result">
+    <Property Type="Int32" Name="PK_Resource_Id" Nullable="false" />
+    <Property Type="String" Name="Resource_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Login_Id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Mobile_No" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Email_Id" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="FK_Designation_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_Zone_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_State_Id" Nullable="true" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="String" Name="Designation_Desc" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Opportunity_Result">
+    <Property Type="Int64" Name="PK_Opportunity_Id" Nullable="false" />
+    <Property Type="String" Name="Opportunity_Name" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Cust_Name" Nullable="true" />
+    <Property Type="String" Name="Closed_Date" Nullable="true" MaxLength="11" />
+    <Property Type="String" Name="FK_Status" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Added_Date" Nullable="true" MaxLength="11" />
+    <Property Type="Int32" Name="Expected_Value" Nullable="true" />
+    <Property Type="String" Name="Sales_Phase" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Status" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="Resource_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="FK_Status1" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_RangeType_Result">
+    <Property Type="Int32" Name="W2S_List_Id" Nullable="false" />
+    <Property Type="String" Name="List_Code" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="List_Desc" Nullable="true" MaxLength="100" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_Reset_Password_Result">
+    <Property Type="Int32" Name="PK_Resource_Id" Nullable="false" />
+    <Property Type="Int32" Name="FK_Designation_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_Zone_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_State_Id" Nullable="true" />
+    <Property Type="String" Name="Resource_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Login_Id" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Password" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Mobile_No" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Resource_Email_Id" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="Created_Date" Nullable="true" />
+    <Property Type="Int32" Name="Created_By" Nullable="true" />
+    <Property Type="DateTime" Name="Modified_Date" Nullable="true" />
+    <Property Type="Int32" Name="Modified_By" Nullable="true" />
+    <Property Type="String" Name="Reset_PasswordCode" Nullable="true" MaxLength="50" />
+  </ComplexType>
+  <ComplexType Name="W2S_SP_ROOT_MENU_LIST_Result">
+    <Property Type="Int32" Name="PK_Navigaion_Id" Nullable="false" />
+    <Property Type="String" Name="Navigation_Menu_Name" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Navigation_Description" Nullable="true" MaxLength="500" />
+    <Property Type="String" Name="Navigation_URL" Nullable="true" MaxLength="100" />
+    <Property Type="Int32" Name="Navigation_Parent_Id" Nullable="true" />
+    <Property Type="Int32" Name="Priority" Nullable="true" />
+    <Property Type="Int32" Name="IsActive" Nullable="true" />
+    <Property Type="DateTime" Name="Created_Date" Nullable="true" />
+    <Property Type="Int32" Name="Created_By" Nullable="true" />
+    <Property Type="DateTime" Name="Modified_Date" Nullable="true" />
+    <Property Type="Int32" Name="Modified_By" Nullable="true" />
+    <Property Type="Int32" Name="PK_Navigation_Role_Id" Nullable="false" />
+    <Property Type="Int32" Name="FK_Navigation_Id" Nullable="true" />
+    <Property Type="Int32" Name="FK_Designation_Id" Nullable="true" />
+    <Property Type="Int32" Name="IsActive1" Nullable="true" />
+    <Property Type="DateTime" Name="Created_Date1" Nullable="true" />
+    <Property Type="Int32" Name="Created_By1" Nullable="true" />
+    <Property Type="DateTime" Name="Modify_Date" Nullable="true" />
+    <Property Type="DateTime" Name="Modify_By" Nullable="true" />
+  </ComplexType>
+</Schema>
