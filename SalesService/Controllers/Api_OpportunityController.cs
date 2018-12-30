@@ -7,6 +7,7 @@ using System.Web.Http;
 using SalesService.Models;
 using SalesService.CustomModel;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace SalesService.Controllers
 {
@@ -16,7 +17,7 @@ namespace SalesService.Controllers
         ResponseClass response = new ResponseClass();
         [HttpPost]
         [ActionName("GetOpportunityList")]
-        public HttpResponseMessage GetOpportunityList()
+        public HttpResponseMessage GetOpportunityList(GetOpportunityListBO getOpportunityListBO)
         {
             try
             {
@@ -24,7 +25,7 @@ namespace SalesService.Controllers
                 {
                     var data = _db.Database.SqlQuery<GetOpportunityListBO>("W2S_SP_Get_Opportunity_List @Action,@PK_Opportunity_Id,@FK_Customer_Id,@Opportunity_Name,@FK_Opportunity_Id,@FK_Competitor_Type_Id",
                        new SqlParameter("@Action", "Get_Opportunity_List"),
-                       new SqlParameter("@PK_Opportunity_Id", ""),
+                       new SqlParameter("@PK_Opportunity_Id", getOpportunityListBO.Created_By),
                        new SqlParameter("@FK_Customer_Id", ""),
                        new SqlParameter("@Opportunity_Name", ""),
                        new SqlParameter("@FK_Opportunity_Id", ""),
@@ -63,12 +64,10 @@ namespace SalesService.Controllers
                         "@FK_Opportunity_Source," +
                         "@FK_Opportunity_Type," +
                         "@Opportunity_Name," +
-                        "@Start_Date," +
                         "@Expected_Value," +
                         "@Chance_Of_Success," +
                         "@Sales_Phase," +
                         "@Closed_Date," +
-                        "@FK_Status," +
                         "@Forecast," +
                         "@Created_By",
                        new SqlParameter("@FK_Customer_Id", addOpportunityBO.FK_Customer_Id),
@@ -76,13 +75,11 @@ namespace SalesService.Controllers
                        new SqlParameter("FK_Opportunity_Source", addOpportunityBO.FK_Opportunity_Source),
                        new SqlParameter("FK_Opportunity_Type", addOpportunityBO.FK_Opportunity_Type),
                        new SqlParameter("Opportunity_Name", addOpportunityBO.Opportunity_Name),
-                       new SqlParameter("Start_Date", addOpportunityBO.Start_Date),
                        new SqlParameter("Expected_Value", addOpportunityBO.Expected_Value),
                        new SqlParameter("Chance_Of_Success", addOpportunityBO.Chance_Of_Success),
                        new SqlParameter("Sales_Phase", addOpportunityBO.Sales_Phase),
                        new SqlParameter("Closed_Date", addOpportunityBO.Closed_Date),
-                       new SqlParameter("FK_Status", addOpportunityBO.FK_Status),
-                       new SqlParameter("Forecast", addOpportunityBO.Forecast == null ? Convert.ToInt16(addOpportunityBO.Forecast) : 0),
+                       new SqlParameter("Forecast", addOpportunityBO.Forecast),
                        new SqlParameter("Created_By", addOpportunityBO.Created_By)
                        ).ToList();
 
@@ -115,7 +112,12 @@ namespace SalesService.Controllers
             {
                 using (_db = new AtlasW2SEntities())
                 {
-                    var data = _db.Database.SqlQuery<GetOpportunityListBO>("W2S_SP_Get_Opportunity_List @Action,@PK_Opportunity_Id,@FK_Customer_Id,@Opportunity_Name,@FK_Opportunity_Id,@FK_Competitor_Type_Id",
+                    List<GetOpportunityListBO> obj = new List<GetOpportunityListBO>();
+                    List<CustomerContactPersonDetailsBO> obj1 = new List<CustomerContactPersonDetailsBO>();
+                    List<OpportunityCompetitorBO> obj2 = new List<OpportunityCompetitorBO>();
+                    List<ProductBO> obj3 = new List<ProductBO>();
+                    // List<QuotationListBO> obj4 = new List<QuotationListBO>();
+                    obj = _db.Database.SqlQuery<GetOpportunityListBO>("W2S_SP_Get_Opportunity_List @Action,@PK_Opportunity_Id,@FK_Customer_Id,@Opportunity_Name,@FK_Opportunity_Id,@FK_Competitor_Type_Id",
                          new SqlParameter("@Action", "Get_Opportunity_Details"),
                          new SqlParameter("@PK_Opportunity_Id", PK_Opportunity_Id),
                          new SqlParameter("@FK_Customer_Id", ""),
@@ -124,14 +126,61 @@ namespace SalesService.Controllers
                          new SqlParameter("@FK_Competitor_Type_Id", "")
                        ).ToList();
 
-                    if (data != null)
+                    if (obj[0].PK_Cust_Id != 0)
                     {
-                        return Request.CreateResponse(HttpStatusCode.OK, data);
+                        obj1 = _db.Database.SqlQuery<CustomerContactPersonDetailsBO>("W2S_SP_Get_Opportunity_List @Action,@PK_Opportunity_Id,@FK_Customer_Id,@Opportunity_Name,@FK_Opportunity_Id,@FK_Competitor_Type_Id",
+                        new SqlParameter("@Action", "Get_ContactPerson_Details"),
+                        new SqlParameter("@PK_Opportunity_Id", ""),
+                        new SqlParameter("@FK_Customer_Id", obj[0].PK_Cust_Id),
+                        new SqlParameter("@Opportunity_Name", ""),
+                        new SqlParameter("@FK_Opportunity_Id", ""),
+                        new SqlParameter("@FK_Competitor_Type_Id", "")
+                      ).ToList();
                     }
-                    else
+                    obj2 = _db.Database.SqlQuery<OpportunityCompetitorBO>("W2S_SP_Get_Opportunity_List @Action,@PK_Opportunity_Id,@FK_Customer_Id,@Opportunity_Name,@FK_Opportunity_Id,@FK_Competitor_Type_Id",
+                         new SqlParameter("@Action", "Get_OpportunityCompetitorDetails"),
+                         new SqlParameter("@PK_Opportunity_Id", ""),
+                         new SqlParameter("@FK_Customer_Id", ""),
+                         new SqlParameter("@Opportunity_Name", ""),
+                         new SqlParameter("@FK_Opportunity_Id", PK_Opportunity_Id),
+                         new SqlParameter("@FK_Competitor_Type_Id", "")
+                       ).ToList();
+
+
+                    obj3 = _db.Database.SqlQuery<ProductBO>("W2S_SP_Get_Opportunity_List @Action,@PK_Opportunity_Id,@FK_Customer_Id,@Opportunity_Name,@FK_Opportunity_Id,@FK_Competitor_Type_Id",
+                                               new SqlParameter("@Action", "Get_Oppor_Prod_List"),
+                                               new SqlParameter("@PK_Opportunity_Id", PK_Opportunity_Id),
+                                               new SqlParameter("@FK_Customer_Id", ""),
+                                               new SqlParameter("@Opportunity_Name", ""),
+                                               new SqlParameter("@FK_Opportunity_Id", ""),
+                                               new SqlParameter("@FK_Competitor_Type_Id", "")
+                                             ).ToList();
+
+                    var obj4 = _db.Database.SqlQuery<QuotationListBO>("W2S_SP_AddCompetitor @Action,@FK_Opportunity_Id,@FK_Competitor_Type_Id,@FK_Competitor_Id,@Is_Main,@Comp_Product,@Comp_Price,@PK_Competitor_Id",
+                       new SqlParameter("@Action", "Get_Quotation_List"),
+                       new SqlParameter("@FK_Opportunity_Id", PK_Opportunity_Id),
+                       new SqlParameter("@FK_Competitor_Type_Id", ""),
+                       new SqlParameter("@FK_Competitor_Id", ""),
+                       new SqlParameter("@Is_Main", ""),
+                       new SqlParameter("@Comp_Product", ""),
+                       new SqlParameter("@Comp_Price", ""),
+                       new SqlParameter("@PK_Competitor_Id", "")
+                      ).ToList();
+                    List<QuotationListBO> LisObkj = new List<QuotationListBO>();
+
+                    for (int i = 0; i < obj4.Count; i++)
                     {
-                        return Request.CreateResponse(HttpStatusCode.OK, "False");
+                        QuotationListBO obj5 = new QuotationListBO();
+                        obj5.PK_Quotation_Id = obj4[i].PK_Quotation_Id;
+                        obj5.FK_Opportunity_Id = obj4[i].FK_Opportunity_Id;
+                        obj5.File_Name = obj4[i].File_Name.Substring(18);
+                        obj5.Added_Date = obj4[i].Added_Date;
+                        obj5.Url = ConfigurationManager.AppSettings["QuatationAttachmentPath"] + obj4[i].File_Name;
+                        LisObkj.Add(obj5);
                     }
+
+                    return Request.CreateResponse(HttpStatusCode.OK, new { overView = obj, ContactPerson = obj1, Competitor = obj2, Product = obj3, Quotation = LisObkj });
+
                 }
             }
             catch (Exception ex)
@@ -399,7 +448,6 @@ namespace SalesService.Controllers
             }
         }
 
-
         [HttpPost]
         [ActionName("Get_OpportunityVisitDetails")]
         public HttpResponseMessage Get_OpportunityVisitDetails(int FK_Opportunity_Id)
@@ -442,7 +490,7 @@ namespace SalesService.Controllers
             {
                 using (_db = new AtlasW2SEntities())
                 {
-                    var data = _db.Database.SqlQuery<OpportunityVisit>("W2S_SP_AddVisits @Action,@PK_Visit,@FK_Opportunity_Id,@FK_Visit_Type_Id,@List_Visit_Start_Date,@List_Visit_Start_Time,@List_Visit_End_Date,@List_Visit_End_Time",
+                    var data = _db.Database.SqlQuery<OpportunityVisit>("W2S_SP_AddVisits @Action,@PK_Visit,@FK_Opportunity_Id,@FK_Visit_Type_Id,@List_Visit_Start_Date,@List_Visit_Start_Time,@List_Visit_End_Date,@List_Visit_End_Time,@Created_By",
                          new SqlParameter("@Action", "Add_Visits"),
                          new SqlParameter("@PK_Visit", ""),
                          new SqlParameter("@FK_Opportunity_Id", opportunityVisit.FK_Opportunity_Id),
@@ -450,7 +498,8 @@ namespace SalesService.Controllers
                          new SqlParameter("@List_Visit_Start_Date", opportunityVisit.List_Visit_Start_Date),
                          new SqlParameter("@List_Visit_Start_Time", opportunityVisit.List_Visit_Start_Time),
                          new SqlParameter("@List_Visit_End_Date", opportunityVisit.List_Visit_End_Date),
-                         new SqlParameter("@List_Visit_End_Time", opportunityVisit.List_Visit_End_Time)
+                         new SqlParameter("@List_Visit_End_Time", opportunityVisit.List_Visit_End_Time),
+                         new SqlParameter("@Created_By", opportunityVisit.Created_By)
                         ).ToList();
                     if (data[0].PK_Visit > 0)
                     {
@@ -480,7 +529,7 @@ namespace SalesService.Controllers
             {
                 using (_db = new AtlasW2SEntities())
                 {
-                    var data = _db.Database.SqlQuery<OpportunityVisit>("W2S_SP_AddVisits @Action,@PK_Visit,@FK_Opportunity_Id,@FK_Visit_Type_Id,@List_Visit_Start_Date,@List_Visit_Start_Time,@List_Visit_End_Date,@List_Visit_End_Time",
+                    var data = _db.Database.SqlQuery<OpportunityVisit>("W2S_SP_AddVisits @Action,@PK_Visit,@FK_Opportunity_Id,@FK_Visit_Type_Id,@List_Visit_Start_Date,@List_Visit_Start_Time,@List_Visit_End_Date,@List_Visit_End_Time,@Created_By",
                          new SqlParameter("@Action", "Delete_Visits"),
                          new SqlParameter("@PK_Visit", PK_Visit),
                          new SqlParameter("@FK_Opportunity_Id", ""),
@@ -488,7 +537,8 @@ namespace SalesService.Controllers
                          new SqlParameter("@List_Visit_Start_Date", ""),
                          new SqlParameter("@List_Visit_Start_Time", ""),
                          new SqlParameter("@List_Visit_End_Date", ""),
-                         new SqlParameter("@List_Visit_End_Time", "")
+                         new SqlParameter("@List_Visit_End_Time", ""),
+                         new SqlParameter("@Created_By", "")
                         ).ToList();
                     if (data != null)
                     {
@@ -537,7 +587,6 @@ namespace SalesService.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest, new { Error = ex.InnerException.Message });
             }
         }
-
 
         [HttpPost]
         [ActionName("Get_OpportunityCompetitorDetails")]
@@ -668,9 +717,23 @@ namespace SalesService.Controllers
                          new SqlParameter("@Comp_Price", ""),
                          new SqlParameter("@PK_Competitor_Id", "")
                         ).ToList();
+                    List<QuotationListBO> LisObkj = new List<QuotationListBO>();
+
+                    for (int i = 0; i < data.Count; i++)
+                    {
+                        QuotationListBO obj = new QuotationListBO();
+                        obj.PK_Quotation_Id = data[i].PK_Quotation_Id;
+                        obj.FK_Opportunity_Id = data[i].FK_Opportunity_Id;
+                        obj.File_Name = data[i].File_Name.Substring(18);
+                        obj.Added_Date = data[i].Added_Date;
+                        obj.Url = ConfigurationManager.AppSettings["QuatationAttachmentPath"] + data[i].File_Name;
+                        LisObkj.Add(obj);
+                    }
+
+
                     if (data != null)
                     {
-                        return Request.CreateResponse(HttpStatusCode.OK, data);
+                        return Request.CreateResponse(HttpStatusCode.OK, LisObkj);
                     }
                     else
                     {
@@ -786,14 +849,15 @@ namespace SalesService.Controllers
             {
                 using (_db = new AtlasW2SEntities())
                 {
-                    var data = _db.Database.SqlQuery<ProductBO>("W2S_SP_Product @Action,@FK_Sub_Range_Id,@FK_Opportunity_Id,@FK_Range_Id,@Quantity,@Price,@FK_Product_Id",
+                    var data = _db.Database.SqlQuery<ProductBO>("W2S_SP_Product @Action,@FK_Sub_Range_Id,@FK_Opportunity_Id,@FK_Range_Id,@Quantity,@Price,@FK_Product_Id,@Created_By",
                          new SqlParameter("@Action", "Get_Product_List"),
                          new SqlParameter("@FK_Sub_Range_Id", FK_Sub_Range_Id),
-                         new SqlParameter("@FK_Opportunity_Id", FK_Sub_Range_Id),
-                         new SqlParameter("@FK_Range_Id", FK_Sub_Range_Id),
-                         new SqlParameter("@Quantity", FK_Sub_Range_Id),
-                         new SqlParameter("@Price", FK_Sub_Range_Id),
-                         new SqlParameter("@FK_Product_Id", FK_Sub_Range_Id)
+                         new SqlParameter("@FK_Opportunity_Id", ""),
+                         new SqlParameter("@FK_Range_Id", ""),
+                         new SqlParameter("@Quantity", ""),
+                         new SqlParameter("@Price", ""),
+                         new SqlParameter("@FK_Product_Id", ""),
+                         new SqlParameter("@Created_By", "")
                         ).ToList();
                     if (data != null)
                     {
@@ -820,7 +884,7 @@ namespace SalesService.Controllers
             {
                 using (_db = new AtlasW2SEntities())
                 {
-                    var data = _db.Database.SqlQuery<OpportunityCompetitorBO>("W2S_SP_Get_Opportunity_List @Action,@PK_Opportunity_Id,@FK_Customer_Id,@Opportunity_Name,@FK_Opportunity_Id,@FK_Competitor_Type_Id",
+                    var data = _db.Database.SqlQuery<ProductBO>("W2S_SP_Get_Opportunity_List @Action,@PK_Opportunity_Id,@FK_Customer_Id,@Opportunity_Name,@FK_Opportunity_Id,@FK_Competitor_Type_Id",
                           new SqlParameter("@Action", "Get_Oppor_Prod_List"),
                           new SqlParameter("@PK_Opportunity_Id", PK_Opportunity_Id),
                           new SqlParameter("@FK_Customer_Id", ""),
@@ -828,6 +892,7 @@ namespace SalesService.Controllers
                           new SqlParameter("@FK_Opportunity_Id", ""),
                           new SqlParameter("@FK_Competitor_Type_Id", "")
                         ).ToList();
+
 
                     if (data != null)
                     {
@@ -880,26 +945,28 @@ namespace SalesService.Controllers
             }
         }
 
-
         [HttpPost]
         [ActionName("Add_Won")]
-        public HttpResponseMessage Add_Won(WonLostBO wonLostBO)
+        public HttpResponseMessage Add_Won(StatusClass statusClass)
         {
             try
             {
                 using (_db = new AtlasW2SEntities())
                 {
-                    var data = _db.Database.SqlQuery<WonLostBO>("W2S_SP_Add_Won_Lost @Action,@PK_Opportunity_Id,@Won_Value,@Won_Remarks,@Lost_Value,@FK_Lost_Competitor_Id,@Lost_Remarks,@Stop_Remarks,@FK_Stop_Competitor_Id,@FK_Stop_Reason",
+                    var data = _db.Database.SqlQuery<StatusClass>("W2S_SP_Add_Won_Lost @Action,@PK_Opportunity_Id,@Value,@Competitor_Id,@Remarks,@Reason,@BetterOrder,@Feedback,@Ordervalue,@NextPurchaseFlag,@ModelNo,@SerialNo,@FileName",
                          new SqlParameter("@Action", "Add_Won"),
-                         new SqlParameter("@PK_Opportunity_Id", wonLostBO.PK_Opportunity_Id),
-                         new SqlParameter("@Won_Value", wonLostBO.Won_Value),
-                         new SqlParameter("@Won_Remarks", wonLostBO.Won_Remarks),
-                         new SqlParameter("@Lost_Value", ""),
-                         new SqlParameter("@FK_Lost_Competitor_Id", ""),
-                         new SqlParameter("@Lost_Remarks", ""),
-                         new SqlParameter("@Stop_Remarks", ""),
-                         new SqlParameter("@FK_Stop_Competitor_Id", ""),
-                         new SqlParameter("@FK_Stop_Reason", "")
+                         new SqlParameter("@PK_Opportunity_Id", statusClass.PK_Opportunity_Id),
+                         new SqlParameter("@Value", statusClass.Value),
+                         new SqlParameter("@Competitor_Id", ""),
+                         new SqlParameter("@Remarks", statusClass.Remarks),
+                         new SqlParameter("@Reason", statusClass.Reason),
+                         new SqlParameter("@BetterOrder", statusClass.BetterOrder),
+                         new SqlParameter("@Feedback", statusClass.Feedback),
+                         new SqlParameter("@Ordervalue", statusClass.Ordervalue),
+                         new SqlParameter("@NextPurchaseFlag", ""),
+                         new SqlParameter("@ModelNo", ""),
+                         new SqlParameter("@SerialNo", ""),
+                         new SqlParameter("@FileName", statusClass.filename == null ? "" : statusClass.filename)
                         ).ToList();
                     if (data != null)
                     {
@@ -921,26 +988,28 @@ namespace SalesService.Controllers
             }
         }
 
-
         [HttpPost]
         [ActionName("Add_Lost")]
-        public HttpResponseMessage Add_Lost(WonLostBO wonLostBO)
+        public HttpResponseMessage Add_Lost(StatusClass statusClass)
         {
             try
             {
                 using (_db = new AtlasW2SEntities())
                 {
-                    var data = _db.Database.SqlQuery<WonLostBO>("W2S_SP_Add_Won_Lost @Action,@PK_Opportunity_Id,@Won_Value,@Won_Remarks,@Lost_Value,@FK_Lost_Competitor_Id,@Lost_Remarks,@Stop_Remarks,@FK_Stop_Competitor_Id,@FK_Stop_Reason",
+                    var data = _db.Database.SqlQuery<StatusClass>("W2S_SP_Add_Won_Lost @Action,@PK_Opportunity_Id,@Value,@Competitor_Id,@Remarks,@Reason,@BetterOrder,@Feedback,@Ordervalue,@NextPurchaseFlag,@ModelNo,@SerialNo,@FileName",
                          new SqlParameter("@Action", "Add_Lost"),
-                         new SqlParameter("@PK_Opportunity_Id", wonLostBO.PK_Opportunity_Id),
-                         new SqlParameter("@Won_Value", ""),
-                         new SqlParameter("@Won_Remarks", ""),
-                         new SqlParameter("@Lost_Value", wonLostBO.Lost_Value),
-                         new SqlParameter("@FK_Lost_Competitor_Id", wonLostBO.FK_Lost_Competitor_Id),
-                         new SqlParameter("@Lost_Remarks", wonLostBO.Lost_Remarks),
-                         new SqlParameter("@Stop_Remarks", ""),
-                         new SqlParameter("@FK_Stop_Competitor_Id", ""),
-                         new SqlParameter("@FK_Stop_Reason", "")
+                         new SqlParameter("@PK_Opportunity_Id", statusClass.PK_Opportunity_Id),
+                         new SqlParameter("@Value", statusClass.Value),
+                         new SqlParameter("@Competitor_Id", ""),
+                         new SqlParameter("@Remarks", statusClass.Remarks),
+                         new SqlParameter("@Reason", statusClass.Reason),
+                         new SqlParameter("@BetterOrder", statusClass.BetterOrder),
+                         new SqlParameter("@Feedback", statusClass.Feedback),
+                         new SqlParameter("@Ordervalue", ""),
+                         new SqlParameter("@NextPurchaseFlag", statusClass.NextPurchaseFlag),
+                         new SqlParameter("@ModelNo", ""),
+                         new SqlParameter("@SerialNo", ""),
+                         new SqlParameter("@FileName", "")
                         ).ToList();
                     if (data != null)
                     {
@@ -962,26 +1031,28 @@ namespace SalesService.Controllers
             }
         }
 
-
         [HttpPost]
         [ActionName("Add_Stop")]
-        public HttpResponseMessage Add_Stop(WonLostBO wonLostBO)
+        public HttpResponseMessage Add_Stop(StatusClass statusClass)
         {
             try
             {
                 using (_db = new AtlasW2SEntities())
                 {
-                    var data = _db.Database.SqlQuery<WonLostBO>("W2S_SP_Add_Won_Lost @Action,@PK_Opportunity_Id,@Won_Value,@Won_Remarks,@Lost_Value,@FK_Lost_Competitor_Id,@Lost_Remarks,@Stop_Remarks,@FK_Stop_Competitor_Id,@FK_Stop_Reason",
+                    var data = _db.Database.SqlQuery<StatusClass>("W2S_SP_Add_Won_Lost @Action,@PK_Opportunity_Id,@Value,@Competitor_Id,@Remarks,@Reason,@BetterOrder,@Feedback,@Ordervalue,@NextPurchaseFlag,@ModelNo,@SerialNo,@FileName",
                          new SqlParameter("@Action", "Add_Stop"),
-                         new SqlParameter("@PK_Opportunity_Id", wonLostBO.PK_Opportunity_Id),
-                         new SqlParameter("@Won_Value", ""),
-                         new SqlParameter("@Won_Remarks", ""),
-                         new SqlParameter("@Lost_Value", ""),
-                         new SqlParameter("@FK_Lost_Competitor_Id", ""),
-                         new SqlParameter("@Lost_Remarks", ""),
-                         new SqlParameter("@Stop_Remarks", wonLostBO.Stop_Remarks),
-                         new SqlParameter("@FK_Stop_Competitor_Id", wonLostBO.FK_Stop_Competitor_Id),
-                         new SqlParameter("@FK_Stop_Reason", wonLostBO.FK_Stop_Reason)
+                         new SqlParameter("@PK_Opportunity_Id", statusClass.PK_Opportunity_Id),
+                         new SqlParameter("@Value", ""),
+                         new SqlParameter("@Competitor_Id", statusClass.Competitor_Id),
+                         new SqlParameter("@Remarks", statusClass.Remarks),
+                         new SqlParameter("@Reason", statusClass.Reason),
+                         new SqlParameter("@BetterOrder", ""),
+                         new SqlParameter("@Feedback", ""),
+                         new SqlParameter("@Ordervalue", ""),
+                         new SqlParameter("@NextPurchaseFlag", ""),
+                         new SqlParameter("@ModelNo", statusClass.ModelNo),
+                         new SqlParameter("@SerialNo", statusClass.SerialNo),
+                         new SqlParameter("@FileName", "")
                         ).ToList();
                     if (data != null)
                     {
@@ -1002,6 +1073,7 @@ namespace SalesService.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest, new { Error = ex.InnerException.Message });
             }
         }
+
 
         [HttpPost]
         [ActionName("SetAsInProc")]
@@ -1115,7 +1187,6 @@ namespace SalesService.Controllers
             }
         }
 
-
         [HttpPost]
         [ActionName("Add_Document")]
         public HttpResponseMessage Add_Document(Document_ListBO document_ListBO)
@@ -1180,7 +1251,6 @@ namespace SalesService.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest, new { Error = ex.InnerException.Message });
             }
         }
-
 
         [HttpPost]
         [ActionName("Add_Quotation")]
@@ -1254,27 +1324,20 @@ namespace SalesService.Controllers
             {
                 using (_db = new AtlasW2SEntities())
                 {
-                    //if (productBO.PK_Oppor_Product_Id != null)
-                    //{
-                    //    var data1 = _db.Database.SqlQuery<ProductBO>("W2S_SP_Product @Action,@FK_Sub_Range_Id,@FK_Opportunity_Id,@FK_Range_Id,@Quantity,@Price,@FK_Product_Id",
-                    //           new SqlParameter("@Action", "Delete_opporProduct"),
-                    //           new SqlParameter("@FK_Sub_Range_Id", ""),
-                    //           new SqlParameter("@FK_Opportunity_Id", productBO.PK_Oppor_Product_Id),
-                    //           new SqlParameter("@FK_Range_Id", ""),
-                    //           new SqlParameter("@Quantity", ""),
-                    //           new SqlParameter("@Price", ""),
-                    //           new SqlParameter("@FK_Product_Id", "")
-                    //           ).ToList();
-                    //}
-                    //var data = _db.Database.SqlQuery<ProductBO>("W2S_SP_Product @Action,@FK_Sub_Range_Id,@FK_Opportunity_Id,@FK_Range_Id,@Quantity,@Price,@FK_Product_Id",
-                    //  new SqlParameter("@Action", "Add_opporProduct"),
-                    //  new SqlParameter("@FK_Sub_Range_Id", productBO.FK_Sub_Range_Id),
-                    //  new SqlParameter("@FK_Opportunity_Id", productBO.FK_Opportunity_Id),
-                    //  new SqlParameter("@FK_Range_Id", productBO.FK_Range_Id),
-                    //  new SqlParameter("@Quantity", productBO.Quantity),
-                    //  new SqlParameter("@Price", productBO.Price),
-                    //  new SqlParameter("@FK_Product_Id", productBO.Product_Id)
-                    // ).ToList();
+                    if (getOpportunityListBO.FK_Opportunity_Id != null)
+                    {
+
+                        var data1 = _db.Database.SqlQuery<ProductBO>("W2S_SP_Product @Action,@FK_Sub_Range_Id,@FK_Opportunity_Id,@FK_Range_Id,@Quantity,@Price,@FK_Product_Id,@Created_By",
+                               new SqlParameter("@Action", "Delete_opporProduct"),
+                               new SqlParameter("@FK_Sub_Range_Id", getOpportunityListBO.FK_Sub_Range_Id),
+                               new SqlParameter("@FK_Opportunity_Id", ""),
+                               new SqlParameter("@FK_Range_Id", getOpportunityListBO.FK_Range_Id),
+                               new SqlParameter("@Quantity", ""),
+                               new SqlParameter("@Price", ""),
+                               new SqlParameter("@FK_Product_Id", ""),
+                               new SqlParameter("@Created_By", "")
+                               ).ToList();
+                    }
                     if (getOpportunityListBO.ProductBO.Count > 0)
                     {
                         for (int i = 0; i < getOpportunityListBO.ProductBO.Count; i++)
@@ -1282,28 +1345,20 @@ namespace SalesService.Controllers
                             if (getOpportunityListBO.ProductBO[i].ISCHECKED == true)
                             {
 
-                                var data = _db.Database.SqlQuery<ProductBO>("W2S_SP_Product @Action,@FK_Sub_Range_Id,@FK_Opportunity_Id,@FK_Range_Id,@Quantity,@Price,@FK_Product_Id",
+                                var data = _db.Database.SqlQuery<ProductBO>("W2S_SP_Product @Action,@FK_Sub_Range_Id,@FK_Opportunity_Id,@FK_Range_Id,@Quantity,@Price,@FK_Product_Id,@Created_By",
                                 new SqlParameter("@Action", "Add_opporProduct"),
-                                new SqlParameter("@FK_Sub_Range_Id", getOpportunityListBO.ProductBO[i].FK_Sub_Range_Id),
-                                new SqlParameter("@FK_Opportunity_Id", getOpportunityListBO.ProductBO[i].FK_Opportunity_Id),
-                                //new SqlParameter("@FK_Range_Id", productBO[i].FK_Range_Id),
-                                new SqlParameter("@Quantity", getOpportunityListBO.ProductBO[i].Quantity)
-                               //new SqlParameter("@Price", productBO.Price),
-                               //new SqlParameter("@FK_Product_Id", productBO.Product_Id)
+                                new SqlParameter("@FK_Sub_Range_Id", getOpportunityListBO.FK_Sub_Range_Id),
+                                new SqlParameter("@FK_Opportunity_Id", getOpportunityListBO.FK_Opportunity_Id),
+                                new SqlParameter("@FK_Range_Id", getOpportunityListBO.FK_Range_Id),
+                                new SqlParameter("@Quantity", getOpportunityListBO.ProductBO[i].Quantity),
+                                new SqlParameter("@Price", getOpportunityListBO.ProductBO[i].Price),
+                                new SqlParameter("@FK_Product_Id", getOpportunityListBO.ProductBO[i].Product_Id),
+                                new SqlParameter("@Created_By", getOpportunityListBO.Created_By)
                                ).ToList();
-                                if (data != null)
-                                {
-                                    return Request.CreateResponse(HttpStatusCode.OK, data);
-                                }
-                                else
-                                {
-                                    return Request.CreateResponse(HttpStatusCode.OK, "False");
-                                }
                             }
                         }
                     }
                     return Request.CreateResponse(HttpStatusCode.OK, "");
-
                 }
             }
             catch (Exception ex)
@@ -1312,5 +1367,82 @@ namespace SalesService.Controllers
                 return Request.CreateResponse(HttpStatusCode.BadRequest, new { Error = ex.InnerException.Message });
             }
         }
+
+        [HttpPost]
+        [ActionName("VisitList")]
+        public HttpResponseMessage VisitList(OpportunityVisit opportunityVisit)
+        {
+            try
+            {
+                using (_db = new AtlasW2SEntities())
+                {
+                    //var data = _db.Database.SqlQuery<OpportunityVisit>("W2S_SP_Get_Opportunity_List @Action,@PK_Opportunity_Id,@FK_Customer_Id,@Opportunity_Name,@FK_Opportunity_Id,@FK_Competitor_Type_Id",
+                    //     new SqlParameter("@Action", "Visit_List"),
+                    //     new SqlParameter("@PK_Opportunity_Id", ""),
+                    //     new SqlParameter("@FK_Customer_Id", ""),
+                    //     new SqlParameter("@Opportunity_Name", ""),
+                    //     new SqlParameter("@FK_Opportunity_Id", ""),
+                    //     new SqlParameter("@FK_Competitor_Type_Id", "")
+                    //   ).ToList();
+                    var data = _db.Database.SqlQuery<OpportunityVisit>("W2S_SP_VisitDetails @Created_By ",
+                         new SqlParameter("@Created_By", opportunityVisit.Created_By)
+                       ).ToList();
+
+                    if (data != null)
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, data);
+                    }
+                    else
+                    {
+                        return Request.CreateResponse(HttpStatusCode.OK, "False");
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                ExceptionHandling(ex.GetType().ToString(), "Get_OpportunityVisitDetails", ex.Message, "");
+                return Request.CreateResponse(HttpStatusCode.BadRequest, new { Error = ex.InnerException.Message });
+            }
+        }
+
+        //[HttpPost]
+        //[ActionName("Add_InProc")]
+        //public HttpResponseMessage Add_InProc(WonLostBO wonLostBO)
+        //{
+        //    try
+        //    {
+        //        using (_db = new AtlasW2SEntities())
+        //        {
+        //            var data = _db.Database.SqlQuery<WonLostBO>("W2S_SP_Add_Won_Lost @Action,@PK_Opportunity_Id,@Won_Value,@Won_Remarks,@Lost_Value,@FK_Lost_Competitor_Id,@Lost_Remarks,@Stop_Remarks,@FK_Stop_Competitor_Id,@FK_Stop_Reason",
+        //                 new SqlParameter("@Action", "Add_InProcess"),
+        //                 new SqlParameter("@PK_Opportunity_Id", wonLostBO.PK_Opportunity_Id),
+        //                 new SqlParameter("@Won_Value", ""),
+        //                 new SqlParameter("@Won_Remarks",""),
+        //                 new SqlParameter("@Lost_Value", ""),
+        //                 new SqlParameter("@FK_Lost_Competitor_Id", ""),
+        //                 new SqlParameter("@Lost_Remarks", ""),
+        //                 new SqlParameter("@Stop_Remarks", ""),
+        //                 new SqlParameter("@FK_Stop_Competitor_Id", ""),
+        //                 new SqlParameter("@FK_Stop_Reason", "")
+        //                ).ToList();
+        //            if (data != null)
+        //            {
+        //                response.IsSuccess = true;
+        //                response.Message = "Record saved successfully.";
+        //                response.ResponseData = "";
+        //                return Request.CreateResponse(HttpStatusCode.OK, response);
+        //            }
+        //            else
+        //            {
+        //                return Request.CreateResponse(HttpStatusCode.OK, "False");
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        ExceptionHandling(ex.GetType().ToString(), "Add_Won", ex.Message, "");
+        //        return Request.CreateResponse(HttpStatusCode.BadRequest, new { Error = ex.InnerException.Message });
+        //    }
+        //}
     }
 }

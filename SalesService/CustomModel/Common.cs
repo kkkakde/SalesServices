@@ -13,6 +13,7 @@ namespace SalesService.CustomModel
         public int? MODIFIED_BY { get; set; }
         public string MODIFIED_DATE { get; set; }
         public int ISACTIVE { get; set; }
+        public int? State_Id { get; set; }
     }
 
     public class ZoneListBO
@@ -39,6 +40,7 @@ namespace SalesService.CustomModel
         public bool IsSuccess { get; set; }
         public string Message { get; set; }
         public object ResponseData { get; set; }
+        public object Response { get; set; }
     }
     public class Industry
     {
@@ -46,5 +48,33 @@ namespace SalesService.CustomModel
         public string Industry_Name { get; set; }
         public string Industry_Desc { get; set; }
         public int IsActive { get; set; }
+    }
+    public class SegmentType
+    {
+        public int W2S_List_Id { get; set; }
+        public string List_Code { get; set; }
+        public string List_Desc { get; set; }
+
+    }
+    public class DesignationListBO
+    {
+        public int PK_Designation_Id { get; set; }
+        public string Designation_Desc { get; set; }
+    }
+    public class User
+    {
+        public string username { get; set; }
+        public string password { get; set; }
+    }
+
+    public class MenuListBO
+    {
+        public int? FK_Designation_Id { get; set; }
+        public int? PK_Navigaion_Id { get; set; }
+        public int? Navigation_Parent_Id { get; set; }
+        public string Navigation_Menu_Name { get; set; }
+        public string Navigation_Description { get; set; }
+        public string Navigation_URL { get; set; }
+
     }
 }

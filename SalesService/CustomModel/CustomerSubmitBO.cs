@@ -11,6 +11,8 @@ namespace SalesService.CustomModel
         public string Cust_Name { get; set; }
         public string Cust_Address_Line1 { get; set; }
         public string Cust_Address_Line2 { get; set; }
+        public string LandlineNo { get; set; }
+        public string VisitType { get; set; }
         public int? FK_Zone_Id { get; set; }
         public int? FK_State_Id { get; set; }
         public int? FK_City_Id { get; set; }
@@ -19,16 +21,20 @@ namespace SalesService.CustomModel
         public string Cust_End_Product { get; set; }
         public int? Created_By { get; set; }
         public string[] PK_Industry_Id { get; set; }
+        public string VisitingCardPath { get; set; }
     }
     public class CompressorRoomDetails
     {
         public int? PK_Cust_Id { get; set; }
+        public string Cust_Make { get; set; }
         public int? Cust_Cmprsor_RoomDetails { get; set; }
         public string Cust_Cmprsor_Model { get; set; }
         public string Cust_Cmprsor_Mfg_Year { get; set; }
         public string Cust_Cmprsor_Commissioning_Year { get; set; }
         public int? Cust_Cmprsor_Status { get; set; }
         public int? Created_By { get; set; }
+        public string Remark { get; set; }
+        public int Running_Hours { get; set; }
     }
     public class CustomerSubmitBO
     {

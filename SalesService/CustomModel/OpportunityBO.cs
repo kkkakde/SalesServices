@@ -7,11 +7,11 @@ namespace SalesService.CustomModel
 {
     public class OpportunityBO
     {
-        
+
     }
     public class GetOpportunityListBO
     {
-        public int? PK_OpportunityID { get; set; }
+        public int? FK_Opportunity_Id { get; set; }
         public Int64 PK_Opportunity_Id { get; set; }
         public string Opportunity_Name { get; set; }
         public string Cust_Name { get; set; }
@@ -30,6 +30,15 @@ namespace SalesService.CustomModel
         public string Enquiry_Type_Name { get; set; }
         public int PK_Cust_Id { get; set; }
         public List<ProductBO> ProductBO { get; set; }
+        public string FK_Range_Id { get; set; }
+        public int? FK_Sub_Range_Id { get; set; }
+        public int Created_By { get; set; }
+        public long? Visit_Tracking_Id { get; set; }
+        public bool? TrackInTime { get; set; }
+        public bool? TrackOutTime { get; set; }
+        // public bool InFlag { get; set; }
+        public string Action { get; set; }
+
     }
 
     public class AddOpportunityBO
@@ -46,9 +55,9 @@ namespace SalesService.CustomModel
         public string Sales_Phase { get; set; }
         public DateTime? Closed_Date { get; set; }
         public string FK_Status { get; set; }
-        public bool? Forecast { get; set; }
+        public int Forecast { get; set; }
         public int? @Created_By { get; set; }
-        
+
     }
 
     public class CustomerContactPersonDetailsBO
@@ -65,7 +74,7 @@ namespace SalesService.CustomModel
         public string Cust_Name { get; set; }
     }
 
-    public class OpportunityTypeListBO:Common
+    public class OpportunityTypeListBO 
     {
         public int Enquiry_Type_Id { get; set; }
         public string Enquiry_Type_Name { get; set; }
@@ -96,17 +105,18 @@ namespace SalesService.CustomModel
         public DateTime? MODIFIED_DATE { get; set; }
         public int? MODIFIED_BY { get; set; }
         public int ISACTIVE { get; set; }
+        public string FK_Range_Id { get; set; }
         public string SubRange_Name { get; set; }
         public int? PK_SubRange_Id { get; set; }
     }
-    
+
     public class GetContactNo
     {
         public string Cust_CntctPrson_Contact_No { get; set; }
         public int PK_Cust_Id { get; set; }
     }
 
-    public class OpportunityVisit 
+    public class OpportunityVisit
     {
         public Int64? PK_Visit { get; set; }
         public int FK_Opportunity_Id { get; set; }
@@ -116,6 +126,10 @@ namespace SalesService.CustomModel
         public string List_Visit_End_Date { get; set; }
         public string List_Visit_End_Time { get; set; }
         public string List_Visit_type { get; set; }
+        public int Created_By { get; set; }
+        public string CustomerName { get; set; }
+        public string OpportunityName { get; set; }
+
     }
 
     public class OpportunityCompetitorBO
@@ -137,7 +151,7 @@ namespace SalesService.CustomModel
         public bool Is_Main { get; set; }
         public string Competitor_Name { get; set; }
         public string FK_Competitor_Type_Id { get; set; }
-       
+
     }
 
     public class OpporCompetitorListBO
@@ -151,6 +165,7 @@ namespace SalesService.CustomModel
         public Int64? PK_Quotation_Id { get; set; }
         public Int64? FK_Opportunity_Id { get; set; }
         public string File_Name { get; set; }
+        public string Url { get; set; }
         public DateTime? Added_Date { get; set; }
         public int? Added_Time { get; set; }
     }
@@ -169,14 +184,20 @@ namespace SalesService.CustomModel
         public int? PK_Opportunity_Id { get; set; }
         public Int64? Won_Value { get; set; }
         public string Won_Remarks { get; set; }
-        public long? Lost_Value { get; set; }
+        // public long? Lost_Value { get; set; }
         public int? FK_Lost_Competitor_Id { get; set; }
-        public string Lost_Remarks { get; set; }
+        //  public string Lost_Remarks { get; set; }
         public string FK_Stop_Reason { get; set; }
         public int? FK_Stop_Competitor_Id { get; set; }
         public string Stop_Remarks { get; set; }
+        public string Ordervalue { get; set; }
+        public string Won_Reason { get; set; }
+        public string Won_BetterOrder { get; set; }
+        public string Won_Feedback { get; set; }
+        public string NextPurchaseFlag { get; set; }
     }
-   
+
+
     public class ProductBO
     {
 
@@ -189,5 +210,25 @@ namespace SalesService.CustomModel
         public string Price { get; set; }
         public bool ISCHECKED { get; set; }
         public string Product_Name { get; set; }
+        public string RangeDesc { get; set; }
+        public string SubRange_Name { get; set; }
+        public string segment { get; set; }
+    }
+
+
+    public class StatusClass
+    {
+        public int PK_Opportunity_Id { get; set; }
+        public int Value { get; set; }
+        public int Competitor_Id { get; set; }
+        public string Remarks { get; set; }
+        public string NextPurchaseFlag { get; set; }
+        public string Reason { get; set; }
+        public string BetterOrder { get; set; }
+        public string Feedback { get; set; }
+        public string Ordervalue { get; set; }
+        public string ModelNo { get; set; }
+        public string SerialNo { get; set; }
+        public string filename { get; set; }
     }
 }

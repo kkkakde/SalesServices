@@ -6,7 +6,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <TimeStampOfAssociatedLegacyPublishXmlFile />
-    <_PublishTargetUrl>F:\GitHub\Sales Service\SalesService\SalesService\bin\Release\PublishOutput</_PublishTargetUrl>
+    <_PublishTargetUrl>F:\GitHub\Way2Sales\SalesServices\SalesService\bin\Release\PublishOutput</_PublishTargetUrl>
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/EntityFramework.dll">
@@ -166,10 +166,10 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>09/21/2017 23:42:00</publishTime>
     </File>
     <File Include="bin/SalesService.dll">
-      <publishTime>11/13/2018 14:26:23</publishTime>
+      <publishTime>11/24/2018 16:57:55</publishTime>
     </File>
     <File Include="bin/SalesService.pdb">
-      <publishTime>11/13/2018 14:26:23</publishTime>
+      <publishTime>11/24/2018 16:57:55</publishTime>
     </File>
     <File Include="bin/System.Net.Http.Formatting.dll">
       <publishTime>05/10/2018 22:38:56</publishTime>
@@ -193,7 +193,7 @@ by editing this MSBuild file. In order to learn more about this please visit htt
       <publishTime>10/29/2018 16:37:34</publishTime>
     </File>
     <File Include="Web.config">
-      <publishTime>11/13/2018 14:26:24</publishTime>
+      <publishTime>11/24/2018 16:57:56</publishTime>
     </File>
   </ItemGroup>
 </Project>

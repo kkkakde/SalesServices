@@ -95,52 +95,241 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="bin\EntityFramework.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\EntityFramework.xml" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml" />
+    <Content Include="bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Newtonsoft.Json.xml" />
+    <Content Include="bin\Release\PublishOutput\bin\EntityFramework.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\Newtonsoft.Json.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\csc.exe" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\csi.exe" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Console.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Diagnostics.Process.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.IO.FileSystem.DriveInfo.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.IO.Pipes.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Security.AccessControl.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Security.Claims.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Threading.Thread.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\vbc.exe" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\Release\PublishOutput\bin\SalesService.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\SalesService.pdb" />
+    <Content Include="bin\Release\PublishOutput\bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\System.Web.Cors.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\System.Web.Http.Cors.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\System.Web.Http.dll" />
+    <Content Include="bin\Release\PublishOutput\bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\Release\PublishOutput\Global.asax" />
+    <Content Include="bin\roslyn\csc.exe" />
+    <Content Include="bin\roslyn\csi.exe" />
+    <Content Include="bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="bin\roslyn\Microsoft.Win32.Primitives.dll" />
+    <Content Include="bin\roslyn\System.AppContext.dll" />
+    <Content Include="bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="bin\roslyn\System.Console.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.Process.dll" />
+    <Content Include="bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.DriveInfo.dll" />
+    <Content Include="bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="bin\roslyn\System.IO.Pipes.dll" />
+    <Content Include="bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="bin\roslyn\System.Security.AccessControl.dll" />
+    <Content Include="bin\roslyn\System.Security.Claims.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="bin\roslyn\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="bin\roslyn\System.Threading.Thread.dll" />
+    <Content Include="bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="bin\roslyn\vbc.exe" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="bin\SalesService.dll" />
+    <Content Include="bin\SalesService.pdb" />
+    <Content Include="bin\System.Net.Http.Formatting.dll" />
+    <Content Include="bin\System.Net.Http.Formatting.xml" />
+    <Content Include="bin\System.Web.Cors.dll" />
+    <Content Include="bin\System.Web.Http.Cors.dll" />
+    <Content Include="bin\System.Web.Http.Cors.xml" />
+    <Content Include="bin\System.Web.Http.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.dll" />
+    <Content Include="bin\System.Web.Http.WebHost.xml" />
+    <Content Include="bin\System.Web.Http.xml" />
+    <Content Include="Content\CustomerVisitingCard\636815232257270558test.png" />
+    <Content Include="Content\CustomerVisitingCard\636815957569064525test.png" />
+    <Content Include="Content\CustomerVisitingCard\636815957768788551r.png" />
+    <Content Include="Content\CustomerVisitingCard\636815963102993358r.png" />
+    <Content Include="Content\CustomerVisitingCard\636816101907773882r.png" />
+    <Content Include="Content\CustomerVisitingCard\636816107526890657r.png" />
+    <Content Include="Content\CustomerVisitingCard\636816108274877566test.png" />
+    <Content Include="Content\CustomerVisitingCard\636816111334999604test.png" />
+    <Content Include="Content\CustomerVisitingCard\636816137365401894test.png" />
     <Content Include="Global.asax" />
     <Content Include="Models\Model.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
       <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
     </Content>
     <Content Include="Models\Model.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>Model.edmx</DependentUpon>
       <LastGenOutput>Model.cs</LastGenOutput>
     </Content>
-    <Content Include="Web.config" />
+    <Content Include="obj\Debug\SalesService.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\SalesService.dll" />
+    <Content Include="obj\Debug\SalesService.pdb" />
+    <Content Include="obj\Debug\TempPE\Models.Model.Context.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.Model.cs.dll" />
+    <Content Include="obj\Debug\TempPE\Models.Model.Designer.cs.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\EntityFramework.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\EntityFramework.SqlServer.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\Newtonsoft.Json.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\csc.exe" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\csi.exe" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.Build.Tasks.CodeAnalysis.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.CodeAnalysis.CSharp.Scripting.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.CodeAnalysis.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.CodeAnalysis.Scripting.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.CodeAnalysis.VisualBasic.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.DiaSymReader.Native.amd64.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.DiaSymReader.Native.x86.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.Win32.Primitives.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.AppContext.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Collections.Immutable.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Console.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Diagnostics.FileVersionInfo.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Diagnostics.Process.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Diagnostics.StackTrace.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.IO.Compression.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.IO.FileSystem.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.IO.FileSystem.DriveInfo.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.IO.FileSystem.Primitives.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.IO.Pipes.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Reflection.Metadata.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.AccessControl.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.Claims.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.Cryptography.Algorithms.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.Cryptography.Encoding.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.Cryptography.Primitives.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.Cryptography.X509Certificates.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Security.Principal.Windows.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Text.Encoding.CodePages.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Threading.Thread.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.ValueTuple.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Xml.ReaderWriter.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Xml.XmlDocument.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Xml.XPath.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\System.Xml.XPath.XDocument.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\vbc.exe" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\VBCSCompiler.exe" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\SalesService.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\SalesService.pdb" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Net.Http.Formatting.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Cors.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Http.Cors.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Http.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\System.Web.Http.WebHost.dll" />
+    <Content Include="obj\Release\Package\PackageTmp\Global.asax" />
+    <Content Include="obj\Release\SalesService.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Release\SalesService.dll" />
+    <Content Include="obj\Release\SalesService.pdb" />
+    <Content Include="obj\Release\TempPE\Models.Model.Context.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.Model.cs.dll" />
+    <Content Include="obj\Release\TempPE\Models.Model.Designer.cs.dll" />
+    <Content Include="obj\Release\_WPPLastBuildInfo.txt" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\Api_CommonController.cs" />
     <Compile Include="Controllers\API_LoginController.cs" />
+    <Compile Include="Controllers\Api_MasterCompetitorController.cs" />
+    <Compile Include="Controllers\Api_MasterController.cs" />
     <Compile Include="Controllers\Api_MasterCustomerController.cs" />
-    <Compile Include="Controllers\LoginServiceController.cs" />
+    <Compile Include="Controllers\Api_MasterResourceController.cs" />
+    <Compile Include="Controllers\Api_NPSScoresController.cs" />
     <Compile Include="Controllers\Api_OpportunityController.cs" />
+    <Compile Include="Controllers\LoginServiceController.cs" />
+    <Compile Include="Controllers\MasterRoleController.cs" />
+    <Compile Include="Controllers\MenuMasterController.cs" />
+    <Compile Include="Controllers\ProductController.cs" />
+    <Compile Include="Controllers\RangeMappingController.cs" />
+    <Compile Include="Controllers\UploadingController.cs" />
     <Compile Include="CustomModel\Common.cs" />
     <Compile Include="CustomModel\CustomerSubmitBO.cs" />
+    <Compile Include="CustomModel\EnquirySourceBO.cs" />
     <Compile Include="CustomModel\LoginModelBO.cs" />
+    <Compile Include="CustomModel\MasterCompetitorBO.cs" />
     <Compile Include="CustomModel\MasterCustomerBO.cs" />
+    <Compile Include="CustomModel\MasterResourceBO.cs" />
+    <Compile Include="CustomModel\NPSScoresBO.cs" />
     <Compile Include="CustomModel\OpportunityBO.cs" />
+    <Compile Include="CustomModel\ProductDetails.cs" />
+    <Compile Include="CustomModel\RangeMappingDetails.cs" />
+    <Compile Include="CustomModel\SubRangeDetails.cs" />
+    <Compile Include="CustomModel\UserRoles.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\AspNetRole.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUser.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserClaim.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\AspNetUserLogin.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\C__MigrationHistory.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\Employee.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\AspNetRole.cs" />
+    <Compile Include="Models\AspNetUser.cs" />
+    <Compile Include="Models\AspNetUserClaim.cs" />
+    <Compile Include="Models\AspNetUserLogin.cs" />
+    <Compile Include="Models\C__MigrationHistory.cs" />
+    <Compile Include="Models\Employee.cs" />
     <Compile Include="Models\Model.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -156,205 +345,80 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Model.edmx</DependentUpon>
     </Compile>
-    <Compile Include="Models\SplitString_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SP_ChangePassword_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SP_Change_Password_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SP_GetAllUser2_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SP_GetAllUser_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\SP_USERAUTHFOR_AtlasSales_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\USERDETAIL.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\USERTYPE.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Customer_CompressorRoom_Mapping.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Customer_Contct_Person_Mapping.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Customer_Industry_Mapping.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Customer_Master.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_List.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_Absent.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_City.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_Competitor.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_Designation.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_EnquirySource.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_EnquiryType.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_Holiday.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_Industry.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_Navigation.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_Nav_Role_Map.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_Product.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_RangeMapping.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_Resource.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_Resource_Map.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_Segment.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_State.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_SubRange.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Master_Zone.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Opportunity.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Opportunity_Competitor.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Opportunity_Document.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Opportunity_Product.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Opportunity_Quotation.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_Opportunity_Visits.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Calender_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Insert_OTP_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_LeaveType_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_Competitor_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_Enquiry_Source_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_Enquiry_Type_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_GetAll_RangeType_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_Holiday_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_Industry_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_LIST_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_Navigation_Map_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_Navigation_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_Product_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_RangeType_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_Range_Mapping_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_Resource_Map_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_Resource_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Master_SubRange_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_MASTER_USER_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Opportunity_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_RangeType_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_Reset_Password_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S_SP_ROOT_MENU_LIST_Result.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S__Master_Enquiry.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S__Master_Enquiry_History.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S__Master_Enquiry_Range_Mapping.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S__Master_Enquiry_Visit_.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S__Master_Navigation.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\W2S__Master_Navigation_Role_Mapping.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\SplitString_Result.cs" />
+    <Compile Include="Models\SP_ChangePassword_Result.cs" />
+    <Compile Include="Models\SP_Change_Password_Result.cs" />
+    <Compile Include="Models\SP_GetAllUser2_Result.cs" />
+    <Compile Include="Models\SP_GetAllUser_Result.cs" />
+    <Compile Include="Models\SP_USERAUTHFOR_AtlasSales_Result.cs" />
+    <Compile Include="Models\USERDETAIL.cs" />
+    <Compile Include="Models\USERTYPE.cs" />
+    <Compile Include="Models\W2S_Customer_CompressorRoom_Mapping.cs" />
+    <Compile Include="Models\W2S_Customer_Contct_Person_Mapping.cs" />
+    <Compile Include="Models\W2S_Customer_Industry_Mapping.cs" />
+    <Compile Include="Models\W2S_Customer_Master.cs" />
+    <Compile Include="Models\W2S_List.cs" />
+    <Compile Include="Models\W2S_Master_Absent.cs" />
+    <Compile Include="Models\W2S_Master_City.cs" />
+    <Compile Include="Models\W2S_Master_Competitor.cs" />
+    <Compile Include="Models\W2S_Master_Designation.cs" />
+    <Compile Include="Models\W2S_Master_EnquirySource.cs" />
+    <Compile Include="Models\W2S_Master_EnquiryType.cs" />
+    <Compile Include="Models\W2S_Master_Holiday.cs" />
+    <Compile Include="Models\W2S_Master_Industry.cs" />
+    <Compile Include="Models\W2S_Master_Navigation.cs" />
+    <Compile Include="Models\W2S_Master_Nav_Role_Map.cs" />
+    <Compile Include="Models\W2S_Master_Product.cs" />
+    <Compile Include="Models\W2S_Master_RangeMapping.cs" />
+    <Compile Include="Models\W2S_Master_Resource.cs" />
+    <Compile Include="Models\W2S_Master_Resource_Map.cs" />
+    <Compile Include="Models\W2S_Master_Segment.cs" />
+    <Compile Include="Models\W2S_Master_State.cs" />
+    <Compile Include="Models\W2S_Master_SubRange.cs" />
+    <Compile Include="Models\W2S_Master_Zone.cs" />
+    <Compile Include="Models\W2S_Opportunity.cs" />
+    <Compile Include="Models\W2S_Opportunity_Competitor.cs" />
+    <Compile Include="Models\W2S_Opportunity_Document.cs" />
+    <Compile Include="Models\W2S_Opportunity_Product.cs" />
+    <Compile Include="Models\W2S_Opportunity_Quotation.cs" />
+    <Compile Include="Models\W2S_Opportunity_Visits.cs" />
+    <Compile Include="Models\W2S_SP_Calender_Result.cs" />
+    <Compile Include="Models\W2S_SP_Insert_OTP_Result.cs" />
+    <Compile Include="Models\W2S_SP_LeaveType_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_Competitor_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_Enquiry_Source_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_Enquiry_Type_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_GetAll_RangeType_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_Holiday_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_Industry_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_LIST_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_Navigation_Map_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_Navigation_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_Product_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_RangeType_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_Range_Mapping_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_Resource_Map_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_Resource_Result.cs" />
+    <Compile Include="Models\W2S_SP_Master_SubRange_Result.cs" />
+    <Compile Include="Models\W2S_SP_MASTER_USER_Result.cs" />
+    <Compile Include="Models\W2S_SP_Opportunity_Result.cs" />
+    <Compile Include="Models\W2S_SP_RangeType_Result.cs" />
+    <Compile Include="Models\W2S_SP_Reset_Password_Result.cs" />
+    <Compile Include="Models\W2S_SP_ROOT_MENU_LIST_Result.cs" />
+    <Compile Include="Models\W2S__Master_Enquiry.cs" />
+    <Compile Include="Models\W2S__Master_Enquiry_History.cs" />
+    <Compile Include="Models\W2S__Master_Enquiry_Range_Mapping.cs" />
+    <Compile Include="Models\W2S__Master_Enquiry_Visit_.cs" />
+    <Compile Include="Models\W2S__Master_Navigation.cs" />
+    <Compile Include="Models\W2S__Master_Navigation_Role_Mapping.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
+    <Compile Include="obj\Release\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="WebAPI\Api_Trans_OpportunityController.cs" />
   </ItemGroup>
   <ItemGroup>
     <EntityDeploy Include="Models\Model.edmx">
@@ -364,6 +428,55 @@
     <Content Include="Models\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\csc.exe.config" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\csc.rsp" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\csi.exe.config" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\csi.rsp" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\vbc.rsp" />
+    <Content Include="bin\Release\PublishOutput\bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="bin\Release\PublishOutput\Models\Model.edmx.diagram" />
+    <Content Include="bin\Release\PublishOutput\Web.config" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.exe.config" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="bin\SalesService.dll.config" />
+    <Content Include="Content\Won_Document\636816058521982327Rekha Nirgude_Appointment Letter_ 03.12.2018.pdf" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\Model.csdl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\Model.msl" />
+    <Content Include="obj\Debug\edmxResourcesToEmbed\Models\Model.ssdl" />
+    <Content Include="obj\Debug\SalesService.csproj.CopyComplete" />
+    <Content Include="obj\Debug\SalesService.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Debug\SalesService.csprojResolveAssemblyReference.cache" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\Model.csdl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\Model.msl" />
+    <Content Include="obj\Release\edmxResourcesToEmbed\Models\Model.ssdl" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\csc.exe.config" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\csc.rsp" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\csi.exe.config" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\csi.rsp" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\vbc.exe.config" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\vbc.rsp" />
+    <Content Include="obj\Release\Package\PackageTmp\bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="obj\Release\Package\PackageTmp\Models\Model.edmx.diagram" />
+    <Content Include="obj\Release\Package\PackageTmp\Web.config" />
+    <Content Include="obj\Release\SalesService.csproj.CopyComplete" />
+    <Content Include="obj\Release\SalesService.csproj.CoreCompileInputs.cache" />
+    <Content Include="obj\Release\SalesService.csprojResolveAssemblyReference.cache" />
+    <Content Include="obj\Release\TransformWebConfig\assist\Web.config" />
+    <Content Include="obj\Release\TransformWebConfig\original\Web.config" />
+    <Content Include="obj\Release\TransformWebConfig\transformed\Web.config" />
     <None Include="packages.config" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
@@ -375,7 +488,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\Gallary\" />
+    <Folder Include="Content\Quotation_Document\" />
     <Folder Include="CustomerVisitingCardImages\" />
+    <Folder Include="obj\Release\ProfileTransformWebConfig\transformed\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

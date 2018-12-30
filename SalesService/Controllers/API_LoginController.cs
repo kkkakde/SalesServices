@@ -23,24 +23,24 @@ namespace SalesService.Controllers
             {
                 using (_db = new AtlasW2SEntities())
                 {
-                      var data = _db.Database.SqlQuery<LoginModelBO>("W2S_SP_MASTER_USER @Action,@PK_Resource_Id,@FK_Designation_Id,@FK_Zone_Id,@FK_State_Id,@Resource_Name,@Resource_Login_Id,@Resource_Password,@Resource_Mobile_No,@Navigation_Parent_Id,@Resource_Email_Id,@isActive,@Created_By,@Created_Date,@Modified_By,@Modified_Date",
-                           new SqlParameter("@Action", "GETUSERLOGINDETAILS"),
-                           new SqlParameter("@PK_Resource_Id", ""),
-                           new SqlParameter("@FK_Designation_Id", ""),
-                           new SqlParameter("@FK_Zone_Id", ""),
-                           new SqlParameter("@FK_State_Id", ""),
-                           new SqlParameter("@Resource_Name", ""),
-                           new SqlParameter("@Resource_Login_Id", username),
-                           new SqlParameter("@Resource_Password", password),
-                           new SqlParameter("@Resource_Mobile_No", ""),
-                           new SqlParameter("@Navigation_Parent_Id", ""),
-                           new SqlParameter("@Resource_Email_Id", ""),
-                           new SqlParameter("@isActive", ""),
-                           new SqlParameter("@Created_By", ""),
-                           new SqlParameter("@Created_Date", ""),
-                           new SqlParameter("@Modified_By", ""),
-                           new SqlParameter("@Modified_Date", "")
-                         ).FirstOrDefault();
+                    var data = _db.Database.SqlQuery<LoginModelBO>("W2S_SP_MASTER_USER @Action,@PK_Resource_Id,@FK_Designation_Id,@FK_Zone_Id,@FK_State_Id,@Resource_Name,@Resource_Login_Id,@Resource_Password,@Resource_Mobile_No,@Navigation_Parent_Id,@Resource_Email_Id,@isActive,@Created_By,@Created_Date,@Modified_By,@Modified_Date",
+                         new SqlParameter("@Action", "GETUSERLOGINDETAILS"),
+                         new SqlParameter("@PK_Resource_Id", ""),
+                         new SqlParameter("@FK_Designation_Id", ""),
+                         new SqlParameter("@FK_Zone_Id", ""),
+                         new SqlParameter("@FK_State_Id", ""),
+                         new SqlParameter("@Resource_Name", ""),
+                         new SqlParameter("@Resource_Login_Id", username),
+                         new SqlParameter("@Resource_Password", password),
+                         new SqlParameter("@Resource_Mobile_No", ""),
+                         new SqlParameter("@Navigation_Parent_Id", ""),
+                         new SqlParameter("@Resource_Email_Id", ""),
+                         new SqlParameter("@isActive", ""),
+                         new SqlParameter("@Created_By", ""),
+                         new SqlParameter("@Created_Date", ""),
+                         new SqlParameter("@Modified_By", ""),
+                         new SqlParameter("@Modified_Date", "")
+                       ).FirstOrDefault();
                     if (data != null)
                     {
                         return Request.CreateResponse(HttpStatusCode.OK, data);
@@ -78,7 +78,7 @@ namespace SalesService.Controllers
                             {
                                 mailMessage.From = new MailAddress(ConfigurationManager.AppSettings["MailFrom"]);
                                 mailMessage.Subject = "Sales project reset password ";
-                                mailMessage.Body = "Hi, <br/> Your current password="+ data.Resource_Password;
+                                mailMessage.Body = "Hi, <br/> Your current password=" + data.Resource_Password;
                                 mailMessage.IsBodyHtml = true;
                                 //if (!string.IsNullOrEmpty(ccDetailId))
                                 //{
@@ -98,17 +98,17 @@ namespace SalesService.Controllers
                                 smtp.Credentials = NetworkCred;
                                 smtp.Port = int.Parse(ConfigurationManager.AppSettings["Port"]); //reading from web.config 
                                 smtp.Send(mailMessage);
+                                return Request.CreateResponse(HttpStatusCode.OK, "true");
                             }
                         }
-                        catch (Exception e)
+                        catch (Exception ex)
                         {
-
+                            return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ex);
                         }
-                        return Request.CreateResponse(HttpStatusCode.OK, data);
                     }
                     else
                     {
-                        return Request.CreateResponse(HttpStatusCode.OK, "False");
+                        return Request.CreateResponse(HttpStatusCode.OK, "false");
                     }
                 }
             }
@@ -126,16 +126,15 @@ namespace SalesService.Controllers
             {
                 using (_db = new AtlasW2SEntities())
                 {
-                    var data = _db.Database.SqlQuery<LoginModelBO>("SP_USERAUTHFOR_AtlasSales @User_ID,@Password,@NEWPassword,@Action",
+                    var data = _db.Database.SqlQuery<int>("W2S_SP_ChangePassword @User_ID,@Password,@NEWPassword",
                          new SqlParameter("@User_ID", changePasswordBO.User_ID),
                          new SqlParameter("@Password", changePasswordBO.Password),
-                         new SqlParameter("@NEWPassword", changePasswordBO.NEWPassword),
-                         new SqlParameter("@ACTION", "UPDATE")
+                         new SqlParameter("@NEWPassword", changePasswordBO.NEWPassword)
                        ).FirstOrDefault();
 
-                    if (data != null)
+                    if (data == 1)
                     {
-                        return Request.CreateResponse(HttpStatusCode.OK, data);
+                        return Request.CreateResponse(HttpStatusCode.OK, "true");
                     }
                     else
                     {

@@ -13,16 +13,18 @@ namespace SalesService.CustomModel
             Cust_CompressorRoom_List = new List<MasterCustomerCompressorRoomDetailsBO>();
             CustomerIndustryTypeList = new List<IndustryTypeDropDownForamt>();
         }
-       
+        public string Url { get; set; }
         public int? PK_Cust_Id { get; set; }
         public string Cust_Name { get; set; }
         public string Cust_Address_Line1 { get; set; }
         public string Cust_Address_Line2 { get; set; }
+        public string LandlineNo { get; set; }
+        public string VisitType { get; set; }
         public ZoneDropDownForamt PK_Zone_Id { get; set; }
         public StateDropDownForamt PK_State_Id { get; set; }
-        public int FK_Zone { get; set; }
-        public int FK_State { get; set; }
-        public int FK_City { get; set; }
+        public int? FK_Zone { get; set; }
+        public int? FK_State { get; set; }
+        public int? FK_City { get; set; }
         public string zonename { get; set; }
         public string statename { get; set; }
         public string cityname { get; set; }
@@ -36,6 +38,17 @@ namespace SalesService.CustomModel
         public string VisitingCardPath { get; set; }
         public string Cust_End_Product { get; set; }
         public int? IsActive { get; set; }
+        //public string OutTime { get; set; }
+        //public string InTime { get; set; }
+        public bool? TrackInTime { get; set; }
+        public bool? TrackOutTime { get; set; }
+        public bool InFlag { get; set; }
+        public string Action { get; set; }
+        public int Created_By { get; set; }
+        public string Latitude { get; set; }
+        public string Longitude { get; set; }
+        public long? Visit_Tracking_Id { get; set; }
+        public int? FK_Opportunity_Id { get; set; }
         public string Cust_CntctPrson_Contact_No { get; set; }
         public List<MasterCustomerContactPersonDetailsBO> Cust_Contact_Person_List { get; set; }
         public List<MasterCustomerCompressorRoomDetailsBO> Cust_CompressorRoom_List { get; set; }
@@ -50,16 +63,27 @@ namespace SalesService.CustomModel
         public string Cust_CntctPrson_Contact_No { get; set; }
         public string Cust_CntctPrson_Email_Id { get; set; }
         public int? FK_Cust_CntctPrson_Dsgntn_Id { get; set; }
+        public int? Set_DefaultNo { get; set; }
+        public string List_Desc { get; set; }
+        public int IsActive { get; set; }
+        
+
     }
     public class MasterCustomerCompressorRoomDetailsBO
     {
         public int? PK_Cust_Cmprsor_Mapng_Id { get; set; }
+        public string Cust_Make { get; set; }
         public int? FK_Cust_Id { get; set; }
         public CommonDropDownForamt Cust_Cmprsor_RoomDetails { get; set; }
         public string Cust_Cmprsor_Model { get; set; }
         public string Cust_Cmprsor_Mfg_Year { get; set; }
         public string Cust_Cmprsor_Commissioning_Year { get; set; }
-        public CommonDropDownForamt Cust_Cmprsor_Status { get; set; }
+        public CommonDropDownForamt Cust_Cmprsor_StatusDetails { get; set; }
+        public string Cust_Cmprsor_RoomDetailsName { get; set; }
+        public string List_Desc { get; set; }
+        public int? Cust_Cmprsor_Status { get; set; }
+        public string Remark { get; set; }
+        public int? Running_Hours { get; set; }
     }
     public class CommonDropDownForamt
     {
